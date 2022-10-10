@@ -1,0 +1,35 @@
+@import "colors";
+
+.icon{
+  width: 25px;
+}
+
+.container{
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+a{
+  text-decoration: none;
+}
+
+li{
+  list-style-type: none;
+}
+.btn{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.btn-large{
+padding: 15px 20px;
+  font-size: 15px;
+  min-width: 110px;
+}
+
+.btn-black{
+  background: $_black;
+  color: #fff;
+}

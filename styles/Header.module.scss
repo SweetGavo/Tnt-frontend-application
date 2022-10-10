@@ -1,0 +1,47 @@
+@import "colors";
+.header{
+  display: flex;
+  align-items: center;
+
+  .menu-spacing{
+    padding: 10px 30px;
+    font-size: 14px;
+    color: $_black;
+  }
+  .logoContainer{
+      .logo{
+
+      }
+  }
+  .nav{
+    flex-grow: 1;
+    margin-right: 40px;
+    .menu{
+      list-style-type: none;
+      display: flex;
+      justify-content: flex-end;
+      margin: 0;
+      .menuItems{
+      display: inline-block;
+        a{
+          display: inline-block;
+          @extend .menu-spacing
+        }
+      }
+    }
+  }
+
+  .sideItems{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    li{
+      a{
+        @extend .menu-spacing;
+        list-style-type: none;
+      }
+    }
+
+  }
+}
