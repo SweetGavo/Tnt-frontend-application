@@ -5,7 +5,7 @@ function AuthLayout({children}) {
     return (
         <>
             <AuthHeader/>
-            <main className={'container'}>
+            <main>
                 {children}
             </main>
         </>

@@ -1,0 +1,22 @@
+.sideContainer{
+  position: relative;
+  overflow: hidden;
+
+  img{
+    position: absolute;
+    width: 100%;
+    top:-250px !important;
+    bottom: unset!important;
+  }
+
+}
+
+
+
+.formContainer{
+  padding: 60px 8%;
+
+  input{
+    width: 350px;
+  }
+}

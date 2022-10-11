@@ -1,5 +1,37 @@
 @import "colors";
 $_perc: '%';
+
+*{
+  box-sizing: border-box;
+}
+body{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.form-field{
+  label{
+    margin-bottom: 10px;
+    display: block;
+  }
+  .text-input{
+    display:block;
+    background:#EBEBEB;
+    outline: unset;
+  }
+
+  input{
+    padding: 15px;
+    font-size: 14px;
+    color: #8A8787;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 10px;
+  }
+}
+
+
+
 .icon{
   width: 25px;
 }
@@ -13,7 +45,7 @@ $flex_positions : [start,center, end];
 
 @for $i from 1 through 12{
   $_width: ($i/12) * 100;
-  .col_sm_#{$i}{
+  .col-sm-#{$i}{
     width: #{$_width}#{$_perc};
   }
 }
@@ -21,10 +53,14 @@ $flex_positions : [start,center, end];
 @media (min-width: 967px) {
   @for $i from 1 through 12{
     $_width: ($i/12) * 100;
-    .col_md_#{$i}{
+    .col-md-#{$i}{
       width: #{$_width}#{$_perc};
     }
   }
+}
+
+.flex{
+  display: flex;
 }
 
 
@@ -57,16 +93,25 @@ padding: 15px 20px;
 .btn-black{
   background: $_black;
   color: #fff;
+  border:2px solid $_black;
 }
 
 .btn-blue{
   background: $_blue;
-  border: 2px solid;
-  color: $_blue;
+  border: 2px solid $_blue;
+  color: #ffffff;
 }
 
 .btn-outline{
   background: #fff;
+}
+
+.btn-outline.btn-black{
+  color:$_black;
+}
+
+.btn-outline.btn-blue{
+  color:$_blue;
 }
 .btn-border-radius{
   border-radius: 5px;

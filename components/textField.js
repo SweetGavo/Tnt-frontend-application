@@ -2,9 +2,9 @@ import React from 'react';
 
 function TextField({label='',...others}) {
     return (
-        <div>
+        <div className={'form-field'}>
             <label>{label}</label>
-            <input {...others} />
+            <input {...others} className={'text-input'} />
         </div>
     );
 }
