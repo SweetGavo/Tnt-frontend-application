@@ -15,7 +15,7 @@ function Header({children, justify='center'}) {
                 <meta name="description" content="No 1 e-commerce website" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <header className={`${style.header} container flex- ${justify}`}>
+            <header className={`${style.header} container flex-${justify}`}>
                 {children}
             </header>
         </>

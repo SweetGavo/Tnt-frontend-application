@@ -1,5 +1,5 @@
 @import "colors";
-
+$_perc: '%';
 .icon{
   width: 25px;
 }
@@ -8,6 +8,22 @@ $flex_positions : [start,center, end];
    $_flex : if($flex == center,center,flex-#{$flex});
   .flex-#{$flex} {
     justify-content: #{$_flex};
+  }
+}
+
+@for $i from 1 through 12{
+  $_width: ($i/12) * 100;
+  .col_sm_#{$i}{
+    width: #{$_width}#{$_perc};
+  }
+}
+
+@media (min-width: 967px) {
+  @for $i from 1 through 12{
+    $_width: ($i/12) * 100;
+    .col_md_#{$i}{
+      width: #{$_width}#{$_perc};
+    }
   }
 }
 
