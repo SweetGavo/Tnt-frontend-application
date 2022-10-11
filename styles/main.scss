@@ -62,7 +62,7 @@ body{
 .icon{
   width: 25px;
 }
-$flex_positions : [start,center, end];
+$flex_positions : start,center, end;
 @each $flex in $flex_positions {
    $_flex : if($flex == center,center,flex-#{$flex});
   .flex-#{$flex} {
