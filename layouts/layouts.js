@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from "../components/header";
 import Footer from "../components/footer";
+import NormHeader from "../components/normHeader";
 
 function Layouts({children}) {
     return (
         <div>
-            <Header/>
+            <NormHeader/>
             <main className={'container'}>
                 {children}
             </main>

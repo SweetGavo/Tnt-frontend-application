@@ -6,7 +6,7 @@ import Layouts from "../layouts/layouts";
 export default function Home() {
   return (
     <>
-
+  
     </>
   )
 }

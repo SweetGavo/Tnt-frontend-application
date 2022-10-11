@@ -1,4 +1,5 @@
 import React from 'react';
+import AuthLayout from "../../layouts/authLayout";
 
 function Index(props) {
     return (
@@ -8,4 +9,11 @@ function Index(props) {
     );
 }
 
+Index.getLayout = function getLayout(page){
+    return (
+        <AuthLayout>
+            {page}
+        </AuthLayout>
+    )
+}
 export default Index;

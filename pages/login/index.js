@@ -1,6 +1,6 @@
 import React from 'react';
-import Layouts from "../../layouts/layouts";
 import Head from "next/head";
+import AuthLayout from "../../layouts/authLayout";
 
 function Index(props) {
     return (
@@ -15,9 +15,9 @@ function Index(props) {
 
 Index.getLayout = function getLayout(page){
     return (
-        <Layouts>
+        <AuthLayout>
             {page}
-        </Layouts>
+        </AuthLayout>
     )
 }
 
