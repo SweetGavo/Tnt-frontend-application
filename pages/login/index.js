@@ -4,6 +4,15 @@ import AuthLayout from "../../layouts/authLayout";
 import style from "../../styles/Login.module.scss";
 import TextField from "../../components/textField";
 import Button from "../../components/button";
+import axios from "axios";
+
+
+export const getApi = () => {
+   const api = Axios.get();
+  return api;
+};
+
+
 
 function Index(props) {
   return (
@@ -61,6 +70,8 @@ function Index(props) {
     </div>
   );
 }
+
+
 
 Index.getLayout = function getLayout(page) {
   return <AuthLayout>{page}</AuthLayout>;
