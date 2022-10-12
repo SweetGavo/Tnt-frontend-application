@@ -1,4 +1,5 @@
 import '../styles/main.scss'
+import AuthPage from './Authpage';
 function MyApp({ Component, pageProps }) {
     const getLayout = Component.getLayout || ((page)=>page);
     return  getLayout(<Component {...pageProps} />);
