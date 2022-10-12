@@ -5,8 +5,8 @@ $_perc: '%';
 $position : [fixed,relative,absolute,sticky];
 
 @each $pos in $position{
-  .position_#{$position}{
-      position: #{$position};
+  .position_#{$pos}{
+      position: #{$pos};
   }
 }
 
@@ -172,7 +172,6 @@ padding: 15px 20px;
        color:red;
     }
 }
-
 
 .alert-success{
   .alert-message{
