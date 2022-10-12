@@ -4,17 +4,18 @@ import AuthLayout from "../../layouts/authLayout";
 import style from "../../styles/Login.module.scss";
 import TextField from "../../components/textField";
 import Button from "../../components/button";
-import axios from "axios";
-
-
-export const getApi = () => {
-   const api = Axios.get();
-  return api;
-};
-
-
+import { useEffect } from "react";
+import { post } from "../../utils/helperFunctions";
+import { url } from "../../utils/urlHelpers";
 
 function Index(props) {
+  useEffect(() => {
+    (async () => {
+      const data = await post(`${process.env.REACT_APP_URL}${url.loginUrl}`);
+      const result = data.data;
+    })();
+  }, []);
+
   return (
     <div>
       <Head>
@@ -37,41 +38,41 @@ function Index(props) {
               To sign in , please type in the email <b /> and password linked to
               your acccount
             </p>
-            <TextField
-              label={"Email Address"}
-              type={"email"}
-              placeholder={"E.g jonathandoe@gmail.com"}
-            />
-            <TextField
-              label={"Password"}
-              type={"password"}
-              placeholder={"••••••••"}
-            />
-            <Button
-              size={"sm"}
-              style={"blue"}
-              radius={5}
-              className={style.buttons}
-            >
-              Login
-            </Button>
-            <Button
-              size={"sm"}
-              variant={"outline"}
-              className={style.buttons}
-              radius={5}
-            >
-              <img src="/images/glogo.png" className={style.gLogo} alt="" />{" "}
-              Continue with Google
-            </Button>
+            <form>
+              <TextField
+                label={"Email Address"}
+                type={"email"}
+                placeholder={"E.g jonathandoe@gmail.com"}
+              />
+              <TextField
+                label={"Password"}
+                type={"password"}
+                placeholder={"••••••••"}
+              />
+              <Button
+                size={"sm"}
+                style={"blue"}
+                radius={5}
+                className={style.buttons}
+              >
+                Login
+              </Button>
+              <Button
+                size={"sm"}
+                variant={"outline"}
+                className={style.buttons}
+                radius={5}
+              >
+                <img src="/images/glogo.png" className={style.gLogo} alt="" />{" "}
+                Continue with Google
+              </Button>
+            </form>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-
 
 Index.getLayout = function getLayout(page) {
   return <AuthLayout>{page}</AuthLayout>;
