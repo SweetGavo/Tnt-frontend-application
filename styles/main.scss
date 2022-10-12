@@ -9,6 +9,9 @@ $position : [fixed,relative,absolute,sticky];
       position: #{$pos};
   }
 }
+:root{
+ scroll-behavior: smooth;
+}
 
 *{
   box-sizing: border-box;

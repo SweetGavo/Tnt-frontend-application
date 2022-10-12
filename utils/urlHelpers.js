@@ -1,3 +1,3 @@
 export const url={
-    loginUrl:'/auth/sign_up'
+    loginUrl:'/vi/auth/sign_up'
 }
