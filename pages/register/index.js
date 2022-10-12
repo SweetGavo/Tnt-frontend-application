@@ -6,6 +6,7 @@ import image from "../../public/images/registration.jpg";
 import Image from "next/image";
 import style from "../../styles/Registration.module.scss";
 import {url} from "../../utils/urlHelpers";
+import Alert from "../../components/alert";
 const defaultValue = {
     firstName:"",
     lastName:"",
@@ -26,13 +27,18 @@ function Index(props) {
 
     function submitForm(){
                 get( url.loginUrl,form)
-                    .then(resp=>{
-
+                    .then(({data})=>{
+                        const {statusCode,user} = data;
+                            if (statusCode == 200){
+                                setResponse({type:'success', message:'registration Successful '})
+                            }
                     })
-                    .catch((e)=>{
-
+                    .catch(({response})=>{
+                        const {message} = response?.message || {message:'Oops Sorry registration cannot be processed now'}
+                        setResponse(v => ({ ...v,message}));
                     }).finally(e=>{
-
+                        const message = "Oops Sorry registration cannot be processed now";
+                    setResponse(v => ({ ...v,message}));
                 });
     }
     return (
@@ -43,15 +49,12 @@ function Index(props) {
                 <div className={style.textContent}>
                     <h2>Shopping at your comfort</h2>
                 </div>
-
             </div>
             <div className={`col-md-6 `}>
                 <div className={style.formContainer}>
                     <h1>Create an account</h1>
                     <p>Kindly enter your details below to create an account</p>
-                    {
-                        
-                    }
+                    <Alert type={response.type} message={response.message} closeAlert={closeAlert} />
                     <TextField value={form.firstName} onChange={setValue} label={'First name'} placeholder={'Jonathan'}/>
                     <TextField value={form.lastName} onChange={setValue} label={'Last name'} placeholder={'Doe'}/>
                     <TextField  value={form.email} onChange={setValue} label={'Email Address'} type={'email'} placeholder={'E.g jonathandoe@gmail.com'}/>
