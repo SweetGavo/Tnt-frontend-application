@@ -20,6 +20,7 @@ function Index(props) {
         type:'error',
         message:""
     })
+    
     function setValue({target}){
         const {name,value} = target;
             setForm(v=>({...v, [name]:value}));
