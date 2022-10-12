@@ -3,14 +3,21 @@ import Button from "./button";
 
 function Alert({type='error',message='',closeAlert=false}) {
 
+    const closeAlertComponent = ()=>{
+        if(closeAlert){
+            return  (<Button variant={'outline'}  className={'close-alert'} onClick={closeAlert}><span>
+                x
+            </span></Button>);
+        }
+    }
     return (
         <>
             {
                 (message) &&
                 <div className={`alert-${type} alert`} >
-                        <Button variant={'outline'}  className={'close-alert'}>
-
-                        </Button>
+                    {
+                        closeAlertComponent()
+                    }
                     <p className={'alert-message'}>
                         {
                             message

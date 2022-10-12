@@ -7,6 +7,7 @@ import Image from "next/image";
 import style from "../../styles/Registration.module.scss";
 import {url} from "../../utils/urlHelpers";
 import Alert from "../../components/alert";
+import {post} from '../../utils/helperFunctions';
 const defaultValue = {
     firstName:"",
     lastName:"",
@@ -27,7 +28,7 @@ function Index(props) {
     }
 
     function submitForm(){
-                get( url.loginUrl,form)
+                post( url.loginUrl,form)
                     .then(({data})=>{
                         const {statusCode,user} = data;
                             if (statusCode == 200){
@@ -35,12 +36,17 @@ function Index(props) {
                             }
                     })
                     .catch(({response})=>{
+                        console.log(response);
                         const {message} = response?.message || {message:'Oops Sorry registration cannot be processed now'}
                         setResponse(v => ({ ...v,message}));
                     }).finally(e=>{
                         const message = "Oops Sorry registration cannot be processed now";
                     setResponse(v => ({ ...v,message}));
                 });
+    }
+
+    function closeAlert(){
+        setResponse(v =>({...v, message:''}))
     }
     return (
         <div className={'flex registration-container'}>
@@ -60,10 +66,10 @@ function Index(props) {
                     <TextField value={form.lastName} onChange={setValue} label={'Last name'} placeholder={'Doe'}/>
                     <TextField  value={form.email} onChange={setValue} label={'Email Address'} type={'email'} placeholder={'E.g jonathandoe@gmail.com'}/>
                     <TextField  value={form.password} onChange={setValue} label={'Password'} type={'password'} placeholder={'password'} />
-                    <Button size={'sm'} style={'blue'} radius={5} className={style.buttons} >
+                    <Button size={'sm'} style={'blue'} radius={5} className={style.buttons} onClick={submitForm} >
                         Create account
                     </Button>
-                    <Button size={'sm'} variant={'outline'} onClick={submitForm} className={style.buttons} radius={5} >
+                    <Button size={'sm'} variant={'outline'}  className={style.buttons} radius={5} >
                         <img src="/images/glogo.png" className={style.gLogo} alt=""/> Continue with Google
                     </Button>
                 </div>

@@ -1,7 +1,7 @@
 import axios from "axios";
 export const axiosInstance  = axios.create(
         {
-            baseURL: '',
+            baseURL: 'https://api.tandtdeals.ng/v1/',
             timeout: 1000,
         }
 );
