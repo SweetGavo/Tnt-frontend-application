@@ -18,6 +18,10 @@ $position : [fixed,relative,absolute,sticky];
   font-family: Poppins;
 }
 
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
 .text-black{
   color:$_text_black;
 }
@@ -64,6 +68,11 @@ body{
 
 ::placeholder{
     font-size: 16px;
+  }
+
+  .outline{
+    background: $_white;
+    border:1px solid $_text_grey;
   }
 }
 
