@@ -18,6 +18,31 @@ $position : [fixed,relative,absolute,sticky];
   font-family: Poppins;
 }
 
+ul{
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+a{
+  color: $_black;
+  text-transform: capitalize;
+}
+p{
+  margin: 0px;
+}
+
+.text-capitalize{
+  text-transform: capitalize;
+}
+aside{
+  padding: 0 5px;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
 .flex-wrap{
   flex-wrap: wrap;
 }
@@ -34,6 +59,7 @@ $position : [fixed,relative,absolute,sticky];
   h#{$i}{
     @extend .text-black;
     font-weight: 700;
+    margin: 0px;
   }
 }
 
@@ -64,6 +90,19 @@ body{
     border: none;
     border-radius: 10px;
     width: 100%;
+  }
+
+  .input-cover{
+    position: relative;
+  }
+
+  .prepend-icon{
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 50px;
+    display: flex;
+    justify-content: center;
   }
 
 ::placeholder{
@@ -209,5 +248,13 @@ padding: 15px 20px;
   color: $_success_text;
   .alert-message{
     color:$_success_text;
+  }
+}
+
+.product-page{
+  padding: 10px;
+  background: $_grey_background;
+  .container{
+    width: 100%;
   }
 }

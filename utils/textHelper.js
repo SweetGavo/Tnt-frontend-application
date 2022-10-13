@@ -1,0 +1,1 @@
+export const STORAGENAME = '_tnt_user_';

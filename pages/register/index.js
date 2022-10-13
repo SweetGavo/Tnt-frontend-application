@@ -2,12 +2,12 @@ import React, {useRef, useState} from 'react';
 import AuthLayout from "../../layouts/authLayout";
 import TextField from "../../components/textField";
 import Button from "../../components/button";
-import image from "../../public/images/registration.jpg";
-import Image from "next/image";
 import style from "../../styles/Registration.module.scss";
 import {url} from "../../utils/urlHelpers";
 import Alert from "../../components/alert";
 import {post} from '../../utils/helperFunctions';
+import {loginUser} from "../../store/reducers/auth";
+import {useDispatch} from "react-redux";
 const defaultValue = {
     firstName:"",
     lastName:"",
@@ -21,7 +21,8 @@ function Index(props) {
         type:'error',
         message:""
     })
-    
+    const alertRef = useRef();
+    const dispatch = useDispatch();
     function setValue({target}){
         console.log(target.name);
         const {name,value} = target;
@@ -31,12 +32,17 @@ function Index(props) {
     function submitForm(){
                 post( url.loginUrl,form)
                     .then(({data})=>{
-                        const {token,user} = data;
+                        const {token,user} = data.data;
                                 setResponse({type:'success', message:'Registration Successful '})
                                 setForm(defaultValue);
                         alertRef.current.scrollIntoView({
                             block:'start'
                         });
+
+                        setTimeout(()=>{
+                            user.token = token;
+                            dispatch(loginUser({user}))
+                        },3000);
                     })
                     .catch((e)=>{
                         const  {response:{data:{message=""}}} = e;

@@ -4,9 +4,34 @@ import style from "../styles/Header.module.scss";
 import Link from "next/link";
 import Button from "./button";
 import Icon from "@mdi/react";
-import {mdiArrowRight} from "@mdi/js";
+import {mdiArrowRight, mdiCartOutline, mdiChevronDown} from "@mdi/js";
+import {useSelector} from "react-redux";
 
 function NormHeader(props) {
+    const {isLogin,user} = useSelector(s=>s.auth);
+    function sideHeader(){
+        if (isLogin){
+            return (
+                <>
+                    <Icon className={'icon'} path={mdiCartOutline} />
+                    <img src="/images/profile.png" alt="profile image" className={'profile-image'}/>
+                    <Icon className={'icon'} path={mdiChevronDown} />
+                </>
+            )
+        }
+
+        return (
+            <>
+                <li  className={style.menuItems}>
+                    <Link href={'/login'}>Login</Link>
+                </li>
+                <Button  size={'large'}>
+                    Shop Now  <Icon className={'icon'} path={mdiArrowRight} />
+                </Button>
+            </>
+        )
+    }
+    
     return (
         <Header>
             <div className={style.logoContainer}>
@@ -30,12 +55,7 @@ function NormHeader(props) {
                 </ul>
             </nav>
             <div className={style.sideItems+' col-md-3'}>
-                <li  className={style.menuItems}>
-                    <Link href={'/login'}>Login</Link>
-                </li>
-                <Button  size={'large'}>
-                    Shop Now  <Icon className={'icon'} path={mdiArrowRight} />
-                </Button>
+                {sideHeader()}
             </div>
         </Header>
     );
