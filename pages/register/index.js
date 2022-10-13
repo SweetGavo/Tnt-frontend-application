@@ -32,7 +32,7 @@ function Index(props) {
                 post( url.loginUrl,form)
                     .then(({data})=>{
                         const {token,user} = data;
-                                setResponse({type:'success', message:'registration Successful '})
+                                setResponse({type:'success', message:'Registration Successful '})
                                 setForm(defaultValue);
                         alertRef.current.scrollIntoView({
                             block:'start'
@@ -40,7 +40,7 @@ function Index(props) {
                     })
                     .catch((e)=>{
                         const  {response:{data:{message=""}}} = e;
-                        setResponse(v => ({ ...v,message}));
+                        setResponse(v => ({ type: 'error',message}));
                         alertRef.current.scrollIntoView();
                     });
 
