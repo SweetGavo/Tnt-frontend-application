@@ -70,7 +70,7 @@ function Index(props) {
                     <TextField name={'firstName'} value={form.firstName} onChange={setValue} label={'First name'} placeholder={'Jonathan'}/>
                     <TextField name={'lastName'} value={form.lastName} onChange={setValue} label={'Last name'} placeholder={'Doe'}/>
                     <TextField name={'email'} value={form.email} onChange={setValue} label={'Email Address'} type={'email'} placeholder={'E.g jonathandoe@gmail.com'}/>
-                    <TextField name={'password'} value={form.password} onChange={setValue} label={'Password'} type={'password'} placeholder={'password'} />
+                    <TextField name={'password'} value={form.password} onChange={setValue} label={'Password'} type={'password'} placeholder={'••••••••'} />
                     <Button size={'sm'} style={'blue'} radius={5} className={style.buttons} onClick={submitForm} >
                         Create account
                     </Button>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TextField({label='',variant='outline' ,style={},className,radius=0,...others}) {
+function TextField({label='',variant='outline' ,style={},className,radius=10,...others}) {
     const styles = {
         borderRadius: `${radius}px`,
         ...style
