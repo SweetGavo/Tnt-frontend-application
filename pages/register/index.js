@@ -21,7 +21,7 @@ function Index(props) {
         type:'error',
         message:""
     })
-    const alertRef = useRef();
+    
     function setValue({target}){
         console.log(target.name);
         const {name,value} = target;
