@@ -1,20 +1,37 @@
-import React from "react";
+import React, { useState, useEffect, useHistory } from "react";
 import Head from "next/head";
 import AuthLayout from "../../layouts/authLayout";
 import style from "../../styles/Login.module.scss";
 import TextField from "../../components/textField";
 import Button from "../../components/button";
-import { useEffect } from "react";
-import { post } from "../../utils/helperFunctions";
 import { url } from "../../utils/urlHelpers";
+import { post } from "../../utils/helperFunctions";
+import Alert from "../../components/alert";
 
 function Index(props) {
-  useEffect(() => {
-    (async () => {
-      const data = await post(`${process.env.REACT_APP_URL}${url.loginUrl}`);
-      const result = data.data;
-    })();
-  }, []);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleApi = () => {
+    console.log({ email, password });
+    post(url, {
+      email: email,
+      password: password,
+    })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div>
@@ -40,16 +57,20 @@ function Index(props) {
             </p>
             <form>
               <TextField
+                onChange={handleEmail}
                 label={"Email Address"}
                 type={"email"}
                 placeholder={"E.g jonathandoe@gmail.com"}
               />
               <TextField
+                onChange={handlePassword}
                 label={"Password"}
                 type={"password"}
                 placeholder={"••••••••"}
               />
               <Button
+                onClick={handleApi}
+                id="user"
                 size={"sm"}
                 style={"blue"}
                 radius={5}
