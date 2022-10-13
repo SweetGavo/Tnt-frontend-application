@@ -1,20 +1,24 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import Layouts from "../layouts/layouts";
+import React from 'react';
+import Head from "next/head";
+import AuthLayout from "../../layouts/authLayout";
 
-export default function Home() {
-  return (
-    <>
-  
-    </>
-  )
+function Index(props) {
+    return (
+        <div>
+            <Head>
+                <meta name={'description'} content={'ResetPassword'}/>
+            </Head>
+            this is for Reset Password
+        </div>
+    );
 }
 
-Home.getLayout  = function getLayout(page){
-  return (
-      <Layouts>
-        {page}
-      </Layouts>
-  )
+Index.getLayout = function getLayout(page){
+    return (
+        <AuthLayout>
+            {page}
+        </AuthLayout>
+    )
 }
+
+export default Index;
