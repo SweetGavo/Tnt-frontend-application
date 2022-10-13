@@ -1,10 +1,5 @@
 import axios from "axios";
-export const axiosInstance  = axios.create(
-        {
-            baseURL: 'https://api.tandtdeals.ng/v1/',
-            timeout: 1000,
-        }
-);
+export const axiosInstance  = axios.create();
 
 export function get(url,options){
  return axiosInstance.get(url, options);
