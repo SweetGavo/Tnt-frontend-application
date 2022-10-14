@@ -5,7 +5,9 @@ import Layouts from "../../layouts/layouts";
 import TextField from '../../components/textField';
 import Button from "../../components/button";
 import { useState } from 'react';
-// import  style from '../../styles/passwordcode.module.scss'
+import { useRouter } from 'next/router';
+import style from "../../styles/Global.module.scss";
+import Link from 'next/link';
 
 
 
@@ -56,23 +58,31 @@ export default function Home() {
         }
     }
     return (
-        <div className={'flex flex-center'}>
-            <div className={'.Rp'}>
+        <div className={style.passwordcode}>
+            <div>
                 <h3>Reset Password</h3>
                 <p>Enter the code sent to your email</p>
                 <form>
                     <div className={'style.formGroup'}>
-                        <input className={'style.boxes'} type="text" value={input1} id='input1' onChange={(e) => checkInput(e)} maxLength="1" />
-                        <input className={'style.boxes'} type="text" value={input2} id='input2' onChange={(e) => checkInput(e)} maxLength="1" />
-                        <input className={'style.boxes'} type="text" value={input3} id='input3' onChange={(e) => checkInput(e)} maxLength="1" />
-                        <input className={'style.boxes'} type="text" value={input4} id='input4' onChange={(e) => checkInput(e)} maxLength="1" />
-                        <input className={'style.boxes'} type="text" value={input5} id='input5' onChange={(e) => checkInput(e)} maxLength="1" />
-                        <input className={'style.boxes'} type="text" value={input6} id='input6' onChange={(e) => checkInput(e)} maxLength="1" />
+                        <input className={style.boxes} type="text" value={input1} id='input1' onChange={(e) => checkInput(e)} maxLength="1" />
+                        <input className={style.boxes} type="text" value={input2} id='input2' onChange={(e) => checkInput(e)} maxLength="1" />
+                        <input className={style.boxes} type="text" value={input3} id='input3' onChange={(e) => checkInput(e)} maxLength="1" />
+                        <input className={style.boxes} type="text" value={input4} id='input4' onChange={(e) => checkInput(e)} maxLength="1" />
+                        <input className={style.boxes} type="text" value={input5} id='input5' onChange={(e) => checkInput(e)} maxLength="1" />
+                        <input className={style.boxes} type="text" value={input6} id='input6' onChange={(e) => checkInput(e)} maxLength="1" />
                     </div>
-                    <div>
-                        <Button  onclick="myFunction()">Proceed</Button>
+
+
+                    <div style={{marginTop:"1rem"}}>
+                        <Link style={{ marginLeft: '650px', marginTop: '100px' }} href="/confirmpassword">
+                            <Button size={'sm'} style={"blue"} margin-top={"100px"} radius={5}>
+                                Proceed
+                            </Button>
+                        </Link>
                     </div>
                 </form>
+                
+
 
 
 
@@ -80,13 +90,6 @@ export default function Home() {
         </div>
     )
 }
-
-
-
-
-
-
-
 
 
 Home.getLayout = function getLayout(page) {
