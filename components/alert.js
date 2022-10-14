@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {forwardRef, Fragment} from 'react';
 import Button from "./button";
 
-function Alert({type='error',message='',closeAlert=false}) {
+function Alert({type='error',message='',closeAlert=false},ref) {
 
     const closeAlertComponent = ()=>{
         if(closeAlert){
@@ -11,7 +11,7 @@ function Alert({type='error',message='',closeAlert=false}) {
         }
     }
     return (
-        <>
+        <Fragment ref={ref}>
             {
                 (message) &&
                 <div className={`alert-${type} alert`} >
@@ -25,8 +25,8 @@ function Alert({type='error',message='',closeAlert=false}) {
                     </p>
                 </div>
             }
-        </>
+        </Fragment>
     );
 }
 
-export default Alert;
+export default forwardRef(Alert);

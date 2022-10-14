@@ -2,11 +2,11 @@ import React from 'react';
 import Footer from "../components/footer";
 import NormHeader from "../components/normHeader";
 
-function Layouts({children}) {
+function Layouts({children,className='container'}) {
     return (
         <div>
             <NormHeader/>
-            <main className={'container'}>
+            <main className={className} >
                 {children}
             </main>
             <Footer/>

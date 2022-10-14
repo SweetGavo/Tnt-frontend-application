@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import AuthLayout from "../../layouts/authLayout";
 import TextField from "../../components/textField";
 import Button from "../../components/button";
-import image from "../../public/images/registration.jpg";
-import Image from "next/image";
 import style from "../../styles/Registration.module.scss";
 import {url} from "../../utils/urlHelpers";
 import Alert from "../../components/alert";
 import {post} from '../../utils/helperFunctions';
+import {loginUser} from "../../store/reducers/auth";
+import {useDispatch} from "react-redux";
 const defaultValue = {
     firstName:"",
     lastName:"",
@@ -21,7 +21,10 @@ function Index(props) {
         type:'error',
         message:""
     })
+    const alertRef = useRef();
+    const dispatch = useDispatch();
     function setValue({target}){
+        console.log(target.name);
         const {name,value} = target;
             setForm(v=>({...v, [name]:value}));
     }
@@ -29,19 +32,25 @@ function Index(props) {
     function submitForm(){
                 post( url.loginUrl,form)
                     .then(({data})=>{
-                        const {statusCode,user} = data;
-                            if (statusCode == 200){
-                                setResponse({type:'success', message:'registration Successful '})
-                            }
+                        const {token,user} = data.data;
+                                setResponse({type:'success', message:'Registration Successful '})
+                                setForm(defaultValue);
+                        alertRef.current.scrollIntoView({
+                            block:'start'
+                        });
+
+                        setTimeout(()=>{
+                            user.token = token;
+                            dispatch(loginUser({user}))
+                        },3000);
                     })
-                    .catch(({response})=>{
-                        console.log(response);
-                        const {message} = response?.message || {message:'Oops Sorry registration cannot be processed now'}
-                        setResponse(v => ({ ...v,message}));
-                    }).finally(e=>{
-                        const message = "Oops Sorry registration cannot be processed now";
-                    setResponse(v => ({ ...v,message}));
-                });
+                    .catch((e)=>{
+                        const  {response:{data:{message=""}}} = e;
+                        setResponse(v => ({ type: 'error',message}));
+                        alertRef.current.scrollIntoView();
+                    });
+
+
     }
 
     function closeAlert(){
@@ -60,11 +69,14 @@ function Index(props) {
                 <div className={style.formContainer}>
                     <h1>Create an account</h1>
                     <p>Kindly enter your details below to create an account</p>
-                    <Alert type={response.type} message={response.message} closeAlert={closeAlert} />
-                    <TextField value={form.firstName} onChange={setValue} label={'First name'} placeholder={'Jonathan'}/>
-                    <TextField value={form.lastName} onChange={setValue} label={'Last name'} placeholder={'Doe'}/>
-                    <TextField  value={form.email} onChange={setValue} label={'Email Address'} type={'email'} placeholder={'E.g jonathandoe@gmail.com'}/>
-                    <TextField  value={form.password} onChange={setValue} label={'Password'} type={'password'} placeholder={'password'} />
+                    <div ref={alertRef}>
+                        <Alert  type={response.type} message={response.message} closeAlert={closeAlert} />
+                    </div>
+
+                    <TextField name={'firstName'} value={form.firstName} onChange={setValue} label={'First name'} placeholder={'Jonathan'}/>
+                    <TextField name={'lastName'} value={form.lastName} onChange={setValue} label={'Last name'} placeholder={'Doe'}/>
+                    <TextField name={'email'} value={form.email} onChange={setValue} label={'Email Address'} type={'email'} placeholder={'E.g jonathandoe@gmail.com'}/>
+                    <TextField name={'password'} value={form.password} onChange={setValue} label={'Password'} type={'password'} placeholder={'••••••••'} />
                     <Button size={'sm'} style={'blue'} radius={5} className={style.buttons} onClick={submitForm} >
                         Create account
                     </Button>
@@ -72,7 +84,6 @@ function Index(props) {
                         <img src="/images/glogo.png" className={style.gLogo} alt=""/> Continue with Google
                     </Button>
                 </div>
-
             </div>
         </div>
     );

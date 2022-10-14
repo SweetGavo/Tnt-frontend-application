@@ -1,0 +1,86 @@
+@import "colors";
+
+.productPageWrapper{
+  background: $_white;
+  border-radius: 5px;
+}
+.topBar{
+  padding: 5px;
+  margin-bottom: 20px;
+  .height{
+    height: 100%;
+  }
+  .searchBar{
+    max-width: 380px;
+    margin: 0px auto;
+    input{
+      padding-left: 50px;
+      margin-bottom: 0px;
+    }
+  }
+  .breadcrumbs{
+      margin: 0px;
+    @extend .height;
+    align-items: center;
+    span{
+      text-transform: capitalize;
+      font-size: 14px;
+      color: $_black;
+    }
+
+    span:last-child{
+      font-weight: 500;
+    }
+  }
+
+  .filter{
+    @extend  .height;
+    align-items: center;
+    select{
+      font-weight: 500;
+      border: unset;
+    }
+  }
+}
+
+.sideBar{
+  padding-right: 7%;
+  section{
+    .sectionTitle{
+        color: $_black;
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    .sectionItems{
+        list-style-type: none;
+        li{
+          margin-bottom: 10px;
+          a{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0px;
+            font-size: 14px;
+            font-weight: 500;
+          }
+        }
+    }
+    height: 300px;
+    overflow-y:auto;
+    border-bottom: 1.5px solid $_border_grey;
+    margin-bottom: 30px;
+  }
+
+  section:last-child{
+    border: unset;
+  }
+}
+
+.productList{
+  margin-right: -20px;
+  margin-left: -20px;
+}
+
+
+
