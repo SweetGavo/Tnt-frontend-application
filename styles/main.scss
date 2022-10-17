@@ -78,7 +78,7 @@ body{
   }
   .text-input{
     display:block;
-    background:#EBEBEB;
+
     outline: unset;
   }
 
@@ -90,6 +90,7 @@ body{
     border: none;
     border-radius: 10px;
     width: 100%;
+    background:#EBEBEB;
   }
 
   .input-cover{
@@ -250,10 +251,6 @@ padding: 15px 20px;
     color:$_success_text;
   }
 }
-
-<<<<<<< HEAD
-
-=======
 .product-page{
   padding: 10px;
   background: $_grey_background;
@@ -261,4 +258,3 @@ padding: 15px 20px;
     width: 100%;
   }
 }
->>>>>>> 921817559cb2bf9cdd99b9984095324ea3df5aa5

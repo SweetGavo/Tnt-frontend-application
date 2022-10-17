@@ -9,6 +9,7 @@ import { post } from "../../utils/helperFunctions";
 import Alert from "../../components/alert";
 import {useDispatch} from "react-redux";
 import {loginUser} from "../../store/reducers/auth";
+import Link from "next/link";
 const initalData={
   email:'',
   password:''
@@ -96,6 +97,11 @@ function Index(props) {
                 type={"password"}
                 placeholder={"••••••••"}
               />
+
+              <p className={style.resetLink}>
+                Forgot Password? <Link href={'/resetpassword'}>Reset it</Link>
+              </p>
+
               <Button
                 onClick={login}
                 id="user"

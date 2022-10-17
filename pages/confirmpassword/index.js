@@ -7,6 +7,7 @@ import Button from "../../components/button";
 import { useRouter } from 'next/router';
 import style from "../../styles/Global.module.scss";
 import Link from 'next/link';
+import AuthLayout from "../../layouts/authLayout";
 
 
 
@@ -17,8 +18,11 @@ export default function Home() {
 
     <div className={style.passwordcode}>
       <div>
-        <h3>Reset Password</h3>
-        <p>Enter the email address linked to this account</p>
+        <div className={style.topText}>
+          <h3>Reset Password</h3>
+          <p>Enter the email address linked to this account</p>
+        </div>
+
         <TextField placeholder='•••••' label={'Password:'} type={'email'} />
         <TextField placeholder='•••••' label={'ConfirmPassword:'} type={'email'} />
 
@@ -47,8 +51,8 @@ export default function Home() {
 
 Home.getLayout = function getLayout(page) {
   return (
-    <Layouts>
+    <AuthLayout>
       {page}
-    </Layouts>
+    </AuthLayout>
   )
 }
