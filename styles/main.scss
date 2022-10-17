@@ -52,7 +52,7 @@ body{
   }
   .text-input{
     display:block;
-    background:#EBEBEB;
+
     outline: unset;
   }
 
@@ -64,6 +64,7 @@ body{
     border: none;
     border-radius: 10px;
     width: 100%;
+    background:#EBEBEB;
   }
 
 ::placeholder{
@@ -211,3 +212,13 @@ padding: 15px 20px;
     color:$_success_text;
   }
 }
+<<<<<<< HEAD
+=======
+.product-page{
+  padding: 10px;
+  background: $_grey_background;
+  .container{
+    width: 100%;
+  }
+}
+>>>>>>> 087749680737a37b98e593f21825d89f10ec6dab

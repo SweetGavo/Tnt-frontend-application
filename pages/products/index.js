@@ -32,7 +32,7 @@ function Index(props) {
                             </p>
                         </div>
                         <div className={ `col-md-6`}>
-                            <TextField prependIcon={()=><Icon className={'icon'} path={mdiMagnify} />} placeholder={'search products by keyword'} radius={50} className={'outline '+style.searchBar}  />
+                            <TextField variant={'outline'} prependIcon={()=><Icon className={'icon'} path={mdiMagnify} />} placeholder={'search products by keyword'} radius={50} className={'outline '+style.searchBar}  />
                         </div>
                         <div className="col-md-3" >
                             <div className={style.filter+' flex flex-end'}>
