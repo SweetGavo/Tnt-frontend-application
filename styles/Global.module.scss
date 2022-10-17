@@ -1,3 +1,26 @@
+.boxes{
+    width: 80px;
+    height: 80px;
+    background: rgba(217, 217, 217, 0.5);
+    border-radius: 10px;
+    margin-right: 2rem;
+    text-align: center;
+    font-size: 3rem;
+
+    
+}
+
+.passwordcode{
+   height: 50vh;
+   margin-top: 50px;
+   column-gap: 2rem;
+   align-items: center;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+    }
+
 .btn{
 
 }
@@ -10,4 +33,7 @@
 
 .btn-large{
 
+}
+.formGroup{
+    margin-bottom: 40px;
 }

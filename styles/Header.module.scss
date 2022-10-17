@@ -2,6 +2,7 @@
 .header{
   display: flex;
   align-items: center;
+  min-height: 80px;
 
   .menu-spacing{
     padding: 10px 30px;
@@ -43,6 +44,10 @@
         @extend .menu-spacing;
         list-style-type: none;
       }
+    }
+    img{
+      margin-left: 25px;
+      margin-right: 5px;
     }
 
   }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useHistory } from "react";
+import React, {useState, useEffect, useHistory, useRef} from "react";
 import Head from "next/head";
 import AuthLayout from "../../layouts/authLayout";
 import style from "../../styles/Login.module.scss";
@@ -7,31 +7,51 @@ import Button from "../../components/button";
 import { url } from "../../utils/urlHelpers";
 import { post } from "../../utils/helperFunctions";
 import Alert from "../../components/alert";
-
+import {useDispatch} from "react-redux";
+import {loginUser} from "../../store/reducers/auth";
+const initalData={
+  email:'',
+  password:''
+}
 function Index(props) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
+  const [form,setForm] = useState(initalData);
+  const [response,setResponse] = useState({
+    type:'error',
+    message:""
+  })
+  const alertRef = useRef();
+  const dispatch = useDispatch();
 
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
+  function setData({target}){
+    const {name,value} = target;
+    setForm((v)=>({...v, [name]:value}) );
+  }
 
-  const handleApi = () => {
-    console.log({ email, password });
-    post(url, {
-      email: email,
-      password: password,
-    })
-      .then((result) => {
-        console.log(result);
+
+  const login = () => {
+    post(url.loginUrl, form)
+      .then(({data}) => {
+        const {token,user} = data.data;
+        setResponse({type:'success', message:'Login Successful '})
+        setForm(initalData);
+        alertRef.current.scrollIntoView({
+          block:'start'
+        });
+        setTimeout(()=>{
+          user.token = token;
+          dispatch(loginUser({user}))
+        },3000);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((e) => {
+        const  {response:{data:{message=""}}} = e;
+        setResponse(v => ({ type: 'error',message}));
+        alertRef.current.scrollIntoView();
       });
   };
+
+  function closeAlert(){
+    setResponse(v =>({...v, message:''}))
+  }
 
   return (
     <div>
@@ -55,21 +75,29 @@ function Index(props) {
               To sign in , please type in the email <b /> and password linked to
               your acccount
             </p>
+
+            <div ref={alertRef}>
+              <Alert  type={response.type} message={response.message} closeAlert={closeAlert} />
+            </div>
             <form>
               <TextField
-                onChange={handleEmail}
+                onChange={setData}
+                name={'email'}
+                value={form.email}
                 label={"Email Address"}
                 type={"email"}
                 placeholder={"E.g jonathandoe@gmail.com"}
               />
               <TextField
-                onChange={handlePassword}
+                  onChange={setData}
+                  name={'password'}
+                  value={form.password}
                 label={"Password"}
                 type={"password"}
                 placeholder={"••••••••"}
               />
               <Button
-                onClick={handleApi}
+                onClick={login}
                 id="user"
                 size={"sm"}
                 style={"blue"}

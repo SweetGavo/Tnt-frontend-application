@@ -6,7 +6,7 @@ function Layouts({children,className='container'}) {
     return (
         <div>
             <NormHeader/>
-            <main {...className} >
+            <main className={className} >
                 {children}
             </main>
             <Footer/>
