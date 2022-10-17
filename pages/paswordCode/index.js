@@ -63,7 +63,7 @@ export default function Home() {
                         <input className={'style.boxes'} type="text" value={input5} id='input5' onChange={(e) => checkInput(e)} maxLength="1" />
                         <input className={'style.boxes'} type="text" value={input6} id='input6' onChange={(e) => checkInput(e)} maxLength="1" />
                     </div>
-                    <div className={'proceed'}>
+                    <div classname={'proceed'}>
                         <a href="/confirmpassword">
                         <Button  onclick="myFunction()">Proceed</Button>
                         </a>

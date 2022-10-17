@@ -1,7 +1,8 @@
 import React, {memo} from 'react';
 import { useRouter} from "next/router";
+import Link from "next/link";
 
-function Button({variant='fill', style='black' ,size='md', radius=0, to='' , children}) {
+function Button({variant='fill', style='black' ,size='md', radius=0, to='' , children, className,...others}) {
     const router = useRouter();
     const navigate = ()=>{
         if (to){
@@ -10,9 +11,9 @@ function Button({variant='fill', style='black' ,size='md', radius=0, to='' , chi
     }
 
     return (
-        <a className={`btn btn-${variant} btn-${style}  btn-${size}`} style={{
+        <a className={`btn btn-${variant} btn-${style}  btn-${size} ${className}`} style={{
             borderRadius:radius
-        }}  onClick={navigate} >
+        }}  {...others} >
             {
                 children
             }

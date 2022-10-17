@@ -1,9 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 @import "colors";
 $_perc: '%';
+$position : [fixed,relative,absolute,sticky];
+
+@each $pos in $position{
+  .position_#{$pos}{
+      position: #{$pos};
+  }
+}
+:root{
+ scroll-behavior: smooth;
+}
+
+*{
+  box-sizing: border-box;
+  font-family: Poppins;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+.text-black{
+  color:$_text_black;
+}
+
+.text-grey{
+  color:$_text_grey;
+}
+
+@for $i from 1 through 6{
+  h#{$i}{
+    @extend .text-black;
+    font-weight: 700;
+  }
+}
+
+p{
+  @extend .text-grey;
+}
+body{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.form-field{
+  label{
+    margin-bottom: 10px;
+    display: block;
+  }
+  .text-input{
+    display:block;
+    background:#EBEBEB;
+    outline: unset;
+  }
+
+  input{
+    padding: 15px;
+    font-size: 14px;
+    color: #8A8787;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+  }
+
+::placeholder{
+    font-size: 16px;
+  }
+
+  .outline{
+    background: $_white;
+    border:1px solid $_text_grey;
+  }
+}
+
+
+
 .icon{
   width: 25px;
 }
-$flex_positions : [start,center, end];
+$flex_positions : start,center, end;
 @each $flex in $flex_positions {
    $_flex : if($flex == center,center,flex-#{$flex});
   .flex-#{$flex} {
@@ -13,7 +91,7 @@ $flex_positions : [start,center, end];
 
 @for $i from 1 through 12{
   $_width: ($i/12) * 100;
-  .col_sm_#{$i}{
+  .col-sm-#{$i}{
     width: #{$_width}#{$_perc};
   }
 }
@@ -21,10 +99,14 @@ $flex_positions : [start,center, end];
 @media (min-width: 967px) {
   @for $i from 1 through 12{
     $_width: ($i/12) * 100;
-    .col_md_#{$i}{
+    .col-md-#{$i}{
       width: #{$_width}#{$_perc};
     }
   }
+}
+
+.flex{
+  display: flex;
 }
 
 
@@ -45,29 +127,87 @@ li{
 .btn{
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  cursor: pointer;
 }
 
+.btn-sm{
+  padding: 10px;
+}
 .btn-large{
 padding: 15px 20px;
-  font-size: 15px;
+  font-size: 16px;
   min-width: 110px;
+  font-weight: 600;
 }
 
 .btn-black{
   background: $_black;
   color: #fff;
+  border:2px solid $_black;
 }
 
 .btn-blue{
   background: $_blue;
-  border: 2px solid;
-  color: $_blue;
+  border: 2px solid $_blue;
+  color: #ffffff;
 }
 
 .btn-outline{
   background: #fff;
 }
+
+.btn-outline.btn-black{
+  color:$_black;
+}
+
+.btn-outline.btn-blue{
+  color:$_blue;
+}
 .btn-border-radius{
   border-radius: 5px;
+}
+
+.alert{
+    @extend .position_relative;
+    padding: 20px 10px;
+    border:1px solid rgba(0,0,0,0.4);
+    border-radius: 4px;
+    background: #fff;
+  .close-alert{
+    @extend .position_absolute;
+    top:10px;
+    right: 10px;
+    color:inherit;
+    background: transparent;
+    border: unset;
+    height: 25px;
+    width: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 3px !important;
+    border-color:rgba(255,0,0,0.8) ;
+  }
+
+  .alert-message{
+    margin-bottom: 5px;
+  }
+
+}
+.alert-error{
+  background: $_error;
+  color: $_error_text;
+    .alert-message{
+       color:$_error_text;
+    }
+}
+
+.alert-success{
+  background: $_success;
+  color: $_success_text;
+  .alert-message{
+    color:$_success_text;
+  }
 }

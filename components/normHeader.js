@@ -11,6 +11,8 @@ function NormHeader(props) {
         <Header>
             <div className={style.logoContainer}>
             </div>
+            <div className={'col-md-3'}>
+            </div>
             <nav className={style.nav}>
                 <ul className={style.menu}>
                     <li  className={style.menuItems}>
@@ -27,11 +29,11 @@ function NormHeader(props) {
                     </li>
                 </ul>
             </nav>
-            <div className={style.sideItems}>
+            <div className={style.sideItems+' col-md-3'}>
                 <li  className={style.menuItems}>
                     <Link href={'/login'}>Login</Link>
                 </li>
-                <Button radius={5}  size={'large'}>
+                <Button  size={'large'}>
                     Shop Now  <Icon className={'icon'} path={mdiArrowRight} />
                 </Button>
             </div>

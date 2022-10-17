@@ -1,10 +1,14 @@
 import React from 'react';
 
-function TextField({label='',...others}) {
+function TextField({label='',variant='outline' ,style={},className,radius=0,...others}) {
+    const styles = {
+        borderRadius: `${radius}px`,
+        ...style
+    }
     return (
-        <div>
+        <div className={'form-field '+className}>
             <label>{label}</label>
-            <input {...others} />
+            <input {...others} className={`text-input ${variant}`} style={styles} />
         </div>
     );
 }

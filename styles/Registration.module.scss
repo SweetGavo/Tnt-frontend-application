@@ -1,0 +1,57 @@
+.margin_bottom{
+  margin-bottom: 40px;
+}
+
+.margin-top{
+  margin-top: 20px;
+}
+.sideContainer{
+  @extend .margin-top;
+  position: relative;
+  overflow: hidden;
+  height: 125vh;
+
+  img{
+    position: absolute;
+    width: 100%;
+    top:-170px !important;
+    bottom: unset!important;
+    z-index: -1;
+  }
+
+  .textContent{
+    padding:60px 20% ;
+    align-items: center;
+    h2{
+        color: #fff;
+    }
+  }
+
+}
+
+.formContainer{
+  @extend .margin-top;
+  padding: 20px 20% 60px 15%;
+
+  h1{
+    font-size: 25px;
+    font-weight: 600;
+  }
+
+  p{
+   @extend .margin_bottom
+  }
+  input{
+    @extend .margin_bottom
+  }
+
+  .buttons{
+    @extend .margin_bottom;
+    font-weight: 600;
+    .gLogo{
+      width: 25px;
+      height: 25px;
+      margin-right: 20px;
+    }
+  }
+}
