@@ -1,5 +1,7 @@
 import '../styles/main.scss'
 import AuthPage from './authpage';
+import { useEffect } from 'react';
+import wrapper from '../store/store'
 function MyApp({ Component, pageProps }) {
     useEffect(()=>{
         const storageUser = localStorage.getItem(STORAGENAME);

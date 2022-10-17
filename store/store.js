@@ -8,5 +8,4 @@ export const store = configureStore({
     }
 })
 const makeStore = () => store;
-
 export const wrapper = createWrapper(makeStore);
