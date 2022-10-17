@@ -47,11 +47,6 @@ export default function Home(passwordcode) {
 
 
 
-
-
-
-
-
 Home.getLayout = function getLayout(page) {
   return (
     <Layouts>
