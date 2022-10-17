@@ -7,6 +7,7 @@ import Button from "../../components/button";
 import { useRouter } from 'next/router';
 import style from "../../styles/Global.module.scss";
 import Link from 'next/link';
+import AuthLayout from "../../layouts/authLayout";
 
 
 
@@ -23,15 +24,15 @@ export default function Home(passwordcode) {
 
 
     <div className={style.passwordcode} >
-      <div className='Rp' >
+      <div  >
 
-        <h3 >Reset Password</h3>
-        <p>Enter the email address linked to this account</p>
+        <div className={style.topText }>
+          <h3 >Reset Password</h3>
+          <p>Enter the email address linked to this account</p>
+        </div>
 
 
-
-        <TextField placeholder='Jonathandoe@gmail.com' label={'Email:'} type={'email'} />
-        <div>
+          <TextField placeholder='Jonathandoe@gmail.com' variant={'outline'} label={'Email address'} type={'email'} />
           <Link style={{ marginLeft: '500px', marginTop: '100px' }} href="/passwordcode">
             <Button size={'sm'} style={"blue"} margin-top={"100px"} radius={5}>
               Proceed
@@ -40,7 +41,6 @@ export default function Home(passwordcode) {
         </div>
 
       </div>
-    </div>
   )
 }
 
@@ -54,8 +54,8 @@ export default function Home(passwordcode) {
 
 Home.getLayout = function getLayout(page) {
   return (
-    <Layouts>
+    <AuthLayout>
       {page}
-    </Layouts>
+    </AuthLayout>
   )
 }

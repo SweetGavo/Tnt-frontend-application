@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 
-function TextField({label='',variant='outline' ,style={},className,radius=10,prependIcon=false,appendIcon=false,...others}) {
+function TextField({label='',variant='' ,style={},className,radius=10,prependIcon=false,appendIcon=false,...others}) {
     const styles = {
         borderRadius: `${radius}px`,
         ...style
@@ -10,9 +10,15 @@ function TextField({label='',variant='outline' ,style={},className,radius=10,pre
         return `${(appendIcon)?'appendIcon':''} ${(prependIcon)?'prependIcon':''}`;
 
     },[prependIcon,appendIcon])
+    const labelValue = useMemo(()=>{
+        return (label)?<label>{label}</label>:'';
+    },[label])
     return (
         <div className={'form-field '+className}>
-            <label>{label}</label>
+            {
+
+            }
+
             <div className={'input-cover '+prependClass}>
                 <input {...others} className={`text-input ${variant}`} style={styles} />
                 {

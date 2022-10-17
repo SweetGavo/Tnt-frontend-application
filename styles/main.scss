@@ -78,7 +78,7 @@ body{
   }
   .text-input{
     display:block;
-    background:#EBEBEB;
+
     outline: unset;
   }
 
@@ -90,6 +90,7 @@ body{
     border: none;
     border-radius: 10px;
     width: 100%;
+    background:#EBEBEB;
   }
 
   .input-cover{
@@ -250,4 +251,3 @@ padding: 15px 20px;
     color:$_success_text;
   }
 }
-

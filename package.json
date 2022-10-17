@@ -15,7 +15,11 @@
     "@mdi/react": "^1.6.1",
     "@reduxjs/toolkit": "^1.8.6",
     "axios": "^1.1.2",
+<<<<<<< HEAD
     "next": "^12.3.1",
+=======
+    "next": "12.3.1",
+>>>>>>> 087749680737a37b98e593f21825d89f10ec6dab
     "next-redux-wrapper": "^8.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
