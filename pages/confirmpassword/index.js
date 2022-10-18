@@ -20,10 +20,11 @@ export default function Home() {
       <div>
         <div className={style.topText}>
           <h3>Reset Password</h3>
-          <p>Enter the email address linked to this account</p>
+          <p>Enter a new password for this account</p>
         </div>
-
+        <span>Password</span>
         <TextField placeholder='•••••' label={'Password:'} type={'email'} />
+        <span>Confirm Password</span>
         <TextField placeholder='•••••' label={'ConfirmPassword:'} type={'email'} />
 
         <div style={{marginTop:"1rem"}}>
