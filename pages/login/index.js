@@ -11,6 +11,7 @@ import {useDispatch} from "react-redux";
 import {loginUser} from "../../store/reducers/auth";
 import Link from "next/link";
 const initalData={
+  fullName:'',
   email:'',
   password:''
 }

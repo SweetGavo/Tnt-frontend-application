@@ -13,44 +13,37 @@ import AuthLayout from "../../layouts/authLayout";
 
 
 
-export default function Home(passwordcode) {
+export default function Home(reviewAppointment) {
   const router = useRouter()
 
   const togglePageHandler = () => {
-    router.push('/passwordcode')
+    router.push('/reviewAppointment')
   }
 
   return (
 
 
     <div className={style.passwordcode} >
-      <div>
+      <div  >
 
         <div className={style.topText }>
-          <h3>Reset Password</h3>
+          <h3 >Book An Inspection</h3>
           <p>Enter the email address linked to this account</p>
         </div>
 
-
-          <TextField placeholder='Jonathandoe@gmail.com' variant={'outline'} label={'Email address'} type={'email'} />
-          <Link style={{ marginLeft: '500px', marginTop: '100px' }} href="/passwordcode">
+          <span>Full Name</span>
+          <TextField placeholder='Jonathan Doe' variant={'outline'} label={'Email address'} type={'email'} />
+          <span>Email Address</span>
+          <TextField placeholder='E.g Jonathandoe@gmail.com' variant={'outline'} label={'Email address'} type={'email'} />
+          <span>Phone Number</span>
+          <TextField placeholder='+2349012345678' variant={'outline'} label={'Email address'} type={'email'} />
+          <Link style={{ marginLeft: '500px', marginTop: '100px' }} href="/reviewAppointment">
             <Button size={'sm'} style={"blue"} margin-top={"100px"} radius={5}>
-              Proceed
+             Book an inspection
             </Button>
           </Link>
         </div>
 
       </div>
-  )
-}
-
-
-
-
-Home.getLayout = function getLayout(page) {
-  return (
-    <AuthLayout>
-      {page}
-    </AuthLayout>
   )
 }

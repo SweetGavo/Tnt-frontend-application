@@ -23,18 +23,20 @@
    display: flex;
    flex-direction: column;
    justify-content: center;
-
-    }
-
-.resetButton{
-   max-width: 350px;
-  margin: 30px auto;
-}
-
-.topText{
-  text-align: center;
-  margin-bottom: 30px;
-}
+   
+  }
+  
+  .resetButton{
+    max-width: 350px;
+    margin: 30px auto;
+  }
+  
+  .topText{
+    text-align: center;
+    margin-bottom: 30px;
+    justify-content: center;
+  }
+  
 
 .btn{
 

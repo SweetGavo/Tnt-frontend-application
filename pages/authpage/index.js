@@ -2,7 +2,6 @@ import resetpassword from '../resetpassword';
 import passwordcode from '../passwordcode';
 import confirmpassword from '../confirmpassword';
 import Layouts from "../../layouts/layouts";
-import { useState } from 'react';
 
 const Index = () => {
     const [resetPage, setResetPage] = useState(true);
