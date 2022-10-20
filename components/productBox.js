@@ -1,9 +1,10 @@
 import React from 'react';
 import style from '../styles/ProductBox.module.scss'
 import {toCurrency} from "../utils/helperFunctions";
-function ProductBox(props) {
+function ProductBox({cols=4,...others}) {
+
     return (
-        <div className={`${style.productBox} col-md-4`}>
+        <div className={`${style.productBox} product-cover col-md-${cols}`} {...others} >
             <div className={` ${style.productImage}`}>
                 <img src="/images/Rectangle 2.png" alt=""/>
             </div>
