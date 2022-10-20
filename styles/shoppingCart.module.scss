@@ -47,11 +47,17 @@ padding: 3px;
 .button{
     font-size: small;
     float: left;
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;    
     color: #5735D2;
 }
 .buttonRound{
-font-size: medium;
+font-size: small;
+width: 10rem;
 height: 55px;
+
 border-radius: 10px;
 }
 .container {
