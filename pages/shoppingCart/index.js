@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AuthLayout from "../../layouts/authLayout";
 import Head from "next/head";
 import style from "../../styles/shoppingCart.module.scss";
@@ -16,6 +16,10 @@ import { GrAdd } from "react-icons/gr";
 import { GrFormSubtract } from "react-icons/gr";
 
 function Index(props) {
+
+  const [count, setCount,] = useState(0);
+  
+
   return (
     <div className={style.background}>
       <div className={style.cart}>
@@ -28,7 +32,7 @@ function Index(props) {
               <div className={style.button}>
                 <button className={style.buttonRound}>
                   {" "}
-                  <AiOutlineArrowLeft/> Back to shop
+                  <AiOutlineArrowLeft /> Back to shop
                 </button>
               </div>
             </div>
@@ -59,19 +63,27 @@ function Index(props) {
                 </div>
 
                 <div className={style.contentSectionDivSign}>
-                  <button className={style.smallBtn1}>
+                  <button
+                    onClick={() => setCount(count - 1)}
+                    className={style.smallBtn1}
+                  >
                     <GrFormSubtract />
                   </button>
-                  <div className={style.Btn}></div>
-                  <button className={style.smallBtn}>
+                  <div className={style.Btn}>
+                    <span className={style.countBtn}>{count}</span>
+                  </div>
+                  <button
+                    onClick={() => setCount(count + 1)}
+                    className={style.smallBtn}
+                  >
                     <GrAdd />
                   </button>
                 </div>
-
                 <div className={style.contentSectionDivAmount}>
                   <h3># 420,000</h3>
                 </div>
               </section>
+
               <section className={style.contentSection}>
                 <div className={style.contentSectionDiv}>
                   <div className={style.sectionContainer}>
@@ -96,19 +108,22 @@ function Index(props) {
                 </div>
 
                 <div className={style.contentSectionDivSign}>
-                  <button className={style.smallBtn1}>
+                  <button   className={style.smallBtn1}>
                     <GrFormSubtract />
                   </button>
                   <div className={style.Btn}></div>
-                  <button className={style.smallBtn}>
+                  <button
+                    
+                    className={style.smallBtn}
+                  >
                     <GrAdd />
                   </button>
                 </div>
-
                 <div className={style.contentSectionDivAmount}>
                   <h3># 420,000</h3>
                 </div>
               </section>
+
               <section className={style.contentSection}>
                 <div className={style.contentSectionDiv}>
                   <div className={style.sectionContainer}>
@@ -132,11 +147,17 @@ function Index(props) {
                   </button>
                 </div>
                 <div className={style.contentSectionDivSign}>
-                  <button className={style.smallBtn1}>
+                  <button
+                    
+                    className={style.smallBtn1}
+                  >
                     <GrFormSubtract />
                   </button>
                   <div className={style.Btn}></div>
-                  <button className={style.smallBtn}>
+                  <button
+                    
+                    className={style.smallBtn}
+                  >
                     <GrAdd />
                   </button>
                 </div>
