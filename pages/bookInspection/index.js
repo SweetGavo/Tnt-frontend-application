@@ -24,7 +24,7 @@ export default function Home(reviewAppointment) {
 
 
     <div className={style.passwordcode} >
-      <div  >
+      <div>
 
         <div className={style.topText }>
           <h3 >Book An Inspection</h3>

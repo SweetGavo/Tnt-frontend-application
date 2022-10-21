@@ -1,9 +1,7 @@
+@import "colors";
 .background{
-width: 100%;
-height: 90vh;
-border: 1px black;
-background-color: #ffff;
-
+    background: #fff;
+    min-height: 100vh;
 
 }
 
@@ -26,7 +24,7 @@ border-radius: 1rem;
 height: 4rem;
 border:1px black;
 background-color: #ffff;
-margin: 25px;
+margin: 25px 0px;
 display: flex;
 justify-content: space-between;
 padding: 3px;
@@ -45,9 +43,15 @@ padding: 3px;
 }
 
 .button{
-    font-size: small;
-    float: left;
-    color: #5735D2;
+    border-width: 1px;
+    border-color: $_border_grey;
+    font-weight: 400;
+    padding: 20px 30px  ;
+    svg{
+        margin-right: 10px;
+        width: 30px;
+        height: 20px;
+    }
 }
 .buttonRound{
 font-size: medium;
@@ -61,23 +65,22 @@ border-radius: 10px;
     display: flex;
 }
 .content{
-    width: 70%;
-    border:1px solid black;
+    border: 1px solid $_border_grey;
     border-radius: 5px;
-    padding: 15px;
-
+    padding: 30px;
 }
 
 .contentSection{
-    height: 30%;
-    margin: 5px;
     background-color: #ffff;
-    border:1px  black;
-    padding: 10px;
+    border-bottom:1px solid $_border_grey;
+    padding: 40px 0;
     display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid black;
+    align-items: center;
 
+}
+
+.contentSection:last-child{
+    border: none;
 }
 
 .sectionContainer{
@@ -133,21 +136,32 @@ align-items: center;
 }
 
 .sideContent{
-    width: 30%;
-    border:1px ;
-    
-    
+    padding-left: 30px;
+    .title{
+        font-weight: 500;
+    }
+    .total{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p{
+        font-size: 16px;
+        color: $_black;
+    }
+    h3{
+        font-weight: 500;
+    }
+}
 }
 
-.little{
-padding: 20px;
-}
+
 
 .input{
 }
-.total{
-    display: flex;
-    justify-content: space-between;
+
+
+.checkoutButton{
+    margin-top: 30px;
 }
 .img {
     border-radius: 50%;
@@ -190,13 +204,68 @@ bottom: 0;
     width: 15vh;
 }
 .round{
-    border-color: #ffff;
-    border-top-right-radius: 20px;
-    -webkit-border-top-right-radius: 20px;
-    -moz-border-radius-topright: 20px;
-     width:40px;
-} 
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+     width:90px;
+    height: 90px;
+img{
+        width: 100%;
+    }
+}
 
+.productDetails{
+    margin-left: 20px;
+    h3{
+        font-weight: 500;
+        margin-top: 0;
+        margin-bottom: 10px;
+
+    }
+    p{
+        color: $_black;
+        margin: 0;
+    }
+    flex-grow: 1;
+}
+
+.cartButtons{
+    display: flex;
+    height: 30px;
+    align-items: center;
+    .quantity{
+        text-align: center;
+        min-width: 50px;
+        margin: 0px;
+    }
+
+    .buttons{
+        padding: 2px;
+        border-radius: 5px !important;
+
+        svg{
+            width: 20px;
+            padding: 0px;
+        }
+    }
+
+}
+
+.priceSection{
+flex-grow: 1;
+
+    p{
+        color: $_black;
+        text-align: right;
+        margin: 0;
+        font-size: 16px;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+    }
+}
 .section1{
 height: 100%;
 background-color: #ffff;

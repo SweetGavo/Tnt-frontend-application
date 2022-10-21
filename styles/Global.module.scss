@@ -1,3 +1,4 @@
+@import "colors";
 .boxes{
     border-radius: 10px;
     margin-right: 10px;
@@ -12,6 +13,23 @@
     font-weight: 500;
     text-align: center;
     margin: 0;
+  }
+}
+
+.bookInspection{
+  background: $_white;
+  height: fit-content;
+  min-width: 500px;
+  padding:20px 80px;
+  border-radius: 5px;
+  padding-bottom: 80px;
+  position: relative;
+
+  .closeIcon{
+      position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
   }
 }
 

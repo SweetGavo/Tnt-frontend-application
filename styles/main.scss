@@ -18,6 +18,12 @@ $position : [fixed,relative,absolute,sticky];
   font-family: Poppins;
 }
 
+.fullwidth{
+  padding: 10px 10px 0px 10px;
+  background: $_grey_background;
+  min-height: calc(100vh - 90px);
+}
+
 .flex-wrap{
   flex-wrap: wrap;
 }
@@ -68,6 +74,19 @@ body{
     background:#EBEBEB;
   }
 
+  .input-cover{
+    position: relative;
+  }
+
+  .prepend-icon{
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+  }
+
 ::placeholder{
     font-size: 16px;
   }
@@ -76,6 +95,8 @@ body{
     background: $_white;
     border:1px solid $_text_grey;
   }
+
+
 }
 
 
@@ -115,7 +136,6 @@ $flex_positions : start,center, end;
 
 .container{
   max-width: 1200px;
-  width: 90%;
   margin: 0 auto;
 }
 
