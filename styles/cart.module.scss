@@ -9,9 +9,8 @@ background-color: #ffff;
 
 .cart{
 height: 90%;
-border:1px solid black;
-background-color: #ffff;
-margin: 25px;
+border:1px solid rgb(227, 222, 222);
+background-color: rgba(244, 243, 246, 0.98);
 border-radius: 1rem;
 }
 
@@ -19,7 +18,8 @@ border-radius: 1rem;
     height: 90%;
     border:1px #ffff;
     background-color: #ffff;
-    margin: 25px;
+    margin: 15px;
+    margin-left: 2rem;
 }
 
 .cartTop{
@@ -47,12 +47,19 @@ padding: 3px;
 .button{
     font-size: small;
     float: left;
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;    
     color: #5735D2;
 }
 .buttonRound{
-font-size: medium;
+font-size: small;
+width: 10rem;
 height: 55px;
+background-color: #ffff;
 border-radius: 10px;
+border: 2px solid rgba(244, 243, 246, 0.98);
 }
 .container {
     height: 30rem;
@@ -62,9 +69,10 @@ border-radius: 10px;
 }
 .content{
     width: 70%;
-    border:1px solid black;
+    border: 2px solid rgba(244, 243, 246, 0.98);;
     border-radius: 5px;
     padding: 15px;
+    margin-left: 10px;
 
 }
 
@@ -76,7 +84,7 @@ border-radius: 10px;
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid black;
+    border-bottom: 5px solid rgba(244, 243, 246, 0.98);;
 
 }
 
@@ -155,32 +163,36 @@ padding: 20px;
     justify-content: space-between;
 }
 .smallBtn1{
-background-color: #5735D2;
-border-radius: 20%;
+background-color: #8b73e0;
+border-radius: 30%;
+border: 1px;
 
 }
 
 
 .smallBtn {
+    color: #ffff;
     background-color: #5735D2;
-    border-radius: 20%;
+    border-radius: 30%;
+    border: 1px;
 }
 
 
 
 
 
-.here{
-position: absolute;
-bottom: 0;
-}
+// .here{
+// position: absolute;
+// bottom: 0;
+// }
 
 .bulebtn{
-    border-radius: 5px;
+    border-radius: 7px;
     font-size: large;
     height: 50px;
     color: #ffff;
     background-color: #5735D2;
+    border: 0px;
 }
 
 
@@ -191,10 +203,11 @@ bottom: 0;
 }
 .round{
     border-color: #ffff;
-    border-top-right-radius: 20px;
-    -webkit-border-top-right-radius: 20px;
-    -moz-border-radius-topright: 20px;
+    // border-top-right-radius: 20px;
+    // -webkit-border-top-right-radius: 20px;
+    // -moz-border-radius-topright: 20px;
      width:40px;
+     border-radius: 50px;
 } 
 
 .section1{
@@ -202,8 +215,7 @@ height: 100%;
 background-color: #ffff;
 width: 50%;
 padding: 2px;
-justify-content: center;
-
+position: relative;
 }
 
 .Iphon{
@@ -217,4 +229,18 @@ height: 50px;
 }
 
 
+.spanBtn{
+    width: 10px;
+    height: 10px;
+    border-color: #0000;
+    
+}
 
+.inline{
+    height: auto;
+    width: 12rem;
+    color: black;
+    position: absolute;
+    bottom: 0px
+    
+}

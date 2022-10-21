@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import AuthLayout from "../../layouts/authLayout";
 import Head from "next/head";
-import style from "../../styles/shoppingCart.module.scss";
+import style from "../../styles/cart.module.scss";
 import Alert from "../../components/alert";
 import TextField from "../../components/textField";
 import Link from "next/link";
@@ -16,6 +16,10 @@ import { GrAdd } from "react-icons/gr";
 import { GrFormSubtract } from "react-icons/gr";
 
 function Index(props) {
+  const [count, setCount] = useState(0);
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
+
   return (
     <div className={style.background}>
       <div className={style.cart}>
@@ -28,11 +32,12 @@ function Index(props) {
               <div className={style.button}>
                 <button className={style.buttonRound}>
                   {" "}
-                  <AiOutlineArrowLeft/> Back to shop
+                  <AiOutlineArrowLeft /> Back to shop
                 </button>
               </div>
             </div>
           </div>
+
           <div className={style.container}>
             <div className={style.content}>
               <section className={style.contentSection}>
@@ -41,13 +46,12 @@ function Index(props) {
                     <section className={style.section}>
                       <div className={style.round}>
                         {" "}
-                        <img src="/images/profile.png" alt="" />{" "}
+                        <img src="/images/iphone 13 pro.jpeg" alt="" />{" "}
                       </div>
                     </section>
                     <div className={style.section1}>
-                      <div>iphone 13 pro max</div>
-                      <div>
-                        Variation: <span>space gray</span>
+                      <div className={style.inline}>
+                        iphone 13 pro max Variation: space gray
                       </div>
                     </div>
                   </div>
@@ -59,32 +63,39 @@ function Index(props) {
                 </div>
 
                 <div className={style.contentSectionDivSign}>
-                  <button className={style.smallBtn1}>
-                    <GrFormSubtract />
+                  <button
+                    onClick={() => setCount(count - 1)}
+                    className={style.smallBtn1}
+                  >
+                    -
                   </button>
-                  <div className={style.Btn}></div>
-                  <button className={style.smallBtn}>
-                    <GrAdd />
+                  <div className={style.Btn}>
+                    <span className={style.countBtn}>{count}</span>
+                  </div>
+                  <button
+                    onClick={() => setCount(count + 1)}
+                    className={style.smallBtn}
+                  >
+                    +
                   </button>
                 </div>
-
                 <div className={style.contentSectionDivAmount}>
                   <h3># 420,000</h3>
                 </div>
               </section>
+
               <section className={style.contentSection}>
                 <div className={style.contentSectionDiv}>
                   <div className={style.sectionContainer}>
                     <section className={style.section}>
                       <div className={style.round}>
                         {" "}
-                        <img src="/images/profile.png" alt="" />{" "}
+                        <img src="/images/iphone 13 pro.jpeg" alt="" />{" "}
                       </div>
                     </section>
                     <div className={style.section1}>
-                      <div>iphone 13 pro max</div>
-                      <div>
-                        Variation: <span>space gray</span>
+                      <div className={style.inline}>
+                        iphone 13 pro max Variation: space gray
                       </div>
                     </div>
                   </div>
@@ -96,32 +107,37 @@ function Index(props) {
                 </div>
 
                 <div className={style.contentSectionDivSign}>
-                  <button className={style.smallBtn1}>
-                    <GrFormSubtract />
+                  <button
+                    onClick={() => setCount1(count1 - 1)}
+                    className={style.smallBtn1}
+                  >
+                    -
                   </button>
-                  <div className={style.Btn}></div>
-                  <button className={style.smallBtn}>
-                    <GrAdd />
+                  <div className={style.Btn}>{count1}</div>
+                  <button
+                    onClick={() => setCount1(count1 + 1)}
+                    className={style.smallBtn}
+                  >
+                    +
                   </button>
                 </div>
-
                 <div className={style.contentSectionDivAmount}>
                   <h3># 420,000</h3>
                 </div>
               </section>
+
               <section className={style.contentSection}>
                 <div className={style.contentSectionDiv}>
                   <div className={style.sectionContainer}>
                     <section className={style.section}>
                       <div className={style.round}>
                         {" "}
-                        <img src="/images/profile.png" alt="" />{" "}
+                        <img src="/images/iphone 13 pro.jpeg" alt="" />{" "}
                       </div>
                     </section>
                     <div className={style.section1}>
-                      <div>iphone 13 pro max</div>
-                      <div>
-                        Variation: <span>space gray</span>
+                      <div className={style.inline}>
+                        iphone 13 pro max Variation: space gray
                       </div>
                     </div>
                   </div>
@@ -132,12 +148,18 @@ function Index(props) {
                   </button>
                 </div>
                 <div className={style.contentSectionDivSign}>
-                  <button className={style.smallBtn1}>
-                    <GrFormSubtract />
+                  <button
+                    onClick={() => setCount2(count2 - 1)}
+                    className={style.smallBtn1}
+                  >
+                    -
                   </button>
-                  <div className={style.Btn}></div>
-                  <button className={style.smallBtn}>
-                    <GrAdd />
+                  <div className={style.Btn}>{count2 }</div>
+                  <button
+                    onClick={() => setCount2(count2 + 1)}
+                    className={style.smallBtn}
+                  >
+                    +
                   </button>
                 </div>
 
