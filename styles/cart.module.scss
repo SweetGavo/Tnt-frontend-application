@@ -57,8 +57,9 @@ padding: 3px;
 font-size: small;
 width: 10rem;
 height: 55px;
-
+background-color: #ffff;
 border-radius: 10px;
+border: 2px solid rgba(244, 243, 246, 0.98);
 }
 .container {
     height: 30rem;
@@ -68,7 +69,7 @@ border-radius: 10px;
 }
 .content{
     width: 70%;
-    border: 1px solid black;
+    border: 2px solid rgba(244, 243, 246, 0.98);;
     border-radius: 5px;
     padding: 15px;
     margin-left: 10px;
@@ -83,7 +84,7 @@ border-radius: 10px;
     padding: 10px;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid black;
+    border-bottom: 5px solid rgba(244, 243, 246, 0.98);;
 
 }
 
@@ -163,14 +164,17 @@ padding: 20px;
 }
 .smallBtn1{
 background-color: #8b73e0;
-border-radius: 20%;
+border-radius: 30%;
+border: 1px;
 
 }
 
 
 .smallBtn {
+    color: #ffff;
     background-color: #5735D2;
-    border-radius: 20%;
+    border-radius: 30%;
+    border: 1px;
 }
 
 
@@ -183,11 +187,12 @@ bottom: 0;
 }
 
 .bulebtn{
-    border-radius: 5px;
+    border-radius: 7px;
     font-size: large;
     height: 50px;
     color: #ffff;
     background-color: #5735D2;
+    border: 0px;
 }
 
 
@@ -209,8 +214,7 @@ height: 100%;
 background-color: #ffff;
 width: 50%;
 padding: 2px;
-justify-content: center;
-
+position: relative;
 }
 
 .Iphon{
@@ -228,5 +232,14 @@ height: 50px;
     width: 10px;
     height: 10px;
     border-color: #0000;
+    
+}
+
+.inline{
+    height: auto;
+    width: 12rem;
+    color: black;
+    position: absolute;
+    bottom: 0px
     
 }
