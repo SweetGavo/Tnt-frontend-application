@@ -9,9 +9,11 @@ import ProductBox from "../../components/productBox";
 import {useRouter} from "next/router";
 import Button from "../../components/button";
 import Tab from "../../components/tab";
+import {get} from "../../utils/helperFunctions";
 
 
 function ViewProduct(props) {
+    console.log(props);
     const router = useRouter();
     const path = useMemo(()=>{
         const path = router.pathname.split('/');
@@ -20,6 +22,7 @@ function ViewProduct(props) {
     },[router.pathname])
     return (
             <section className={style.productPageWrapper}>
+
                 <div className="flex container flex-wrap">
                     <div className={`col-md-12 `}>
                         <div className={`flex flex-start ${style.topBar}`}>
@@ -92,15 +95,17 @@ function ViewProduct(props) {
                                     <Tab tabs={['Description','Reviews']}>
                                         <div className={style.description}>
                                             <table>
-                                                <tr>
-                                                    <td className={style.descriptionTitle}>Year</td>
-                                                    <td className={style.descriptionValue}>2021</td>
-                                                </tr>
+                                                <tbody>
+                                                    <tr>
+                                                        <td className={style.descriptionTitle}>Year</td>
+                                                        <td className={style.descriptionValue}>2021</td>
+                                                    </tr>
 
-                                                <tr>
-                                                    <td className={style.descriptionTitle}>Fuel Capacity</td>
-                                                    <td className={style.descriptionValue}>234 Litres</td>
-                                                </tr>
+                                                    <tr>
+                                                        <td className={style.descriptionTitle}>Fuel Capacity</td>
+                                                        <td className={style.descriptionValue}>234 Litres</td>
+                                                    </tr>
+                                                </tbody>
                                             </table>
 
                                         </div>
@@ -127,6 +132,8 @@ function ViewProduct(props) {
             </section>
     );
 }
+
+
 
 ViewProduct.getLayout = function getLayout(page){
     return <Layouts className={`fullwidth product-page`}>
