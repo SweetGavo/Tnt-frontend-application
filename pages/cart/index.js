@@ -154,7 +154,7 @@ function Index(props) {
                   >
                     -
                   </button>
-                  <div className={style.Btn}>{count2 }</div>
+                  <div className={style.Btn}>{count2}</div>
                   <button
                     onClick={() => setCount2(count2 + 1)}
                     className={style.smallBtn}
