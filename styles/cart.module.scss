@@ -181,10 +181,10 @@ border: 1px;
 
 
 
-.here{
-position: absolute;
-bottom: 0;
-}
+// .here{
+// position: absolute;
+// bottom: 0;
+// }
 
 .bulebtn{
     border-radius: 7px;
@@ -203,10 +203,11 @@ bottom: 0;
 }
 .round{
     border-color: #ffff;
-    border-top-right-radius: 20px;
-    -webkit-border-top-right-radius: 20px;
-    -moz-border-radius-topright: 20px;
+    // border-top-right-radius: 20px;
+    // -webkit-border-top-right-radius: 20px;
+    // -moz-border-radius-topright: 20px;
      width:40px;
+     border-radius: 50px;
 } 
 
 .section1{

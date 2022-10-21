@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import AuthLayout from "../../layouts/authLayout";
 import Head from "next/head";
 import style from "../../styles/cart.module.scss";
@@ -17,6 +17,8 @@ import { GrFormSubtract } from "react-icons/gr";
 
 function Index(props) {
   const [count, setCount] = useState(0);
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
 
   return (
     <div className={style.background}>
@@ -44,7 +46,7 @@ function Index(props) {
                     <section className={style.section}>
                       <div className={style.round}>
                         {" "}
-                        <img  src="/images/iphone 13 pro.jpeg" alt="" />{" "}
+                        <img src="/images/iphone 13 pro.jpeg" alt="" />{" "}
                       </div>
                     </section>
                     <div className={style.section1}>
@@ -105,11 +107,17 @@ function Index(props) {
                 </div>
 
                 <div className={style.contentSectionDivSign}>
-                  <button className={style.smallBtn1}>
+                  <button
+                    onClick={() => setCount1(count1 - 1)}
+                    className={style.smallBtn1}
+                  >
                     -
                   </button>
-                  <div className={style.Btn}></div>
-                  <button className={style.smallBtn}>
+                  <div className={style.Btn}>{count1}</div>
+                  <button
+                    onClick={() => setCount1(count1 + 1)}
+                    className={style.smallBtn}
+                  >
                     +
                   </button>
                 </div>
@@ -140,11 +148,17 @@ function Index(props) {
                   </button>
                 </div>
                 <div className={style.contentSectionDivSign}>
-                  <button className={style.smallBtn1}>
+                  <button
+                    onClick={() => setCount2(count2 - 1)}
+                    className={style.smallBtn1}
+                  >
                     -
                   </button>
-                  <div className={style.Btn}></div>
-                  <button className={style.smallBtn}>
+                  <div className={style.Btn}>{count2 }</div>
+                  <button
+                    onClick={() => setCount2(count2 + 1)}
+                    className={style.smallBtn}
+                  >
                     +
                   </button>
                 </div>
