@@ -24,10 +24,10 @@ export default function Home(passwordcode) {
 
 
     <div className={style.passwordcode} >
-      <div  >
+      <div>
 
         <div className={style.topText }>
-          <h3 >Reset Password</h3>
+          <h3>Reset Password</h3>
           <p>Enter the email address linked to this account</p>
         </div>
 

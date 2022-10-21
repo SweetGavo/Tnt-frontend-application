@@ -41,6 +41,7 @@ p{
   @extend .text-grey;
 }
 body{
+  height: 100vh;
   margin-left: 0;
   margin-right: 0;
 }
@@ -210,12 +211,5 @@ padding: 15px 20px;
   color: $_success_text;
   .alert-message{
     color:$_success_text;
-  }
-}
-.product-page{
-  padding: 10px;
-  background: $_grey_background;
-  .container{
-    width: 100%;
   }
 }

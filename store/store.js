@@ -7,6 +7,5 @@ export const store = configureStore({
         auth: auth
     }
 })
-export const makeStore = () => store;
-
+const makeStore = () => store;
 export const wrapper = createWrapper(makeStore);
