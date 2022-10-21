@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import AuthLayout from "../../layouts/authLayout";
 import Head from "next/head";
-import style from "../../styles/shoppingCart.module.scss";
+import style from "../../styles/cart.module.scss";
 import Alert from "../../components/alert";
 import TextField from "../../components/textField";
 import Link from "next/link";
@@ -19,6 +19,10 @@ import Icon from "@mdi/react";
 import {mdiArrowLeft, mdiMinus, mdiPlus} from "@mdi/js";
 
 function Index(props) {
+  const [count, setCount] = useState(0);
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
+
   return (
     <div className={style.background}>
       <div className={'container flex flex-wrap'}>
@@ -49,44 +53,11 @@ function Index(props) {
                       <p className={style.quantity}>1</p>
                     <Button className={style.buttons} size={'sm'} style={'blue'}><Icon path={mdiPlus} className={'icon'}/></Button>
 
-
                   </div>
 
                   <div className={`flex flex-end ${style.priceSection}`}>
                     <p>{toCurrency(2000)}</p>
                   </div>
-                  {/*<div className={style.contentSectionDiv}>*/}
-                  {/*  <div className={style.sectionContainer}>*/}
-                  {/*    <section className={style.section}>*/}
-                  {/*      */}
-                  {/*    </section>*/}
-                  {/*    <div className={style.section1}>*/}
-                  {/*      <div>iphone 13 pro max</div>*/}
-                  {/*      <div>*/}
-                  {/*        Variation: <span>space gray</span>*/}
-                  {/*      </div>*/}
-                  {/*    </div>*/}
-                  {/*  </div>*/}
-
-                  {/*  <button className={style.button}>*/}
-                  {/*    <BiTrash />*/}
-                  {/*    Remove*/}
-                  {/*  </button>*/}
-                  {/*</div>*/}
-
-                  {/*<div className={style.contentSectionDivSign}>*/}
-                  {/*  <button className={style.smallBtn1}>*/}
-                  {/*    <GrFormSubtract />*/}
-                  {/*  </button>*/}
-                  {/*  <div className={style.Btn}></div>*/}
-                  {/*  <button className={style.smallBtn}>*/}
-                  {/*    <GrAdd />*/}
-                  {/*  </button>*/}
-                  {/*</div>*/}
-
-                  {/*<div className={style.contentSectionDivAmount}>*/}
-                  {/*  <h3># 420,000</h3>*/}
-                  {/*</div>*/}
                 </section>
                 <section className={style.contentSection}>
                   <div className={style.round}>
