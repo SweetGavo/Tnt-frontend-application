@@ -27,7 +27,6 @@ export default function Home(shoppingCart) {
 
     <div className={style.passwordcode} >
       <div  >
-
         <div className={style.topText}>
           <h3 >Book a review appointment</h3>
           <div><FcOk/></div>    
@@ -38,9 +37,8 @@ export default function Home(shoppingCart) {
           
             <p>Inspection details sent to your email address and phone number</p>
         </div>
-
           <div>
-          <Link style={{ marginLeft: '500px', marginTop: '100px' }} href="/soppingCart">
+          <Link style={{ marginLeft: '500px', marginTop: '100px' }} href="/shoppingCart">
             <Button size={'sm'} style={"blue"} margin-top={"100px"} radius={5}>
              Done
             </Button>
@@ -51,7 +49,3 @@ export default function Home(shoppingCart) {
       </div>
   )
 }
-
-
-
-
