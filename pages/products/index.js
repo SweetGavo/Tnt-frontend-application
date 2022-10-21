@@ -7,7 +7,8 @@ import Link from "next/link";
 import ProductBox from "../../components/productBox";
 import Icon from "@mdi/react";
 import { mdiArrowRight, mdiMagnify } from "@mdi/js";
-function Index(props) {
+import {get} from "../../utils/helperFunctions";
+function Index({products}) {
   const router = useRouter();
   const path = useMemo(() => {
     const path = router.pathname.split("/");
@@ -91,16 +92,31 @@ function Index(props) {
         </aside>
         <div className={"col-md-9"}>
           <div className={`flex flex-wrap ${style.productList}`}>
-            <ProductBox />
-            <ProductBox />
-            <ProductBox />
-            <ProductBox />
-            <ProductBox />
+            {
+              products.map(product=><ProductBox product={product} key={product._id} />)
+            }
           </div>
         </div>
       </div>
     </section>
   );
+}
+
+
+export async function getServerSideProps(context){
+  let products = [];
+  try{
+    const getProducts = await get('https://api.tandtdeals.ng/v1/products');
+    if(getProducts.status){
+      products = getProducts.data.data;
+    }
+  }catch (e) {
+    console.log(e.message);
+    console.log('there is an error getting products');
+  }
+  return {
+    props:{products}
+  }
 }
 
 Index.getLayout = function getLayout(page) {
