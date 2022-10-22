@@ -78,7 +78,7 @@ function ViewProduct({product}) {
                         </aside>
                         <div className={'col-md-7'}>
                             <div className={ `${style.productDetailsCover}`}>
-                                <h3 className={style.productName}>{product.name}</h3>
+                                {/* <h3 className={style.productName}>{product.name}</h3> */}
                                 <p>{toCurrency(product.sellingPrice)}</p>
                                 <div className={style.productDetails}>
                                     <p>
