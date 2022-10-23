@@ -1,203 +1,135 @@
-import React, { useRef, useState } from "react";
-import AuthLayout from "../../layouts/authLayout";
-import Head from "next/head";
-import style from "../../styles/cart.module.scss";
-import Alert from "../../components/alert";
-import TextField from "../../components/textField";
-import Link from "next/link";
+import { mdiArrowLeft, mdiMinus, mdiPlus } from "@mdi/js";
+import Icon from "@mdi/react";
+import React, { useState } from "react";
 import Button from "../../components/button";
-import Header from "../../components/header";
-import profile from "../../public/images/profile.png";
+import Modal from "../../components/catModal";
 import Layouts from "../../layouts/layouts";
-import { BiTrash } from "react-icons/bi";
-import { AiOutlineArrowLeft } from "react-icons/ai";
-import img from "../../public/images/glogo.png";
-import { GrAdd } from "react-icons/gr";
-import { GrFormSubtract } from "react-icons/gr";
-
+import style from "../../styles/cart.module.scss";
+import { toCurrency } from "../../utils/helperFunctions";
 function Index(props) {
-  const [count, setCount] = useState(0);
-  const [count1, setCount1] = useState(0);
-  const [count2, setCount2] = useState(0);
-  const [count3, setCount3] = useState(0);
+  const [openModal, setopenModal] = useState(false);
 
-
-  return (
-    <div className={style.background}>
-      <div className={style.cart}>
-        <div className={style.cart1}>
-          <div className={style.cartTop}>
-            <div className={style.buttonSection}>
-              <h3>Shopping cart</h3>
-            </div>
-            <div className={style.buttonSection1}>
-              <div className={style.button}>
-                <button className={style.buttonRound}>
-                  {" "}
-                  <AiOutlineArrowLeft /> Back to shop
-                </button>
-              </div>
-            </div>
+  
+    return (
+      <div className={style.background}>
+        <div className={"container flex flex-wrap"}>
+          <div>
+            <Button
+              className={style.button}
+              onClick={() => {
+                setopenModal(true);
+              }}
+              variant={"outline"}
+              size={"large"}
+              radius={8}
+              
+            >
+              {/* {/* {" "} 
+                  <Icon path={mdiArrowLeft} className={"icon"} /> } */}
+              Add Address
+            </Button>
+            {openModal && <Modal closeModal={setopenModal} />}
           </div>
 
-          <div className={style.container}>
-            <div className={style.content}>
-              <section className={style.contentSection}>
-                <div className={style.contentSectionDiv}>
-                  <div className={style.sectionContainer}>
-                    <section className={style.section}>
-                      <div className={style.round}>
-                        {" "}
-                        <img src="/images/iphone 13 pro.jpeg" alt="" />{" "}
-                      </div>
-                    </section>
-                    <div className={style.section1}>
-                      <div className={style.inline}>
-                        iphone 13 pro max Variation: space gray
-                      </div>
-                    </div>
+          <div className={`flex col-md-12 ${style.cartTop}`}>
+            <h3>Shopping cart</h3>
+
+            <Button
+              className={style.button}
+              variant={"outline"}
+              size={"large"}
+              radius={8}
+            >
+              {" "}
+              <Icon path={mdiArrowLeft} className={"icon"} /> Back to shop
+            </Button>
+          </div>
+          <div className={`col-md-12`}>
+            <div className={`flex `}>
+              <div className={`col-md-9 ${style.content} `}>
+                <section className={style.contentSection}>
+                  <div className={style.round}>
+                    <img src="/images/eclipse 45.png" alt="" />
                   </div>
-
-                  <button className={style.button}>
-                    <BiTrash />
-                    Remove
-                  </button>
-                </div>
-
-                <div className={style.contentSectionDivSign}>
-                  <button
-                    onClick={() => setCount(count - 1)}
-                    className={style.smallBtn1}
-                  >
-                    -
-                  </button>
-                  <div className={style.Btn}>
-                    <span className={style.countBtn}>{count}</span>
+                  <div className={style.productDetails}>
+                    <h3>Iphone 13 pro max</h3>
+                    <p>Variation: Space Gray</p>
                   </div>
-                  <button
-                    onClick={() => setCount(count + 1)}
-                    className={style.smallBtn}
-                  >
-                    +
-                  </button>
-                </div>
-                <div className={style.contentSectionDivAmount}>
-                  <h3># 420,000</h3>
-                </div>
-              </section>
-
-              <section className={style.contentSection}>
-                <div className={style.contentSectionDiv}>
-                  <div className={style.sectionContainer}>
-                    <section className={style.section}>
-                      <div className={style.round}>
-                        {" "}
-                        <img src="/images/iphone 13 pro.jpeg" alt="" />{" "}
-                      </div>
-                    </section>
-                    <div className={style.section1}>
-                      <div className={style.inline}>
-                        iphone 13 pro max Variation: space gray
-                      </div>
-                    </div>
-                  </div>
-
-                  <button className={style.button}>
-                    <BiTrash />
-                    Remove
-                  </button>
-                </div>
-
-                <div className={style.contentSectionDivSign}>
-                  <button
-                    onClick={() => setCount1(count1 - 1)}
-                    className={style.smallBtn1}
-                  >
-                    -
-                  </button>
-                  <div className={style.Btn}>{count1}</div>
-                  <button
-                    onClick={() => setCount1(count1 + 1)}
-                    className={style.smallBtn}
-                  >
-                    +
-                  </button>
-                </div>
-                <div className={style.contentSectionDivAmount}>
-                  <h3># 420,000</h3>
-                </div>
-              </section>
-
-              <section className={style.contentSection}>
-                <div className={style.contentSectionDiv}>
-                  <div className={style.sectionContainer}>
-                    <section className={style.section}>
-                      <div className={style.round}>
-                        {" "}
-                        <img src="/images/iphone 13 pro.jpeg" alt="" />{" "}
-                      </div>
-                    </section>
-                    <div className={style.section1}>
-                      <div className={style.inline}>
-                        iphone 13 pro max Variation: space gray
-                      </div>
-                    </div>
-                  </div>
-
-                  <button className={style.button} placeholder="remove">
-                    <BiTrash />
-                    Remove
-                  </button>
-                </div>
-                <div className={style.contentSectionDivSign}>
-                  <button
-                    onClick={() => setCount2(count2 - 1)}
-                    className={style.smallBtn1}
-                  >
-                    -
-                  </button>
-                  <div className={style.Btn}>{count2}</div>
-                  <button
-                    onClick={() => setCount2(count2 + 1)}
-                    className={style.smallBtn}
-                  >
-                    +
-                  </button>
-                </div>
-
-                <div className={style.contentSectionDivAmount}>
-                  <h3># 420,000</h3>
-                </div>
-              </section>
-            </div>
-            <section className={style.sideContent}>
-              <div>
-                <section className={style.little}>
-                  <h3>Summary</h3>
-                  <div className={style.total}>
-                    <p>Total</p>
-                    <p>#1,300,000</p>
-                  </div>
-                  <div className={style.button}>
-                    <button
-                      className={style.bulebtn}
-                      placeholder="Pay with CloudPay"
+                  <div className={style.cartButtons}>
+                    <Button
+                      className={style.buttons}
+                      size={"sm"}
+                      style={"blue"}
                     >
-                      Pay with CloudPay
-                    </button>
+                      <Icon path={mdiMinus} className={"icon"} />
+                    </Button>
+                    <p className={style.quantity}>1</p>
+                    <Button
+                      className={style.buttons}
+                      size={"sm"}
+                      style={"blue"}
+                    >
+                      <Icon path={mdiPlus} className={"icon"} />
+                    </Button>
+                  </div>
+                  <div className={`flex flex-end ${style.priceSection}`}>
+                    <p>{toCurrency(2000)}</p>
+                  </div>
+                </section>
+                <section className={style.contentSection}>
+                  <div className={style.round}>
+                    <img src="/images/eclipse 45.png" alt="" />
+                  </div>
+                  <div className={style.productDetails}>
+                    <h3>Iphone 13 pro max</h3>
+                    <p>Variation: Space Gray</p>
+                  </div>
+                  <div className={style.cartButtons}>
+                    <Button
+                      className={style.buttons}
+                      size={"sm"}
+                      style={"blue"}
+                    >
+                      <Icon path={mdiMinus} className={"icon"} />
+                    </Button>
+                    <p className={style.quantity}>1</p>
+                    <Button
+                      className={style.buttons}
+                      size={"sm"}
+                      style={"blue"}
+                    >
+                      <Icon path={mdiPlus} className={"icon"} />
+                    </Button>
+                  </div>
+                  <div className={`flex flex-end ${style.priceSection}`}>
+                    <p>{toCurrency(2000)}</p>
                   </div>
                 </section>
               </div>
-            </section>
+              <section className={`col-md-3 ${style.sideContent}`}>
+                <div>
+                  <section>
+                    <h3 className={style.title}>Summary</h3>
+                    <div className={style.total}>
+                      <p>Total</p>
+                      <h3>{toCurrency(1300)}</h3>
+                    </div>
+                    <div className={` ${style.checkoutButton}`}>
+                      <Button radius={5} style={"blue"} size={"large"}>
+                        Pay with CloudPay
+                      </Button>
+                    </div>
+                  </section>
+                </div>
+              </section>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 
 Index.getLayout = function getLayout(page) {
   return <Layouts className={`fullwidth product-page`}>{page}</Layouts>;
 };
-
 export default Index;
