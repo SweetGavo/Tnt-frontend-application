@@ -36,6 +36,18 @@ const cartSlice = createSlice({
             state.items = {};
             state.itemsId = [];
         },
+        changeQuantity(state,{payload}){
+            const {productId,quantity} = payload;
+            console.log(productId);
+            if(productId in state.items){
+                const item = {...state.items[productId]};
+                item.quantity += quantity;
+                if(item.quantity > 0){
+                    state.items[productId] = item;
+                    saveToMemory(state);
+                }
+            }
+        },
         getFromMemory(state){
            const item = window.localStorage.getItem(CARTNAME) || JSON.stringify(initialState);
            const {items,itemsId} = JSON.parse(item);
@@ -45,5 +57,5 @@ const cartSlice = createSlice({
     }
 })
 
-export const {getFromMemory,addItem,removeItem,clearCart} = cartSlice.actions;
+export const {getFromMemory,addItem,removeItem,clearCart,changeQuantity } = cartSlice.actions;
 export default cartSlice.reducer;

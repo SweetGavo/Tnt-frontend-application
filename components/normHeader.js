@@ -5,17 +5,34 @@ import Link from "next/link";
 import Button from "./button";
 import Icon from "@mdi/react";
 import {mdiArrowRight, mdiCartOutline, mdiChevronDown} from "@mdi/js";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import Menu, {MenuItem} from "./menu";
+import {logoutUser} from "../store/reducers/auth";
 
 function NormHeader(props) {
-    const {isLogin,user} = useSelector(s=>s.auth);
+    const dispatch = useDispatch();
+    const {auth:{isLogin,user},cart:{itemsId}} = useSelector(s=>s);
+    function logout(){
+        dispatch(logoutUser());
+    }
     function sideHeader(){
         if (isLogin){
             return (
                 <>
-                    <Icon className={'icon'} path={mdiCartOutline} />
-                    <img src="/images/profile.png" alt="profile image" className={'profile-image'}/>
-                    <Icon className={'icon'} path={mdiChevronDown} />
+                    <Link href={'/cart'}><a className={style.cartIcon} cartNumber={itemsId.length}><Icon className={'icon'} path={mdiCartOutline} /></a></Link>
+                    <a className={`${style.profilePhoto}`}>
+
+
+                        <Menu items={()=>{
+                            return (
+                                <MenuItem onClick={logout}>Logout</MenuItem>
+                            )
+                        }}>
+                            <img src="/images/profile.png" alt="profile image" className={'profile-image'}/>
+
+                        </Menu>
+
+                    </a>
                 </>
             )
         }

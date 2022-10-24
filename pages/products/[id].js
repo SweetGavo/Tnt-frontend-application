@@ -33,7 +33,7 @@ function ViewProduct({product}) {
     }
 
     function addItemToCart(){
-        const toCart = {...product,qty:1};
+        const toCart = {...product,quantity:1};
         console.log(toCart);
         dispatch(addItem({product:toCart}))
     }

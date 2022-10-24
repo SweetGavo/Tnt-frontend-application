@@ -8,7 +8,8 @@ import ProductBox from "../../components/productBox";
 import Icon from "@mdi/react";
 import { mdiArrowRight, mdiMagnify } from "@mdi/js";
 import {get} from "../../utils/helperFunctions";
-function Index({products}) {
+import GuardLayout from "../../layouts/guardLayout";
+function Index({products,categories}) {
   const router = useRouter();
   const path = useMemo(() => {
     const path = router.pathname.split("/");
@@ -53,36 +54,19 @@ function Index({products}) {
           <section>
             <h2 className={style.sectionTitle}>Categories</h2>
             <ul className={style.sectionItems}>
-              <li>
-                <a href={"/"}>
-                  <>
-                    Cars <span>(20)</span>
-                  </>
-                </a>
-              </li>
-              <li>
-                <a href={"/"}>
-                  <>
-                    drugs <span>(5)</span>
-                  </>{" "}
-                </a>
-              </li>
-              <li>
-                <a href={"/"}>
-                  {" "}
-                  <>
-                    phones <span>(4)</span>
-                  </>{" "}
-                </a>
-              </li>
-              <li>
-                <a href={"/"}>
-                  {" "}
-                  <>
-                    accessories <span>(0)</span>
-                  </>{" "}
-                </a>
-              </li>
+              {
+                  categories.map(category=>(
+                      <li>
+                        <a href={`?category=${category.slug}`}>
+                          <>
+                            {category.name}
+                            {/*<span>(20)</span>*/}
+                          </>
+                        </a>
+                      </li>
+
+                  ))
+              }
             </ul>
           </section>
           <section>
@@ -105,22 +89,32 @@ function Index({products}) {
 
 export async function getServerSideProps(context){
   let products = [];
+  let categories=[];
   try{
     const getProducts = await get('https://api.tandtdeals.ng/v1/products');
     if(getProducts.status){
       products = getProducts.data.data;
+    }
+
+    const {status,data} = await get('https://api.tandtdeals.ng/v1/categories');
+    if(status){
+      categories = data.data;
     }
   }catch (e) {
     console.log(e.message);
     console.log('there is an error getting products');
   }
   return {
-    props:{products}
+    props:{products,categories}
   }
 }
 
 Index.getLayout = function getLayout(page) {
-  return <Layouts className={`fullwidth product-page`}>{page}</Layouts>;
+  return(<GuardLayout>
+    <Layouts className={`fullwidth product-page`}>{page}</Layouts>
+  </GuardLayout>)
+
+  ;
 };
 
 export default Index;

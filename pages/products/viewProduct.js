@@ -13,7 +13,6 @@ import {get} from "../../utils/helperFunctions";
 
 
 function ViewProduct(props) {
-    console.log(props);
     const router = useRouter();
     const path = useMemo(()=>{
         const path = router.pathname.split('/');
