@@ -13,11 +13,6 @@ import {FcOk} from "react-icons/fc";
 
 
 export default function Home(shoppingCart) {
-  const router = useRouter()
-
-  const togglePageHandler = () => {
-    router.push('/shoppingCart')
-  }
 
   return (
 
@@ -26,7 +21,7 @@ export default function Home(shoppingCart) {
       <div  >
         <div className={style.topText}>
           <h3 >Book a review appointment</h3>
-          <div><FcOk/></div>    
+          <div><FcOk/></div>
           
          
 

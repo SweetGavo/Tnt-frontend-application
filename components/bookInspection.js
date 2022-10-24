@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { useRouter } from "next/router";
 import style from "../styles/Global.module.scss";
 import Link from "next/link";
@@ -6,16 +6,50 @@ import TextField from "./textField";
 import Button from "./button";
 import Icon from "@mdi/react";
 import { mdiClose } from "@mdi/js";
+import {useSelector} from "react-redux";
+import {post} from "../utils/helperFunctions";
+import InspectionForm from "./inspectionForm";
+import ReviewBooking from "./reviewBooking";
 
-export default function BookInspection({ closeModal }) {
+const initialData={
+  fullName:'',
+  email:'',
+  phoneNumber:''
+}
+
+export default function BookInspection({ closeModal,product }) {
   const router = useRouter();
+  const [form,setFormField] = useState(initialData);
+  const {user} = useSelector(s=>s.auth);
+  const [currentView,setCurrentView] = useState('form');
 
-  const togglePageHandler = () => {
-    router.push("/reviewAppointment");
-  };
+  function bookInspection(){
+    const formValue = {user:user._id}
+      setCurrentView('reviewBooking');
+  }
 
   function hideModal() {
+    setCurrentView('form');
     closeModal();
+  }
+
+  function getView(){
+    if(currentView === 'form'){
+      return <InspectionForm form={form} setData={setData} bookInspection={bookInspection}/>
+    }
+
+    return  <ReviewBooking done={hideModal}/>
+  }
+
+  useEffect(()=>{
+    initialData.email = user.email;
+    initialData.fullName = `${user.firstName} ${user.lastName}`;
+    setFormField(initialData)
+  },[user])
+
+  function setData(e){
+    const {name,value} = e.target;
+    setFormField((v)=>({...v,[name]:value}));
   }
   return (
     <div className={style.bookInspection}>
@@ -26,40 +60,10 @@ export default function BookInspection({ closeModal }) {
           onClick={hideModal}
         />
 
-        <div className={style.topText}>
-          <h3>Book An Inspection</h3>
-        </div>
+        {
+          getView()
+        }
 
-        <p>Enter the email address linked to this account</p>
-        <span>Full Name</span>
-        <TextField
-          placeholder="Jonathan Doe"
-          variant={"outline"}
-          label={"Email address"}
-          type={"email"}
-        />
-        <span>Email Address</span>
-        <TextField
-          placeholder="E.g Jonathandoe@gmail.com"
-          variant={"outline"}
-          label={"Email address"}
-          type={"email"}
-        />
-        <span>Phone Number</span>
-        <TextField
-          placeholder="+2349012345678"
-          variant={"outline"}
-          label={"Email address"}
-          type={"email"}
-        />
-        <Link
-          style={{ marginLeft: "500px", marginTop: "100px" }}
-          href="/reviewAppointment"
-        >
-          <Button size={"sm"} style={"blue"} margin-top={"100px"} radius={5}>
-            Book an inspection
-          </Button>
-        </Link>
       </div>
     </div>
   );
