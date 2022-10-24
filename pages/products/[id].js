@@ -16,6 +16,7 @@ import {useDispatch} from "react-redux";
 import {addItem} from "../../store/reducers/cart";
 
 
+
 function ViewProduct({product}) {
     const router = useRouter();
     const dispatch = useDispatch();
@@ -43,6 +44,9 @@ function ViewProduct({product}) {
             <Modal open={openModal} onClose={()=>setModalStatus(false)}>
                 <BookInspection closeModal={()=>{setModalStatus(false)}}/>
             </Modal>
+            {/* <Modal open={openModal} onClose={()=>setModalStatus(false)}>
+                <reviewAppointment closeModal={()=>setModalStatus (false)}/>
+            </Modal> */}
             <div className="flex container flex-wrap">
                 <div className={`col-md-12 `}>
                     <div className={`flex flex-start ${style.topBar}`}>
@@ -78,7 +82,7 @@ function ViewProduct({product}) {
                         </aside>
                         <div className={'col-md-7'}>
                             <div className={ `${style.productDetailsCover}`}>
-                                {/* <h3 className={style.productName}>{product.name}</h3> */}
+                                <h3 className={style.productName}>{product.name}</h3>
                                 <p>{toCurrency(product.sellingPrice)}</p>
                                 <div className={style.productDetails}>
                                     <p>
@@ -119,7 +123,7 @@ function ViewProduct({product}) {
                                     </div>
                                     <div className={style.reviews}>
                                         <div className={style.review}>
-                                            <p>"Fantastic Buy, Best car in town; i love the car"</p>
+                                            <p>Fantastic Buy, Best car in town; i love the car</p>
                                             <div className={style.userDetails}><Icon path={mdiAccountCircleOutline} className={'icon'}/> Anonymous</div>
                                             <textarea rows={4}></textarea>
                                         </div>

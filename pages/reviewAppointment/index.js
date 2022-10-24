@@ -8,54 +8,29 @@ import { useRouter } from 'next/router';
 import style from "../../styles/Global.module.scss";
 import Link from 'next/link';
 import AuthLayout from "../../layouts/authLayout";
-import { FcOk } from "react-icons/fc";
-
-
-
-
-
-export default function Home(soppingCarts) {
+import {FcOk} from "react-icons/fc";
+export default function Home(shoppingCart) {
   const router = useRouter()
-
   const togglePageHandler = () => {
-    router.push('/login')
+    router.push('/shoppingCart')
   }
-
   return (
-
-
     <div className={style.passwordcode} >
       <div  >
-
-        <div className={style.topText }>
+        <div className={style.topText}>
           <h3 >Book a review appointment</h3>
-
-         <div></div> </div>
-         
-
+          <div><FcOk/></div>    
           <h3 >Inspection booked Succesfully</h3>
-            <p>Inspection details sent to email address and phone number</p>
+            <p>Inspection details sent to your email address and phone number</p>
         </div>
-
-          
-          <Link style={{ marginLeft: '500px', marginTop: '100px' }} href="/soppingCarts">
+          <div>
+          <Link style={{ marginLeft: '500px', marginTop: '100px' }} href="/shoppingCart">
             <Button size={'sm'} style={"blue"} margin-top={"100px"} radius={5}>
              Done
             </Button>
           </Link>
         </div>
-
-      
+      </div>
+      </div>
   )
 }
-
-
-
-
-// Home.getLayout = function getLayout(page) {
-//   return (
-//     <AuthLayout>
-//       {page}
-//     </AuthLayout>
-//   )
-// }
