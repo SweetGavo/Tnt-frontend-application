@@ -8,6 +8,9 @@ import ProductBox from "../../components/productBox";
 import Icon from "@mdi/react";
 import { mdiArrowRight, mdiMagnify } from "@mdi/js";
 import {get} from "../../utils/helperFunctions";
+
+
+
 function Index({products}) {
   const router = useRouter();
   const path = useMemo(() => {
