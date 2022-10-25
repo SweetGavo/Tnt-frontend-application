@@ -1,25 +1,29 @@
-import React, { useRef, useState } from "react";
-import AuthLayout from "../../layouts/authLayout";
-import Head from "next/head";
+import React, {useMemo, useState} from "react";
 import style from "../../styles/cart.module.scss";
-import Alert from "../../components/alert";
-import TextField from "../../components/textField";
 import Link from "next/link";
 import Button from "../../components/button";
-import Modal from "../../components/catModal";
 import Layouts from "../../layouts/layouts";
-import { BiTrash } from "react-icons/bi";
-import { AiOutlineArrowLeft } from "react-icons/ai";
 import img from "../../public/images/glogo.png";
-import { GrAdd } from "react-icons/gr";
-import { GrFormSubtract } from "react-icons/gr";
 import {toCurrency} from "../../utils/helperFunctions";
 import Icon from "@mdi/react";
 import {mdiArrowLeft, mdiMinus, mdiPlus, mdiTrashCan, mdiTrashCanOutline} from "@mdi/js";
 import {useDispatch, useSelector} from "react-redux";
 import {changeQuantity, removeItem} from "../../store/reducers/cart";
+import CatModal from "../../components/catModal";
+
+const initialData = {
+  phoneNumber: "",
+  address: "",
+  city: "",
+  state: "",
+  country: "",
+};
 
 function Index(props) {
+   const [openModal, setopenModal] = useState(false);
+
+  const [form, setFormField] = useState(initialData);
+  const {user} = useSelector(s => s.auth);
   const dispatch = useDispatch();
   const {itemsId,items} = useSelector(store=>store.cart);
   function deleteItem(product){
@@ -31,6 +35,25 @@ function Index(props) {
     dispatch(changeQuantity({productId:id,quantity:Number(value)}));
   }
 
+  const cartTotal = useMemo(()=>{
+      return itemsId.reduce((a,b)=>{
+          const {price,quantity} = items[b];
+          return (a + (price*quantity));
+      },0)
+  },[items,itemsId])
+
+  function setData(e){
+    const {name,value} = e.target;
+    setFormField((v)=>({...v,[name]:value}));
+  }
+
+
+  function createOrder(){
+    const products = itemsId.map(itemId=>({productId:itemId,quantity:items[itemId].quantity}));
+    const address = {id:user._id,...form};
+    const finalForm = {products,address};
+
+  }
 
   function cartContent(){
     if(!itemsId.length){
@@ -63,21 +86,18 @@ function Index(props) {
                         <Button className={style.buttons} size={'sm'} data-value={1} onClick={updateProductQuantity} data-id={product._id} style={'blue'}>
                           <Icon path={mdiPlus} className={'icon'}/>
                         </Button>
-
                       </div>
                     </div>
-
                     <div className={`col-md-4`}>
                       <div className={`flex flex-end ${style.priceSection}`}>
                         <p>{toCurrency(product.sellingPrice)}</p>
-                      </div>
+                       </div>
                     </div>
                     <div className={`${style.footer} col-md-12`}>
                       <Button style={'blue'} variant={'outline'} size={'sm'} onClick={()=>deleteItem(product)}>
                         <Icon path={mdiTrashCanOutline} className={'icon'}/>  Remove
                       </Button>
                     </div>
-
                   </section>
 
               )
@@ -90,9 +110,9 @@ function Index(props) {
                 <h3 className={style.title}>Summary</h3>
                 <div className={style.total}>
                   <p>Total</p>
-                  <h3>{toCurrency(1300)}</h3>
+                  <h3>{toCurrency(cartTotal)}</h3>
                 </div>
-                <div className={` ${style.checkoutButton}`}>
+                <div className={` ${style.checkoutButton}`} onClick={createOrder}>
                   <Button
                       radius={5}
                       style={'blue'}
@@ -109,29 +129,45 @@ function Index(props) {
     )
   }
 
+
+
   return (
     <div className={style.background}>
-      <div className={'container flex flex-wrap'}>
-        <div className={ `flex col-md-12 ${style.cartTop}`}>
-            <h3>Shopping cart</h3>
+      <div className={"container flex flex-wrap"}>
+        <div>
+          <Button
+            className={style.button}
+            onClick={() => {
+              setopenModal(true);
+            }}
+            variant={"outline"}
+            size={"large"}
+            radius={8}
+          >
+            {/* {/* {" "} 
+                  <Icon path={mdiArrowLeft} className={"icon"} /> } */}
+            Add Address
+          </Button>
+          {openModal && <CatModal closeModal={setopenModal} form={form} setData={setData} />}
+        </div>
 
-          <Link href={'/products'}>
-              <Button  className={style.button} variant={'outline'} size={'large'} radius={8}>
-                    {" "}
-                    <Icon path={mdiArrowLeft} className={'icon'}/> Back to shop
-              </Button>
+        <div className={`flex col-md-12 ${style.cartTop}`}>
+          <h3>Shopping cart</h3>
+
+          <Link href={"/products"}>
+            <Button
+              className={style.button}
+              variant={"outline"}
+              size={"large"}
+              radius={8}
+            >
+              {" "}
+              <Icon path={mdiArrowLeft} className={"icon"} /> Back to shop
+            </Button>
           </Link>
-
         </div>
         <div className={`col-md-12`}>
-            <div className={`flex `}>
-
-              {
-                cartContent()
-              }
-
-
-            </div>
+          <div className={`flex `}>{cartContent()}</div>
         </div>
       </div>
     </div>
