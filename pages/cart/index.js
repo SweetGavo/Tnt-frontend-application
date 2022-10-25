@@ -1,4 +1,4 @@
-import React, {useMemo} from "react";
+import React, {useMemo, useState} from "react";
 import style from "../../styles/cart.module.scss";
 import Link from "next/link";
 import Button from "../../components/button";
@@ -9,8 +9,21 @@ import Icon from "@mdi/react";
 import {mdiArrowLeft, mdiMinus, mdiPlus, mdiTrashCan, mdiTrashCanOutline} from "@mdi/js";
 import {useDispatch, useSelector} from "react-redux";
 import {changeQuantity, removeItem} from "../../store/reducers/cart";
+import CatModal from "../../components/catModal";
+
+const initialData = {
+  phoneNumber: "",
+  address: "",
+  city: "",
+  state: "",
+  country: "",
+};
 
 function Index(props) {
+   const [openModal, setopenModal] = useState(false);
+
+  const [form, setFormField] = useState(initialData);
+  const {user} = useSelector(s => s.auth);
   const dispatch = useDispatch();
   const {itemsId,items} = useSelector(store=>store.cart);
   function deleteItem(product){
@@ -103,29 +116,48 @@ function Index(props) {
     )
   }
 
+  function setData(e){
+    const {name,value} = e.target;
+    setFormField((v)=>({...v,[name]:value}));
+  }
+
   return (
     <div className={style.background}>
-      <div className={'container flex flex-wrap'}>
-        <div className={ `flex col-md-12 ${style.cartTop}`}>
-            <h3>Shopping cart</h3>
+      <div className={"container flex flex-wrap"}>
+        <div>
+          <Button
+            className={style.button}
+            onClick={() => {
+              setopenModal(true);
+            }}
+            variant={"outline"}
+            size={"large"}
+            radius={8}
+          >
+            {/* {/* {" "} 
+                  <Icon path={mdiArrowLeft} className={"icon"} /> } */}
+            Add Address
+          </Button>
+          {openModal && <CatModal closeModal={setopenModal} form={form} setData={setData} />}
+        </div>
 
-          <Link href={'/products'}>
-              <Button  className={style.button} variant={'outline'} size={'large'} radius={8}>
-                    {" "}
-                    <Icon path={mdiArrowLeft} className={'icon'}/> Back to shop
-              </Button>
+        <div className={`flex col-md-12 ${style.cartTop}`}>
+          <h3>Shopping cart</h3>
+
+          <Link href={"/products"}>
+            <Button
+              className={style.button}
+              variant={"outline"}
+              size={"large"}
+              radius={8}
+            >
+              {" "}
+              <Icon path={mdiArrowLeft} className={"icon"} /> Back to shop
+            </Button>
           </Link>
-
         </div>
         <div className={`col-md-12`}>
-            <div className={`flex `}>
-
-              {
-                cartContent()
-              }
-
-
-            </div>
+          <div className={`flex `}>{cartContent()}</div>
         </div>
       </div>
     </div>
