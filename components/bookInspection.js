@@ -17,79 +17,51 @@ const initialData={
   email:'',
   phoneNumber:''
 }
-
-
-function Index(props){
-  const alertRef = useRef();
-  const [form,setForm] = useState(initialData);
-  const [response,setResponse] = useState({
-    type:'error',
-    message:""
-});
-
-
-
-function setData({target}){
-  const {name,value} = target;
-  setForm((v)=>({...v, [name]:value}) );
-}
-
-
-
- function BookInspection({ closeModal,product }) {
+export default function BookInspection({ closeModal,product }) {
   const router = useRouter();
   const [form,setFormField] = useState(initialData);
   const {user} = useSelector(s=>s.auth);
+  console.log(user);
   const [currentView,setCurrentView] = useState('form');
 
-  function bookInspect(){
+  function bookInspection(){
     const formValue = {user:user._id}
       setCurrentView('reviewBooking');
   }
-
   function hideModal() {
     setCurrentView('form');
     closeModal();
   }
-
   function getView(){
     if(currentView === 'form'){
-      return <InspectionForm form={form} setData={setData} bookInspection={bookInspection}/>
+      return <InspectionForm form={form} setData={setData} bookInspection={bookInspect}/>
     }
-
     return  <ReviewBooking done={hideModal}/>
   }
-
-  
   useEffect(()=>{
     initialData.email = user.email;
     initialData.fullName = `${user.firstName} ${user.lastName}`;
     setFormField(initialData)
-  },[]);
-  
-  
-  
-    function setData(e){
-      const {name,value} = e.target;
-      setFormField((v)=>({...v,[name]:value}));
-  
-    }
-const bookInspection = () => {
-  post(url.bookInspectionsUrl, form)
-    .then(({data}) => {
-      const {token,user} = data.data;
-      setResponse({type:'success',
-      message:'Inspection Booked Successfully '})
-      setForm(initialData);
-        
-      })
 
-    .catch((e) => {
-        const  {response:{data:{message=""}}} = e;
-        setResponse(v => ({ type: 'error',message}));
-        alertRef.current.scrollIntoView();
-      });
+  },[user])
+  function setData(e){
+    const {name,value} = e.target;
+    setFormField((v)=>({...v,[name]:value}));
+  }
+ const bookInspect = () => {
+    post(url.inspectionsUrl,form)
+      .then(({data}) => {
+        const {token,user} = data.data;
+        console.log(token,user)
+        // setResponse({type:'success', message:' inspections Successful '})
+      },[])
 
+        .catch((e) => {
+          
+          const  {response:{data:{message=""}}} = e;
+          // setResponse(v => ({ type: 'error',message}));
+        });
+  };
 
   return (
     <div className={style.bookInspection}>
@@ -99,18 +71,10 @@ const bookInspection = () => {
           className={`icon ${style.closeIcon}`}
           onClick={hideModal}
         />
-
         {
           getView()
         }
-
       </div>
     </div>
   );
-};
- 
-}
-
-}
-
-export default Index;
+ }
