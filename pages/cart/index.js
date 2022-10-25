@@ -42,6 +42,19 @@ function Index(props) {
       },0)
   },[items,itemsId])
 
+  function setData(e){
+    const {name,value} = e.target;
+    setFormField((v)=>({...v,[name]:value}));
+  }
+
+
+  function createOrder(){
+    const products = itemsId.map(itemId=>({productId:itemId,quantity:items[itemId].quantity}));
+    const address = {id:user._id,...form};
+    const finalForm = {products,address};
+
+  }
+
   function cartContent(){
     if(!itemsId.length){
       return <p>Opps  no item in Cart</p>
@@ -99,7 +112,7 @@ function Index(props) {
                   <p>Total</p>
                   <h3>{toCurrency(cartTotal)}</h3>
                 </div>
-                <div className={` ${style.checkoutButton}`}>
+                <div className={` ${style.checkoutButton}`} onClick={createOrder}>
                   <Button
                       radius={5}
                       style={'blue'}
@@ -116,10 +129,7 @@ function Index(props) {
     )
   }
 
-  function setData(e){
-    const {name,value} = e.target;
-    setFormField((v)=>({...v,[name]:value}));
-  }
+
 
   return (
     <div className={style.background}>
