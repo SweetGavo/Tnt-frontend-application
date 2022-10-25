@@ -11,15 +11,16 @@ import Layouts from "../../layouts/layouts";
 import { BiTrash } from "react-icons/bi";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import img from "../../public/images/glogo.png";
-import { GrAdd } from "react-icons/gr";
-import { GrFormSubtract } from "react-icons/gr";
 import {toCurrency} from "../../utils/helperFunctions";
 import Icon from "@mdi/react";
 import {mdiArrowLeft, mdiMinus, mdiPlus, mdiTrashCan, mdiTrashCanOutline} from "@mdi/js";
 import {useDispatch, useSelector} from "react-redux";
 import {changeQuantity, removeItem} from "../../store/reducers/cart";
 
+
 function Index(props) {
+   const [openModal, setopenModal] = useState(false);
+
   const dispatch = useDispatch();
   const {itemsId,items} = useSelector(store=>store.cart);
   function deleteItem(product){
@@ -111,27 +112,41 @@ function Index(props) {
 
   return (
     <div className={style.background}>
-      <div className={'container flex flex-wrap'}>
-        <div className={ `flex col-md-12 ${style.cartTop}`}>
-            <h3>Shopping cart</h3>
+      <div className={"container flex flex-wrap"}>
+        <div>
+          <Button
+            className={style.button}
+            onClick={() => {
+              setopenModal(true);
+            }}
+            variant={"outline"}
+            size={"large"}
+            radius={8}
+          >
+            {/* {/* {" "} 
+                  <Icon path={mdiArrowLeft} className={"icon"} /> } */}
+            Add Address
+          </Button>
+          {openModal && <Modal closeModal={setopenModal} />}
+        </div>
 
-          <Link href={'/products'}>
-              <Button  className={style.button} variant={'outline'} size={'large'} radius={8}>
-                    {" "}
-                    <Icon path={mdiArrowLeft} className={'icon'}/> Back to shop
-              </Button>
+        <div className={`flex col-md-12 ${style.cartTop}`}>
+          <h3>Shopping cart</h3>
+
+          <Link href={"/products"}>
+            <Button
+              className={style.button}
+              variant={"outline"}
+              size={"large"}
+              radius={8}
+            >
+              {" "}
+              <Icon path={mdiArrowLeft} className={"icon"} /> Back to shop
+            </Button>
           </Link>
-
         </div>
         <div className={`col-md-12`}>
-            <div className={`flex `}>
-
-              {
-                cartContent()
-              }
-
-
-            </div>
+          <div className={`flex `}>{cartContent()}</div>
         </div>
       </div>
     </div>
