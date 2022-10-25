@@ -1,18 +1,9 @@
-import React, { useRef, useState } from "react";
-import AuthLayout from "../../layouts/authLayout";
-import Head from "next/head";
+import React, {useMemo} from "react";
 import style from "../../styles/cart.module.scss";
-import Alert from "../../components/alert";
-import TextField from "../../components/textField";
 import Link from "next/link";
 import Button from "../../components/button";
-import Modal from "../../components/catModal";
 import Layouts from "../../layouts/layouts";
-import { BiTrash } from "react-icons/bi";
-import { AiOutlineArrowLeft } from "react-icons/ai";
 import img from "../../public/images/glogo.png";
-import { GrAdd } from "react-icons/gr";
-import { GrFormSubtract } from "react-icons/gr";
 import {toCurrency} from "../../utils/helperFunctions";
 import Icon from "@mdi/react";
 import {mdiArrowLeft, mdiMinus, mdiPlus, mdiTrashCan, mdiTrashCanOutline} from "@mdi/js";
@@ -31,6 +22,12 @@ function Index(props) {
     dispatch(changeQuantity({productId:id,quantity:Number(value)}));
   }
 
+  const cartTotal = useMemo(()=>{
+      return itemsId.reduce((a,b)=>{
+          const {price,quantity} = items[b];
+          return (a + (price*quantity));
+      },0)
+  },[items,itemsId])
 
   function cartContent(){
     if(!itemsId.length){
@@ -63,21 +60,18 @@ function Index(props) {
                         <Button className={style.buttons} size={'sm'} data-value={1} onClick={updateProductQuantity} data-id={product._id} style={'blue'}>
                           <Icon path={mdiPlus} className={'icon'}/>
                         </Button>
-
                       </div>
                     </div>
-
                     <div className={`col-md-4`}>
                       <div className={`flex flex-end ${style.priceSection}`}>
                         <p>{toCurrency(product.sellingPrice)}</p>
-                      </div>
+                       </div>
                     </div>
                     <div className={`${style.footer} col-md-12`}>
                       <Button style={'blue'} variant={'outline'} size={'sm'} onClick={()=>deleteItem(product)}>
                         <Icon path={mdiTrashCanOutline} className={'icon'}/>  Remove
                       </Button>
                     </div>
-
                   </section>
 
               )
@@ -90,7 +84,7 @@ function Index(props) {
                 <h3 className={style.title}>Summary</h3>
                 <div className={style.total}>
                   <p>Total</p>
-                  <h3>{toCurrency(1300)}</h3>
+                  <h3>{toCurrency(cartTotal)}</h3>
                 </div>
                 <div className={` ${style.checkoutButton}`}>
                   <Button
