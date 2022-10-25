@@ -5,8 +5,8 @@
   border-radius: 5px;
 }
 .topBar{
-  padding: 5px;
-  margin-bottom: 20px;
+  padding: 5px 0;
+  margin: 20px 0;
   min-height: 60px;
   .height{
     height: 100%;
@@ -64,6 +64,7 @@
             padding: 10px 0px;
             font-size: 14px;
             font-weight: 500;
+            text-transform: capitalize;
           }
         }
     }

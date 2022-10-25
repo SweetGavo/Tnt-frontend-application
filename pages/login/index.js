@@ -55,6 +55,10 @@ function Index(props) {
     setResponse(v =>({...v, message:''}))
   }
 
+  useEffect(()=>{
+
+  },[])
+
   return (
     <div>
       <Head>
@@ -63,7 +67,7 @@ function Index(props) {
 
       <div className={"flex registration-container"}>
         <div className={`col-md-6 ${style.sideContainer}`}>
-          <img src={"images/harry-cunningham-7qCeFo19r24-unsplash.jpeg"} />
+          <img src={"/images/loginImage.png"} />
           <div className={style.textContent}>
             <div>
               <h1>Bringing the best deals</h1>

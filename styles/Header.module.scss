@@ -45,9 +45,37 @@
         list-style-type: none;
       }
     }
-    img{
-      margin-left: 25px;
-      margin-right: 5px;
+
+    .cartIcon{
+      position: relative;
+    }
+
+    .cartIcon:after{
+      content: attr(cartNumber);
+      font-size: 12px;
+      font-weight: 700;
+      width: 20px;
+      height: 20px;
+      background: $_black;
+      color: $_white;
+      top: -8px;
+      right: -8px;
+      position: absolute;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profilePhoto{
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      img{
+        margin-left: 25px;
+        margin-right: 5px;
+      }
     }
 
   }
