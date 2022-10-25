@@ -12,42 +12,7 @@ import { get, post } from "../utils/helperFunctions";
 import { url } from "../utils/urlHelpers";
 
 
-const initialData = {
-  phoneNumber: "",
-  address: "",
-  city: "",
-  state: "",
-  country: "",
-};
-
-
-const Modal = ({ closeModal }) => {
-
-  useEffect(() => {
-    data().then((res) => {
-      setFormField(res.data);
-    }).catch((error) => {
-      console.log(error);
-  })
-  },[]);
-  
-  const [form, setFormField] = useState(initialData);
-  const {user} = useSelector(s => s.auth);
-
-
-  const data =  async () =>  {
-     const result = await post(url.cartUrl,form);
-      console.log(result);
-  }
-
-
-
-
-
-    
-  
-
-
+const CatModal = ({ closeModal, form,setData }) => {
 
   return (
     <div className={`${style.modal} ${open ? style.open : ""}`}>
@@ -73,6 +38,7 @@ const Modal = ({ closeModal }) => {
             type={"email"}
             value={form.phoneNumber}
             name={"phoneNumber"}
+            onChange={setData}
           />
           <TextField
             placeholder="No 41 igbo efun"
@@ -80,6 +46,8 @@ const Modal = ({ closeModal }) => {
             label={"Address"}
             type={"email"}
             value={form.address}
+            name={"address"}
+            onChange={setData}
           />
           <TextField
             placeholder="Nigeria"
@@ -87,6 +55,8 @@ const Modal = ({ closeModal }) => {
             label={"Country"}
             type={"email"}
             value={form.country}
+            name={"country"}
+            onChange={setData}
           />
           <TextField
             placeholder="Lagos"
@@ -94,6 +64,8 @@ const Modal = ({ closeModal }) => {
             label={"State"}
             type={"email"}
             value={form.state}
+            name={"state"}
+            onChange={setData}
           />
           <TextField
             placeholder="Benin"
@@ -101,6 +73,8 @@ const Modal = ({ closeModal }) => {
             label={"City"}
             type={"email"}
             value={form.city}
+            name={"city"}
+            onChange={setData}
           />
           <Link style={{ marginLeft: "500px", marginTop: "100px" }} href="">
             <Button size={"sm"} style={"blue"} margin-top={"100px"} radius={5}>
@@ -113,4 +87,4 @@ const Modal = ({ closeModal }) => {
   );
 };
 
-export default Modal;
+export default CatModal;
