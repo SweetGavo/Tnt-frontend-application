@@ -21,9 +21,8 @@ const initialData = {
 };
 
 
-
-
 const Modal = ({ closeModal }) => {
+
   useEffect(() => {
     data().then((res) => {
       setFormField(res.data);
@@ -34,7 +33,6 @@ const Modal = ({ closeModal }) => {
   
   const [form, setFormField] = useState(initialData);
   const {user} = useSelector(s => s.auth);
-  console.log(user + 'user');
 
 
   const data =  async () =>  {
