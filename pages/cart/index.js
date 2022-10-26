@@ -1,15 +1,14 @@
-import React, {useMemo, useState} from "react";
-import style from "../../styles/cart.module.scss";
-import Link from "next/link";
-import Button from "../../components/button";
-import Layouts from "../../layouts/layouts";
-import img from "../../public/images/glogo.png";
-import {toCurrency} from "../../utils/helperFunctions";
+import { mdiArrowLeft, mdiMinus, mdiPlus, mdiTrashCanOutline } from "@mdi/js";
 import Icon from "@mdi/react";
-import {mdiArrowLeft, mdiMinus, mdiPlus, mdiTrashCan, mdiTrashCanOutline} from "@mdi/js";
-import {useDispatch, useSelector} from "react-redux";
-import {changeQuantity, removeItem} from "../../store/reducers/cart";
+import Link from "next/link";
+import React, { useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Button from "../../components/button";
 import CatModal from "../../components/catModal";
+import Layouts from "../../layouts/layouts";
+import { changeQuantity, removeItem } from "../../store/reducers/cart";
+import style from "../../styles/cart.module.scss";
+import { toCurrency } from "../../utils/helperFunctions";
 
 const initialData = {
   phoneNumber: "",
@@ -144,8 +143,7 @@ function Index(props) {
             size={"large"}
             radius={8}
           >
-            {/* {/* {" "} 
-                  <Icon path={mdiArrowLeft} className={"icon"} /> } */}
+            
             Add Address
           </Button>
           {openModal && <CatModal closeModal={setopenModal} form={form} setData={setData} />}
