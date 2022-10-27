@@ -5,13 +5,7 @@
  height: 500vh;
 }
 
-.btn{
-    width: 170px;
-    height: 60px;
-    left: 756px;
-    top: 1334px;
-}
-
+/* Rectangle 5 */
 
 .main{
     display: flex;
@@ -19,12 +13,14 @@
 }
 
 .tableDiv{
-    border: 1px solid $_black;
-    height: 40vh;
+    padding: 20vh;
+    height: 100vh;
+    width: 140vh;
+    margin-right: 5vh;
 }
 .table{
-    margin-top: 5vh;
-    margin-left: 30%;
+    margin-top: 10vh;
+    margin-left: 15%;
     border: 1px solid $_green;
     width: 70vh;
     height: 30vh;
@@ -34,6 +30,9 @@
 .tableBackgroundColor{
 background-color: $_green;
 }
+.btn{
+    width: 15vh;
+}
 .bor{
   border: 1px solid $_green;
 }
@@ -41,22 +40,41 @@ background-color: $_green;
 
 .greenback{
 background-color: $_green;
-height: 60vh;
+height: 90vh;
 
 }
 
 .whitesectionBack{
 background-color: $_white;
-width: 150vh;
-height: 35vh;
+width: 80%;
+height: 45vh;
 border-radius: 5px;
-margin-top: 8vh;
-margin-left: 6%;
+margin-top: 2vh;
+margin-left: 9.5%;
 display: flex;
 }
 
-.innerSectionDiv{
+.innerSecDivs{
+padding: 10vh; 
+}
 
+.blurback{
 
-    
+}
+
+.blur{
+
+}
+.bold{
+margin-left: 15vh;
+padding: 2vh;
+}
+.volumes{
+display: flex;
+padding: 10vh;
+justify-content: space-between;
+}
+.size{
+    height: 10vh;
+    width: 20vh;
 }
