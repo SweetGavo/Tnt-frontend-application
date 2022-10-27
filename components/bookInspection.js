@@ -57,7 +57,7 @@ export default function BookInspection({ closeModal,product }) {
       },[])
 
         .catch((e) => {
-          
+
           const  {response:{data:{message=""}}} = e;
           // setResponse(v => ({ type: 'error',message}));
         });
