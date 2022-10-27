@@ -50,6 +50,8 @@ export default function BookInspection({ closeModal,product }) {
     setFormField(initialData)
 
   },[user])
+
+  
   function setData(e){
     const {name,value} = e.target;
     setFormField((v)=>({...v,[name]:value}));
