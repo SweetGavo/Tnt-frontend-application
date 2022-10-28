@@ -189,11 +189,46 @@ function Index(props) {
               </h2>
             </p>
             <div className={style.volumes}>
-              <h3>ROSABON</h3>
-              <h3>AQUILA CAPITAL</h3>
-              <h3>ACCESS BANK</h3>
-              <h3>GLO</h3>
-              <h3>ICS</h3>
+              <div>
+                <span>
+                  <span>
+                    <h2 style={{ color: "#B0D235" }}> 56</h2>{" "}
+                  </span>
+                </span>
+                <h3>ROSABON</h3>
+              </div>
+              <div>
+                <span>
+                  <span>
+                    <h2 style={{ color: "#B0D235" }}> 34</h2>{" "}
+                  </span>
+                </span>
+
+                <h3>AQUILA CAPITAL</h3>
+              </div>
+              <div>
+                <span>
+                  <span>
+                    <h2 style={{ color: "#B0D235" }}>102</h2>{" "}
+                  </span>
+                </span>
+                <h3>ACCESS BANK</h3>
+              </div>
+              <div>
+                <span>
+                  <span>
+                    <h2 style={{ color: "#B0D235" }}> 303</h2>{" "}
+                  </span>
+                </span>
+                <h3>GLO</h3>
+              </div>
+              <div>
+                <span>
+                  <h2 style={{ color: "#B0D235" }}> 46</h2>{" "}
+                </span>
+
+                <h3>ICS</h3>
+              </div>
             </div>
           </div>
         </div>
@@ -205,17 +240,21 @@ function Index(props) {
             <h4>Contact</h4>
           </div>
           <div className={style.darkFooter}>
-            <p> Copyright © 2022 TandT Deal Markets | Credits</p>
-            <div style={{ background: "black", float: "right" }}>
-              <div className={style.icon}>
-                <div>
-                  <img src="/images/Vector.png" alt="" />
-                </div>
-                <div>
-                  <img src="images/Vectora.png" alt="" />
-                </div>
-                <div>
-                  <img src="/images/Vect.png" alt="" />
+            <div>
+              <div>
+                <p>Copyright © 2022 TandT Deal Markets | Credits</p>
+              </div>
+              <div style={{ background: "black", float: "right" }}>
+                <div className={style.icon}>
+                  <div>
+                    <img src="/images/Vector.png" alt="" />
+                  </div>
+                  <div>
+                    <img src="images/Vectora.png" alt="" />
+                  </div>
+                  <div>
+                    <img src="/images/Vect.png" alt="" />
+                  </div>
                 </div>
               </div>
             </div>
