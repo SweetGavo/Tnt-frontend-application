@@ -4,15 +4,16 @@ import NormHeader from "../../components/normHeader";
 import style from "../../styles/about-us.module.scss";
 import Layouts from "../../layouts/layouts";
 import Button from "../../components/button";
+import { mdiOpacity } from "@mdi/js";
 
 function Index(props) {
   return (
-    <div className={`col-md-12 ${style.container}`}>
+    <div className={style.container}>
       <div className={style.main}>
         <section>
-          <div>
-            <h1>About page</h1>
-            <p>
+          <div style={{ width: "100%" }}>
+            <h1 className={style.h1}>About page</h1>
+            <p style={{ marginTop: "10vh" }}>
               T & T deals market limited is a subsidiary of Miraton Matador
               group, registered and incorporated with CAC in May 1992, with a
               proven success in general trading , acquisition and re-sale of
@@ -32,7 +33,8 @@ function Index(props) {
             </p>
             <div>
               <img
-                src="/images/harry-cunningham-7qCeFo19r24-unsplash.jpeg"
+                style={{ height: "70vh", width: "70vh" }}
+                src="/images/Rectangle 5.png"
                 alt=""
               />
             </div>
@@ -41,7 +43,8 @@ function Index(props) {
         <section>
           <div>
             <img
-              src="/images/harry-cunningham-7qCeFo19r24-unsplash.jpeg"
+              style={{ height: "60vh", width: "70vh", marginLeft: "50px" }}
+              src="/images/Rectangle 5.png"
               alt=""
             />
           </div>
@@ -77,48 +80,50 @@ function Index(props) {
 
       <section>
         <div className={style.tableDiv}>
-          <table className={style.table}>
-            <tr className={style.tableBackgroundColor}>
-              <th>S/N</th>
-              <th>Suppliers</th>
-              <th>Buyers</th>
-            </tr>
-            <tr>
-              <td className={style.bor}>1</td>
-              <td className={style.bor}></td>
-              <td className={style.bor}></td>
-            </tr>
-            <tr>
-              <td className={style.bor}>2</td>
-              <td className={style.bor}></td>
-              <td className={style.bor}></td>
-            </tr>
-            <tr>
-              <td className={style.bor}>3</td>
-              <td className={style.bor}></td>
-              <td className={style.bor}></td>
-            </tr>
-            <tr>
-              <td className={style.bor}>5</td>
-              <td className={style.bor}></td>
-              <td className={style.bor}></td>
-            </tr>
-            <tr>
-              <td className={style.bor}>6</td>
-              <td className={style.bor}></td>
-              <td className={style.bor}></td>
-            </tr>
-            <tr>
-              <td className={style.bor}>7</td>
-              <td className={style.bor}></td>
-              <td className={style.bor}></td>
-            </tr>
-            <tr>
-              <td className={style.bor}>8</td>
-              <td className={style.bor}></td>
-              <td className={style.bor}></td>
-            </tr>
-          </table>
+          <div className={style.div}>
+            <table className={style.table}>
+              <tr className={style.tableBackgroundColor}>
+                <th>S/N</th>
+                <th>Suppliers</th>
+                <th>Buyers</th>
+              </tr>
+              <tr>
+                <td className={style.bor}>1</td>
+                <td className={style.bor}></td>
+                <td className={style.bor}></td>
+              </tr>
+              <tr>
+                <td className={style.bor}>2</td>
+                <td className={style.bor}></td>
+                <td className={style.bor}></td>
+              </tr>
+              <tr>
+                <td className={style.bor}>3</td>
+                <td className={style.bor}></td>
+                <td className={style.bor}></td>
+              </tr>
+              <tr>
+                <td className={style.bor}>5</td>
+                <td className={style.bor}></td>
+                <td className={style.bor}></td>
+              </tr>
+              <tr>
+                <td className={style.bor}>6</td>
+                <td className={style.bor}></td>
+                <td className={style.bor}></td>
+              </tr>
+              <tr>
+                <td className={style.bor}>7</td>
+                <td className={style.bor}></td>
+                <td className={style.bor}></td>
+              </tr>
+              <tr>
+                <td className={style.bor}>8</td>
+                <td className={style.bor}></td>
+                <td className={style.bor}></td>
+              </tr>
+            </table>
+          </div>
         </div>
       </section>
       <section>
@@ -134,7 +139,7 @@ function Index(props) {
           </div>
           <div className={style.whitesectionBack}>
             <div className={style.innerSecDivs}>
-              <img src="background: url(trend.png)" />
+              <img src="/images/trend 1.png" />
               <h3>Free valuation</h3>
               <p>
                 Unused asset and asset with zero shelf life can be uploaded to
@@ -143,7 +148,7 @@ function Index(props) {
             </div>
 
             <div className={style.innerSecDivs}>
-              <img src="background: url(trend.png)" />
+              <img src="/images/decision-making 1.png" />
 
               <h3>Instant decision</h3>
               <p>
@@ -152,7 +157,7 @@ function Index(props) {
               </p>
             </div>
             <div className={style.innerSecDivs}>
-              <img src="background: url(trend.png)" />
+              <img src="/images/web-security 1.png" />
 
               <h3>24hrs Payment</h3>
               <p>
@@ -163,26 +168,32 @@ function Index(props) {
           </div>
         </div>
       </section>
-      <div className={style.blurback}>
-        <div className={style.blur}>
-          <p className={style.bold}>
-            <h1>The numbers don't lie</h1>
-            Over the years , we have built an unbeatable trust between our
-            clients and partners
-          </p>
-          <p style={{ color: "black", marginLeft: "50vh" }}>
-            <h2>
-              Volume of transactions 2019(*
-              <span style={{ color: "#B0D235" }}>Millions</span>){" "}
-            </h2>
-          </p>
-          <section>
+      <div>
+        <div >
+          <section style={{ height: "100%" }}>
+            <p className={style.bold}>
+              <h1>The numbers don't lie</h1>
+              Over the years , we have built an unbeatable trust between our
+              clients and partners
+            </p>
+            <p style={{ color: "black", marginLeft: "50vh" }}>
+              <h2>
+                Volume of transactions 2019(*
+                <span style={{ color: "#B0D235" }}>Millions</span>){" "}
+              </h2>
+            </p>
             <div className={style.volumes}>
               <h3>ROSABON</h3>
               <h3>AQUILA CAPITAL</h3>
               <h3>ACCESS BANK</h3>
               <h3>GLO</h3>
               <h3>ICS</h3>
+            </div>
+            <div className={style.footer}>
+              <h4>Home</h4>
+              <h4>About</h4>
+              <h4>Service</h4>
+              <h4>Contact</h4>
             </div>
           </section>
         </div>
