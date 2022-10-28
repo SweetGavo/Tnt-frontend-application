@@ -1,47 +1,39 @@
-import React, {useRef, useState} from 'react';
+import React, {} from 'react';
 import Layouts from "../../layouts/layouts";
 import Button from "../../components/button";
 import style from "../../styles/Registration.module.scss";
-import {url} from "../../utils/urlHelpers";
-import Alert from "../../components/alert";
-import {post} from '../../utils/helperFunctions';
-import {loginUser} from "../../store/reducers/auth";
-import {useDispatch} from "react-redux";
 
 
 
 function Index(props) {
     return (
+        <div>
 
     <div className={'flex contact-container'}>
 
-        <div className={`col-md-6 ${style.sideContainer}`}>
-            <img src={'images/Rectangle 5.png'}   />
-            <div className={style.textContent}>
-                
-        </div>
-        </div>
         <div className={`col-md-6`}>
-            <div className={style.passwordcode}>
+            <div className={style.textContent}>
+            <img  src='/images/Headphones.png' alt='headphone'/>
+            
+            </div>
+        </div>
+        <div className={`col-md-6 `}>
+            <div className={style.formContainer}>
                 <h1>We are always available</h1>
-                
           <p>
-              We look forward to hearing from / meeting you!
+             We look forward to hearing from and meeting you!
           </p>
           <p>
-              3. John Great Court Alternative Route, Chevron Drive, Lekki-Epe Expressway,Lagos
+            <img src={'images/Vecto.png'} />  3. John Great Court Alternative Route, Chevron Drive, Lekki-Epe Expressway,Lagos
           </p>
           <p>
-              + 234 908 301 1144
+            <img src={'images/Vector (3).png'} />  + 234 908 301 1144
           </p>
           <p>
-              info@tandtdeals.ng
+            <img src={'images/Vector (2).png'} /> info@tandtdeals.ng
               enterprise@miratonrosematadorgroup.com
           </p>
     </div>
-                
-
-                
                 
     <div className={style.btn}>
           <Button
@@ -55,8 +47,20 @@ function Index(props) {
             </div>
         </div>
     </div>
+    <div className= {style.map}>
+     <div className={style.backgroundmap}>
+     <img  src='/images/map.png' alt='map'/>
+
+     </div>
+        
+    </div>
+    </div>
+
 );
 }
+
+                
+                
 
 Index.getLayout = function getLayout(page) {
 return <Layouts className={`fullwidth product-page`}>{page}</Layouts>;
