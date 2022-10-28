@@ -3,6 +3,8 @@
 .container{
  background-color: #ffff; 
  height: 50vh;
+//  display: inline-block;
+align-items: center;
 }
 
 
@@ -20,7 +22,7 @@
 .table{
     border: 1px solid $_green;
     width: 110vh;
-    padding: auto;
+    margin-left:2% ;
 }
 
 
@@ -40,7 +42,8 @@ height: 8vh;
 
 .greenback{
 background-color: $_green;
-height: 90vh;
+height: 80vh;
+display: block;
 
 }
 
@@ -67,7 +70,8 @@ padding: 10vh;
 
 .bold{
 margin-left: 15vh;
-padding: 2vh;
+padding: 20px;
+margin-top: 0;
 }
 .volumes{
 display: flex;
@@ -89,11 +93,13 @@ margin-top: 10vh;
 }
 
 .im{
-background-image : url("/images/20buildings-432-park-ave-superJumbo.jpeg");   
+margin-top:0;
+background-image : url(/images/OIP.jpeg);
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
-height: 350px;
+height: 750px;
+display: block;
 }
 .div{
     width: 100%;
@@ -114,8 +120,15 @@ height: 350px;
 }
 .darkFooter{
     background-color: $_black;
-    height: 10vh;
-    color: #ffff;
+    font-size: large;
+    height: 100px;
+}
+.icon{
+    justify-content: space-between;
+    width: 150px;
+    display: flex;
+    margin-right: 50px;
+    margin-top: 1vh;
 }
 
 
