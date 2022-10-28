@@ -3,6 +3,8 @@
 .container{
  background-color: #ffff; 
  height: 50vh;
+//  display: inline-block;
+align-items: center;
 }
 
 
@@ -20,7 +22,7 @@
 .table{
     border: 1px solid $_green;
     width: 110vh;
-    padding: auto;
+    margin-left:2% ;
 }
 
 
@@ -93,7 +95,7 @@ background-image : url("/images/20buildings-432-park-ave-superJumbo.jpeg");
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
-height: 350px;
+height: 750px;
 }
 .div{
     width: 100%;
@@ -114,8 +116,14 @@ height: 350px;
 }
 .darkFooter{
     background-color: $_black;
-    height: 10vh;
-    color: #ffff;
+    font-size: large;
+    height: 100px;
+}
+.icon{
+    justify-content: space-between;
+    width: 150px;
+    display: flex;
+    margin-right: 50px;
 }
 
 
