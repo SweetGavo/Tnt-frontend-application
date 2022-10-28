@@ -12,6 +12,7 @@ import InspectionForm from "./inspectionForm";
 import ReviewBooking from "./reviewBooking";
 import { url } from "../utils/urlHelpers";
 
+
 const initialData={
   fullName:'',
   email:'',
@@ -32,18 +33,25 @@ export default function BookInspection({ closeModal,product }) {
     setCurrentView('form');
     closeModal();
   }
-  function getView(){
-    if(currentView === 'form'){
-      return <InspectionForm form={form} setData={setData} bookInspection={bookInspect}/>
+
+  function getView() {
+    if (currentView === 'form') {
+      return <InspectionForm form={form} setData={setData} bookInspection={bookInspection} />
     }
-    return  <ReviewBooking done={hideModal}/>
+      
+    return <ReviewBooking done={hideModal} />
   }
+   
+  
+
   useEffect(()=>{
     initialData.email = user.email;
     initialData.fullName = `${user.firstName} ${user.lastName}`;
     setFormField(initialData)
 
   },[user])
+
+  
   function setData(e){
     const {name,value} = e.target;
     setFormField((v)=>({...v,[name]:value}));
@@ -74,6 +82,7 @@ export default function BookInspection({ closeModal,product }) {
         {
           getView()
         }
+    
       </div>
     </div>
   );

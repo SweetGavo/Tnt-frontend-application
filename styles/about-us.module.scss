@@ -1,0 +1,62 @@
+@import "colors";
+
+.container{
+ background-color: $_white; 
+ height: 500vh;
+}
+
+.btn{
+    width: 170px;
+    height: 60px;
+    left: 756px;
+    top: 1334px;
+}
+
+
+.main{
+    display: flex;
+
+}
+
+.tableDiv{
+    border: 1px solid $_black;
+    height: 40vh;
+}
+.table{
+    margin-top: 5vh;
+    margin-left: 30%;
+    border: 1px solid $_green;
+    width: 70vh;
+    height: 30vh;
+
+}
+
+.tableBackgroundColor{
+background-color: $_green;
+}
+.bor{
+  border: 1px solid $_green;
+}
+
+
+.greenback{
+background-color: $_green;
+height: 60vh;
+
+}
+
+.whitesectionBack{
+background-color: $_white;
+width: 150vh;
+height: 35vh;
+border-radius: 5px;
+margin-top: 8vh;
+margin-left: 6%;
+display: flex;
+}
+
+.innerSectionDiv{
+
+
+    
+}
