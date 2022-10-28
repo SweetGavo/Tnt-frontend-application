@@ -12,9 +12,9 @@ function Index(props) {
       <div className={style.container}>
         <div className={style.main}>
           <section>
-            <div style={{ width: "100%" }}>
+            <div style={{ width: "100%", padding: "50px" }}>
               <h1 className={style.h1}>About page</h1>
-              <p style={{ marginTop: "10vh" }}>
+              <p style={{ marginTop: "3vh" }}>
                 T & T deals market limited is a subsidiary of Miraton Matador
                 group, registered and incorporated with CAC in May 1992, with a
                 proven success in general trading , acquisition and re-sale of
@@ -32,9 +32,9 @@ function Index(props) {
                 selling well over 40 vehicle in the midst of the covid-19
                 economy crisis.
               </p>
-              <div>
+              <div style={{ width: "120" }}>
                 <img
-                  style={{ height: "70vh", width: "70vh" }}
+                  style={{ height: "60vh", width: "70vh" }}
                   src="/images/Rectangle 5.png"
                   alt=""
                 />
@@ -42,14 +42,19 @@ function Index(props) {
             </div>
           </section>
           <section>
-            <div>
+            <div style={{ marginTop: "8vh" }}>
               <img
-                style={{ height: "60vh", width: "70vh", marginLeft: "50px" }}
+                style={{
+                  height: "50vh",
+                  width: "50vh",
+                  marginLeft: "15vh",
+                  marginTop: "",
+                }}
                 src="/images/Rectangle 5.png"
                 alt=""
               />
             </div>
-            <div>
+            <div style={{ padding: "5vh", marginTop: "5vh" }}>
               <p>
                 We are constantly growing our customer base as well developing
                 new market strategies to enable us reach various client in
@@ -127,50 +132,50 @@ function Index(props) {
             </div>
           </div>
         </section>
-        <section>
-          <div className={style.greenback}>
-            <div>
-              <h1 style={{ color: "white" }} className={style.bold}>
-                What we do with ease
-                <p style={{ color: "white" }}>
-                  Over the years , we have built an unbeatable trust between our
-                  clients and partners
-                </p>
-              </h1>
+        <div>
+          <section>
+            <div className={style.greenback}>
+              <div>
+                <h1 style={{ color: "white" }} className={style.bold}>
+                  What we do with ease
+                  <p style={{ color: "white" }}>
+                    Over the years , we have built an unbeatable trust between
+                    our clients and partners
+                  </p>
+                </h1>
+              </div>
+              <div className={style.whitesectionBack}>
+                <div className={style.innerSecDivs}>
+                  <img src="/images/trend 1.png" />
+                  <h3>Free valuation</h3>
+                  <p>
+                    Unused asset and asset with zero shelf life can be uploaded
+                    to increase asset turn around time in corporations.
+                  </p>
+                </div>
+
+                <div className={style.innerSecDivs}>
+                  <img src="/images/decision-making 1.png" />
+
+                  <h3>Instant decision</h3>
+                  <p>
+                    Create up-to-date designs without writing a single line of
+                    code. Build clean, minimalistic, beautifully crafted
+                    websites
+                  </p>
+                </div>
+                <div className={style.innerSecDivs}>
+                  <img src="/images/web-security 1.png" />
+
+                  <h3>24hrs Payment</h3>
+                  <p>
+                    Confirmation of payment in 24 hours; once our terms and
+                    conditions for fees has been agreed to.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className={style.whitesectionBack}>
-              <div className={style.innerSecDivs}>
-                <img src="/images/trend 1.png" />
-                <h3>Free valuation</h3>
-                <p>
-                  Unused asset and asset with zero shelf life can be uploaded to
-                  increase asset turn around time in corporations.
-                </p>
-              </div>
-
-              <div className={style.innerSecDivs}>
-                <img src="/images/decision-making 1.png" />
-
-                <h3>Instant decision</h3>
-                <p>
-                  Create up-to-date designs without writing a single line of
-                  code. Build clean, minimalistic, beautifully crafted websites
-                </p>
-              </div>
-              <div className={style.innerSecDivs}>
-                <img src="/images/web-security 1.png" />
-
-                <h3>24hrs Payment</h3>
-                <p>
-                  Confirmation of payment in 24 hours; once our terms and
-                  conditions for fees has been agreed to.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
+          </section>
           <div className={style.im}>
             <p className={style.bold}>
               <h1>The numbers don't lie</h1>
@@ -191,7 +196,8 @@ function Index(props) {
               <h3>ICS</h3>
             </div>
           </div>
-
+        </div>
+        <section>
           <div className={style.footer}>
             <h4>Home</h4>
             <h4>About</h4>
