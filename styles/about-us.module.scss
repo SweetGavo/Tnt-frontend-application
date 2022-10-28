@@ -88,12 +88,12 @@ margin-top: 10vh;
     bottom: 0;
 }
 
-.image{
+.im{
 background-image : url("/images/20buildings-432-park-ave-superJumbo.jpeg");   
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
-height: 60vh;
+height: 350px;
 }
 .div{
     width: 100%;
@@ -112,4 +112,10 @@ height: 60vh;
 .h1{
     font-size: larger;
 }
+.darkFooter{
+    background-color: $_black;
+    height: 10vh;
+    color: #ffff;
+}
+
 

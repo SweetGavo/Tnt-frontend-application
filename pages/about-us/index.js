@@ -169,8 +169,8 @@ function Index(props) {
         </div>
       </section>
       <div>
-        <div >
-          <section style={{ height: "100%" }}>
+        <div>
+          <section className={style.im}>
             <p className={style.bold}>
               <h1>The numbers don't lie</h1>
               Over the years , we have built an unbeatable trust between our
@@ -194,6 +194,21 @@ function Index(props) {
               <h4>About</h4>
               <h4>Service</h4>
               <h4>Contact</h4>
+            </div>
+            <div className={style.darkFooter}>
+              <div>
+                Copyright © 2022 TandT Deal Markets | Credits
+                <span>
+                  <img src="/images/Vector.png" alt="" />
+                </span>
+                <span>
+                
+                  <img src="images/Vector(1).png" alt="" />
+                </span>
+                <span>
+                  <img src="/images/Vect.png" alt="" />
+                </span>
+              </div>
             </div>
           </section>
         </div>
