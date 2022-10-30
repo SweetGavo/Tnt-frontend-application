@@ -12,7 +12,12 @@ import { get, post } from "../utils/helperFunctions";
 import { url } from "../utils/urlHelpers";
 
 
-const CatModal = ({ closeModal, form,setData }) => {
+const CatModal = ({ closeModal, form,setData,saveAddress }) => {
+
+  function submitForm(){
+    saveAddress();
+    closeModal();
+  }
 
   return (
     <div className={`${style.modal} ${open ? style.open : ""}`}>
@@ -76,11 +81,9 @@ const CatModal = ({ closeModal, form,setData }) => {
             name={"city"}
             onChange={setData}
           />
-          <Link style={{ marginLeft: "500px", marginTop: "100px" }} href="">
-            <Button size={"sm"} style={"blue"} margin-top={"100px"} radius={5}>
+            <Button size={"sm"} style={"blue"} margin-top={"100px"} radius={5} onClick={submitForm}>
               Summit
             </Button>
-          </Link>
         </div>
       </div>
     </div>

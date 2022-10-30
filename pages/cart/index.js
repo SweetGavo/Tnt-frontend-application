@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import style from "../../styles/cart.module.scss";
 import Link from "next/link";
 import Button from "../../components/button";
@@ -10,6 +10,7 @@ import {mdiArrowLeft, mdiMinus, mdiPlus, mdiTrashCan, mdiTrashCanOutline} from "
 import {useDispatch, useSelector} from "react-redux";
 import {changeQuantity, removeItem} from "../../store/reducers/cart";
 import CatModal from "../../components/catModal";
+import {ADDRESSKEY} from "../../utils/textHelper";
 
 const initialData = {
   phoneNumber: "",
@@ -52,7 +53,11 @@ function Index(props) {
     const products = itemsId.map(itemId=>({productId:itemId,quantity:items[itemId].quantity}));
     const address = {id:user._id,...form};
     const finalForm = {products,address};
+    console.log(JSON.stringify(finalForm));
+  }
 
+  function saveAddress(){
+    localStorage.setItem(ADDRESSKEY,JSON.stringify(form));
   }
 
   function cartContent(){
@@ -60,8 +65,28 @@ function Index(props) {
       return <p>Opps  no item in Cart</p>
     }
 
+
+
+
+
     return (
         <>
+          <div className={`col-md-12 flex ${style.addressSection}`}>
+            <Button
+                className={`${style.button} ${style.addressButton}`}
+                onClick={() => {
+                  setopenModal(true);
+                }}
+                variant={"outline"}
+                size={"large"}
+                radius={8}
+            >
+              {/* {/* {" "}
+                  <Icon path={mdiArrowLeft} className={"icon"} /> } */}
+              Add Address
+            </Button>
+            {openModal && <CatModal closeModal={setopenModal} form={form} setData={setData} saveAddress={saveAddress}/>}
+          </div>
           <div className={`col-md-9 ${style.content} `}>
           {
             itemsId.map(item=>{
@@ -112,11 +137,13 @@ function Index(props) {
                   <p>Total</p>
                   <h3>{toCurrency(cartTotal)}</h3>
                 </div>
-                <div className={` ${style.checkoutButton}`} onClick={createOrder}>
+                <div className={` ${style.checkoutButton}`} >
                   <Button
                       radius={5}
+                      variant={'block'}
                       style={'blue'}
                       size={'large'}
+                      onClick={createOrder}
                   >
                     Pay with CloudPay
                   </Button>
@@ -130,27 +157,16 @@ function Index(props) {
   }
 
 
+  useEffect(()=>{
+    const localAddress = localStorage.getItem(ADDRESSKEY);
+    if(localAddress){
+      setFormField(JSON.parse(localAddress));
+    }
+  },[setFormField]);
 
   return (
     <div className={style.background}>
       <div className={"container flex flex-wrap"}>
-        <div>
-          <Button
-            className={style.button}
-            onClick={() => {
-              setopenModal(true);
-            }}
-            variant={"outline"}
-            size={"large"}
-            radius={8}
-          >
-            {/* {/* {" "} 
-                  <Icon path={mdiArrowLeft} className={"icon"} /> } */}
-            Add Address
-          </Button>
-          {openModal && <CatModal closeModal={setopenModal} form={form} setData={setData} />}
-        </div>
-
         <div className={`flex col-md-12 ${style.cartTop}`}>
           <h3>Shopping cart</h3>
 
@@ -167,7 +183,7 @@ function Index(props) {
           </Link>
         </div>
         <div className={`col-md-12`}>
-          <div className={`flex `}>{cartContent()}</div>
+          <div className={`flex flex-wrap`}>{cartContent()}</div>
         </div>
       </div>
     </div>

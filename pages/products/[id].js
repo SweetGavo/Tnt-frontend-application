@@ -12,7 +12,7 @@ import Tab from "../../components/tab";
 import {get, toCurrency} from "../../utils/helperFunctions";
 import Modal from "../../components/modal";
 import BookInspection from "../../components/bookInspection";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addItem} from "../../store/reducers/cart";
 
 
@@ -27,6 +27,7 @@ function ViewProduct({product}) {
 
     const [openModal,setModalStatus] = useState(false);
     const [currentImageIndex,setCurrentImageIndex] = useState(0);
+    const {items} = useSelector(s=>s.cart);
 
     function openBooking(){
         setModalStatus(true);
@@ -92,6 +93,7 @@ function ViewProduct({product}) {
                                     <Button style={'blue'} size={'large'} radius={5} onClick={addItemToCart}>Add to Cart</Button>
                                     <Button onClick={openBooking} variant={'outline'}  style={'blue'} size={'large'} radius={5}>Book an inspection</Button>
                                 </div>
+                                <p>{(product._id in items)?'Item Added To Cart':''}</p>
                             </div>
                         </div>
                     </div>

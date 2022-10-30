@@ -1,8 +1,8 @@
-import React, { memo } from 'react';
+import React, {forwardRef, memo} from 'react';
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-function Button({ variant = 'fill', style = 'black', size = 'large', radius = 0, to = '', children, className, ...others }) {
+function Button({ variant = 'fill', style = 'black', size = 'large', radius = 0, to = '', children, className, ...others },ref) {
     const router = useRouter();
 
     return (
@@ -17,4 +17,4 @@ function Button({ variant = 'fill', style = 'black', size = 'large', radius = 0,
     );
 }
 
-export default memo(Button);
+export default  memo(forwardRef(Button));
