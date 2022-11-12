@@ -1,0 +1,20 @@
+@import "colors";
+.tabsCover{
+  .tabs{
+    display: flex;
+    .tab{
+      padding: 5px 8px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    :global(.active){
+      color: $_green;
+      border-bottom: 4px solid;
+    }
+  }
+
+  .tabContent{
+    padding: 50px 20px;
+  }
+}
+

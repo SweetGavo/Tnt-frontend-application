@@ -2,10 +2,12 @@
 .header{
   display: flex;
   align-items: center;
+  min-height: 80px;
 
   .menu-spacing{
     padding: 10px 30px;
     font-size: 14px;
+    font-weight: 600;
     color: $_black;
   }
   .logoContainer{
@@ -15,12 +17,13 @@
   }
   .nav{
     flex-grow: 1;
-    margin-right: 40px;
+    margin-right: 0;
     .menu{
       list-style-type: none;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       margin: 0;
+      padding: 0;
       .menuItems{
       display: inline-block;
         a{
@@ -35,11 +38,43 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-
+    justify-content: flex-end;
     li{
       a{
         @extend .menu-spacing;
         list-style-type: none;
+      }
+    }
+
+    .cartIcon{
+      position: relative;
+    }
+
+    .cartIcon:after{
+      content: attr(data-cart-number);
+      font-size: 12px;
+      font-weight: 700;
+      width: 20px;
+      height: 20px;
+      background: $_black;
+      color: $_white;
+      top: -8px;
+      right: -8px;
+      position: absolute;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profilePhoto{
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      img{
+        margin-left: 25px;
+        margin-right: 5px;
       }
     }
 

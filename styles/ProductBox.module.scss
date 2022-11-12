@@ -1,0 +1,25 @@
+@import "colors";
+.productBox{
+  margin-bottom: 10px;
+  padding: 20px;
+  .productImage{
+      img{
+        width:100%
+      }
+    margin-bottom: 15px;
+  }
+
+  .productInfo{
+     .productName{
+       text-transform: capitalize;
+       color: $_text_grey;
+       font-size: 16px;
+       font-weight: 400;
+     }
+
+    .productPrice{
+      color:$_text_black;
+      font-weight: 500;
+    }
+  }
+}
