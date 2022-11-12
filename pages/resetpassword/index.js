@@ -30,17 +30,19 @@ export default function Home(passwordcode) {
   const alertRef = useRef();
 
   function resetPassword(){
-        post(url.resetPassword)
+    console.log(email);
+        post(url.resetPassword,{email})
             .then(({status,data})=>{
                 if(status){
                   setResponse({type:'success', message:data.data.message});
                   setTimeout(()=>{
                     router.push('/passwordcode')
-                  },500);
+                  },2000);
                 }
             })
             .catch(e=>{
-              setResponse({type:'success', message:'Sorry Try again'});
+              console.log(e.message);
+              setResponse({type:'error', message:'Sorry Try again'});
             });
   }
 
@@ -61,12 +63,10 @@ export default function Home(passwordcode) {
         </div>
 
 
-          <TextField placeholder='Jonathandoe@gmail.com' variant={'outline'} label={'Email address'} type={'email'} />
-          <Link style={{ marginLeft: '500px', marginTop: '100px' }} href="/passwordcode">
-            <Button size={'sm'} style={"blue"} margin-top={"100px"} radius={5}>
+          <TextField placeholder='Jonathandoe@gmail.com' variant={'outline'} onChange={({target})=>{setEmail(target.value)}} label={'Email address'} type={'email'} />
+            <Button size={'sm'} style={"blue"} margin-top={"100px"} radius={5} block={true} onClick={resetPassword}>
               Proceed
             </Button>
-          </Link>
         </div>
 
       </div>

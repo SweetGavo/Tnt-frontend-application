@@ -10,9 +10,9 @@ function AuthLayout({children}) {
     useEffect(()=>{
         const components = router.components;
         const path = Object.keys(components).find(path=>components[path].initial === true );
-        console.log(auth.isLogin);
+        const redirect  = (path && path !== router.pathname)?path:'/';
         if (auth.isLogin){
-            router.push((path!== router.pathname)?path:'/');
+            router.push(redirect);
         }
     },[router,auth.isLogin])
 

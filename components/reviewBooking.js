@@ -10,13 +10,13 @@ function ReviewBooking({done}) {
             <div  >
                 <div className={style.topText}>
                     <h3 >Book a review appointment</h3>
-                    <div><FcOk/></div>
+                    <div className={style.checkMark}><img src="/images/lf30_v2PAPH.json%5Dcheck%20mark.svg" alt=""/></div>
                     <h3 >Inspection booked Succesfully</h3>
 
-                    <p>Inspection details sent to your email address and phone number</p>
+                    <p className={style.reviewMessage}>Inspection details sent to your email address and phone number</p>
                 </div>
-                <div>
-                        <Button size={'sm'} style={"blue"} margin-top={"100px"} radius={5} onClick={done}>
+                <div className={`flex flex-center`}>
+                        <Button size={'large'} style={"blue"} margin-top={"100px"} radius={5} onClick={done}>
                             Done
                         </Button>
                 </div>

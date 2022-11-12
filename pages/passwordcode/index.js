@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useMemo} from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import Layouts from "../../layouts/layouts";
@@ -8,64 +8,54 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import style from "../../styles/Global.module.scss";
 import Link from 'next/link';
+import ResetCode from "../../components/resetCode";
+import ResetPassword from "../../components/resetPassword";
 
 
 
-const values = "".padEnd(6,' ').split('').fill('',0);
+
+
 export default function Home() {
-    const [input, setInput] = useState([]);
+    const [form,setFormField] = useState({
+        newPassword:"",
+        verificationCode:""
+    });
 
-    function setValue({target}){
-                    const {name,value}=target;
-                    let index = Number(name);
-                    const newValue = [...input];
-                    newValue[index] = value;
-                    setInput(newValue);
-               const next = index + 1;
-               if (value && next == values.length){
-                    target.blur();
-                    return true;
-               }
-
-               if(value){
-                  const element = document.querySelector(`#input${next}`);
-                  element.focus();
-               }
+    const views = {
+        'code': {
+            component:ResetCode,
+            'field':'verificationCode',
+        },
+        'resetPassword':{
+            component:ResetPassword,
+            'field':'newPassword'
+        }
     }
 
+
+
+    const [currentView,setCurrentView] = useState('code');
+
+    const fieldValues = useMemo(()=>{
+        return form[views[currentView].field];
+    },[currentView]);
+
+    const View = useMemo(()=>{
+        return views[currentView].component;
+    },[currentView]);
+
+
+    function resetPassword(){
+            console.log(form);
+    }
+
+
     return (
-        <div className={style.passwordcode}>
-            <div>
-                <div className={style.topText}>
-                    <h3>Reset Password</h3>
-                    <p>Enter the code sent to your email</p>
-                </div>
-
-                <form>
-                    <div className={'style.formGroup'}>
-                        {
-                            values.map((value,index) =>(
-                            <TextField className={style.boxes} type="text" name={index} key={index} id={`input${index}`} onChange={setValue} maxLength="1" />
-                            ))
-                        }
-
-                    </div>
-
-                    <div style={{marginTop:"1rem"}}>
-                        <Link style={{ marginLeft: '650px', marginTop: '100px' }} href="/confirmpassword">
-                            <Button size={'sm'} className={style.resetButton} style={"blue"}   radius={5}>
-                                Proceed
-                            </Button>
-                        </Link>
-                    </div>
-                </form>
-                
-
-
-
-
-            </div>
-        </div>
+        <>
+            {
+                <View setView={setCurrentView} currentValue={fieldValues} setFormField={setFormField} done={resetPassword}  />
+            }
+        </>
     )
 }
 

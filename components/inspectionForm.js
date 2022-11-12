@@ -36,7 +36,7 @@ function InspectionForm({form,setData,bookInspection}) {
                 onChange={setData}
             />
 
-            <Button size={"sm"} style={"blue"} margin-top={"100px"} radius={5} onClick={bookInspection}>
+            <Button  size={"sm"} style={"blue"} margin-top={"100px"} radius={5} onClick={bookInspection}>
                 Book an inspection
             </Button>
         </>

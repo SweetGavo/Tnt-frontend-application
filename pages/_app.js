@@ -13,16 +13,8 @@ function MyApp({ Component, pageProps }) {
     let user = isLogin ? JSON.parse(storageUser) : "";
     store.dispatch(setUser({ isLogin, user }));
     store.dispatch(getFromMemory());
-    if('serviceWorker' in window.navigator){
-      window.navigator.serviceWorker.register('/worker/serviceworker.js').then(w=>{
-        Notification.requestPermission().then(permission=>{
-          console.log(permission);
-        });
-        console.log('service worker installed');
-      }).catch(e=>{
-        console.log(e.message);
-      })
-    }
+
+
   }, []);
   const getLayout = Component.getLayout || ((page) => page);
 

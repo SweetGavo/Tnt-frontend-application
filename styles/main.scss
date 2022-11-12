@@ -20,7 +20,7 @@ $position : [fixed,relative,absolute,sticky];
 
 .fullwidth{
   padding: 10px;
-  background: $_grey_background;
+  background: $_white;
   min-height: calc(100vh - 90px);
 }
 
@@ -49,19 +49,48 @@ $position : [fixed,relative,absolute,sticky];
   color:$_text_grey;
 }
 
+.text-green{
+  color: $_green;
+}
+
+
 .text-center{
   text-align: center;
 }
 
+.text-error{
+  color: $_error_text;
+}
+
+
+.no-padding{
+  padding: 0px;
+}
+
+
+
+.no-margin{
+  margin: 0;
+}
+.justify-space-between{
+  justify-content: space-between;
+}
+
+.justify-center{
+  justify-content: center;
+}
 @for $i from 1 through 6{
   h#{$i}{
     @extend .text-black;
     font-weight: 700;
+    margin: 0 !important;
   }
 }
 
 p{
   @extend .text-grey;
+  font-size: 18px;
+  line-height: 27px;
 }
 body{
   height: 100vh;
@@ -151,6 +180,25 @@ $flex_positions : start,center, end;
 
 
 
+section{
+  padding: 50px 0;
+
+  .title{
+      font-size: 40px;
+      line-height: 60px;
+      margin: 0px !important;
+  }
+
+  .sub-title{
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0px !important;
+  }
+
+}
+
+
+
 .container{
   max-width: 1200px;
   margin: 0 auto;
@@ -178,6 +226,10 @@ img{
   justify-content: center;
   cursor: pointer;
   width: fit-content;
+}
+
+.btn svg{
+  margin-left: 20px;
 }
 
 .btn-block{
@@ -249,6 +301,10 @@ img{
   border-radius: 5px;
 }
 
+.flex-reverse{
+  flex-direction: row-reverse;
+}
+
 .alert{
     @extend .position_relative;
     padding: 20px 10px;
@@ -279,9 +335,9 @@ img{
 }
 .alert-error{
   background: $_error;
-  color: $_error_text;
+  @extend .text-error;
     .alert-message{
-       color:$_error_text;
+       @extend .text-error;
     }
 }
 

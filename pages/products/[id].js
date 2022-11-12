@@ -14,6 +14,8 @@ import Modal from "../../components/modal";
 import BookInspection from "../../components/bookInspection";
 import {useDispatch, useSelector} from "react-redux";
 import {addItem} from "../../store/reducers/cart";
+import Link from "next/link";
+
 
 
 function ViewProduct({product}) {
@@ -42,20 +44,17 @@ function ViewProduct({product}) {
     return (
         <section className={style.productPageWrapper}>
             <Modal open={openModal} onClose={()=>setModalStatus(false)}>
-                <BookInspection closeModal={()=>{setModalStatus(false)}}/>
+                <BookInspection product={product._id} closeModal={()=>{setModalStatus(false)}}/>
             </Modal>
+            {/* <Modal open={openModal} onClose={()=>setModalStatus(false)}>
+                <reviewAppointment closeModal={()=>setModalStatus (false)}/>
+            </Modal> */}
             <div className="flex container flex-wrap">
                 <div className={`col-md-12 `}>
                     <div className={`flex flex-start ${style.topBar}`}>
                         <div className="col-md-3">
                             <p className={`${style.breadcrumbs} flex `}>
-                                <span >Home</span>{
-                                path.map((path,index) =>(
-                                    <span  key={index}>
-                                  {`/${path}`}
-                              </span>
-                                ))
-                            }
+                                <span className={`text-green`} >Home</span>/<Link href={`/products`}><span className={`text-green`}>Products</span></Link>/<span className={`text-black`}>{product?.name ||'' }</span>
                             </p>
                         </div>
                     </div>
@@ -121,7 +120,7 @@ function ViewProduct({product}) {
                                     </div>
                                     <div className={style.reviews}>
                                         <div className={style.review}>
-                                            <p>"Fantastic Buy, Best car in town; i love the car"</p>
+                                            <p>Fantastic Buy, Best car in town; i love the car</p>
                                             <div className={style.userDetails}><Icon path={mdiAccountCircleOutline} className={'icon'}/> Anonymous</div>
                                             <textarea rows={4}></textarea>
                                         </div>

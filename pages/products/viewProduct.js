@@ -110,7 +110,7 @@ function ViewProduct(props) {
                                         </div>
                                         <div className={style.reviews}>
                                             <div className={style.review}>
-                                                <p>"Fantastic Buy, Best car in town; i love the car"</p>
+                                                {/* <p>"Fantastic Buy, Best car in town; i love the car"</p> */}
                                                 <div className={style.userDetails}><Icon path={mdiAccountCircleOutline} className={'icon'}/> Anonymous</div>
                                                 <textarea rows={4}></textarea>
                                             </div>

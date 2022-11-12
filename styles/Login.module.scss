@@ -52,6 +52,7 @@
     .buttons {
         @extend .margin_bottom;
         font-weight: 600;
+        width: 100%;
 
         .gLogo {
             width: 25px;

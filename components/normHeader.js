@@ -64,7 +64,7 @@ function NormHeader(props) {
                         <Link href={'/about-us'}>About us</Link>
                     </li>
                     <li  className={style.menuItems}>
-                        <Link href={'/service'}>Service</Link>
+                        <Link href={'/services'}>Service</Link>
                     </li>
                     <li  className={style.menuItems}>
                         <Link href={'/contact'}>Contact</Link>

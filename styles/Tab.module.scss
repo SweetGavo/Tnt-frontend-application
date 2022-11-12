@@ -7,7 +7,7 @@
       font-weight: 500;
       cursor: pointer;
     }
-    .active{
+    :global(.active){
       color: $_green;
       border-bottom: 4px solid;
     }

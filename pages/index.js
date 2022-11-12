@@ -1,11 +1,42 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Layouts from "../layouts/layouts";
 import Button from "../components/button";
-import {mdiArrowRight, mdiChevronRight} from "@mdi/js";
+import {mdiArrowRight, mdiCart, mdiChevronRight} from "@mdi/js";
 import Icon from "@mdi/react";
 import Style from "../styles/Home.module.scss"
+import Link from "next/link";
+import Tab from "../components/tab";
+import {toCurrency} from "../utils/helperFunctions";
 
 function Index(props) {
+    useEffect(()=>{
+        if('serviceWorker' in window.navigator){
+            window.navigator.serviceWorker.register('/sw.js').then(w=>{
+                Notification.requestPermission().then(permission=>{
+                    console.log(permission);
+                });
+                console.log('service worker installed');
+            }).catch(e=>{
+                console.log(e.message);
+            })
+
+            window.navigator.serviceWorker.ready.then(worker=>{
+                console.log(window.navigator.serviceWorker);
+                window.navigator.serviceWorker.controller.postMessage({message:"hello this is the message i want to send"})
+            }).catch(e=>{
+                console.log(e.message);
+            });
+
+            window.navigator.serviceWorker.onmessage =(event)=>{
+                console.log(event.data);
+            }
+
+
+
+            window.navigator.serviceWorker.startMessages();
+        }
+    },[])
+
     return (
         <>
          <section className={`${Style.bannerArea}`}>
@@ -15,9 +46,12 @@ function Index(props) {
                      <h1 className={` ${Style.bannerTitle}`}>Bringing the best deals your way</h1>
                      <p>T and T Markets Limited resale of metal scrap materials,used company items like
                          Generators, Furniture, Electrical equipment, machineries and heavy equipment.</p>
-                     <Button className={`${Style.button}`} size={'large'} radius={5}>Shop Now
-                         <Icon path={mdiArrowRight} className={'icon'}/>
-                     </Button>
+                     <Link href={"/products"}>
+                         <Button className={`${Style.button}`} size={'large'} radius={5}>Shop Now
+                             <Icon path={mdiArrowRight} className={'icon'}/>
+                         </Button>
+                     </Link>
+
                  </div>
 
                  <div className={`col-md-6 ${Style.bannerImageArea}`}>
@@ -33,6 +67,121 @@ function Index(props) {
                  </div>
              </div>
          </section>
+
+            <section>
+                <div className={`container flex flex-center`}>
+                    <div className={`col-md-12 ${Style.availProd}`}>
+                        <div className={`${Style.top}`}>
+                            <h3 className={`text-black title`}>Available products</h3>
+                            <hr/>
+                        </div>
+                        <div className={`${Style.content}`}>
+                            <Tab tabs={['vehincles','phones','drugs','accessories']}>
+                                <div className={`flex flex-wrap ${Style.productsContainer}`}>
+                                    <div className={`col-md-6 ${Style.item}`}>
+                                        <article>
+                                            <div className={`${Style.imageCover}`}>
+                                                <img src="/images/2016-Toyota-C-HR-exterior-static-8-e1479105090829-1200x630-removebg-preview%201display.png" alt="tnt-product"/>
+                                            </div>
+                                            <div className={`flex justify-space-between`}>
+
+                                                <div className={`${Style.productDetails}`}>
+                                                    <h4 className={`no-margin`}>Toyota Camry</h4>
+                                                    <p className={`no-margin`}>{toCurrency(2400)}</p>
+                                                </div>
+                                                <Button variant={'outline'} className={`${Style.cartButton}`} >
+                                                    Add to Cart <Icon path={mdiCart} className={'icon'} />
+                                                </Button>
+                                            </div>
+                                        </article>
+
+                                    </div>
+                                    <div className={`col-md-6 ${Style.item}`}>
+                                        <article>
+                                            <div className={`${Style.imageCover}`}>
+                                                <img src="/images/2016-Toyota-C-HR-exterior-static-8-e1479105090829-1200x630-removebg-preview%201display.png" alt="tnt-product"/>
+                                            </div>
+                                            <div className={`flex justify-space-between`}>
+
+                                                <div className={`${Style.productDetails}`}>
+                                                    <h4 className={`no-margin`}>Toyota Camry</h4>
+                                                    <p className={`no-margin`}>{toCurrency(2400)}</p>
+                                                </div>
+                                                <Button variant={'outline'} className={`${Style.cartButton}`} >
+                                                    Add to Cart <Icon path={mdiCart} className={'icon'} />
+                                                </Button>
+                                            </div>
+                                        </article>
+
+                                    </div>
+                                    <div className={`col-md-6 ${Style.item}`}>
+                                        <article>
+                                            <div className={`${Style.imageCover}`}>
+                                                <img src="/images/2016-Toyota-C-HR-exterior-static-8-e1479105090829-1200x630-removebg-preview%201display.png" alt="tnt-product"/>
+                                            </div>
+                                            <div className={`flex justify-space-between`}>
+
+                                                <div className={`${Style.productDetails}`}>
+                                                    <h4 className={`no-margin`}>Toyota Camry</h4>
+                                                    <p className={`no-margin`}>{toCurrency(2400)}</p>
+                                                </div>
+                                                <Button variant={'outline'} className={`${Style.cartButton} cart-button`} >
+                                                    Add to Cart <Icon path={mdiCart} className={'icon'} />
+                                                </Button>
+                                            </div>
+                                        </article>
+
+                                    </div>
+                                    <div className={`col-md-6 flex flex-align-center justify-center ${Style.item}`}>
+                                        <Link href={"/products"}>
+                                            <Button className={`shopNowButton ${Style.button}`} style={'blue'} size={'large'} radius={5}>Shop Now
+                                                <Icon path={mdiArrowRight} className={'icon'}/>
+                                            </Button>
+                                        </Link>
+                                    </div>
+                                </div>
+                                <div className={`flex flex-wrap ${Style.productsContainer}`}>
+                                    <div className={`col-md-6 ${Style.item}`}>
+
+                                    </div>
+                                    <div className={`col-md-6 ${Style.item}`}>
+
+                                    </div>
+                                    <div className={`col-md-6 ${Style.item}`}>
+
+                                    </div>
+                                </div>
+                                <div className={`flex flex-wrap ${Style.productsContainer}`}>
+                                    <div className={`col-md-6 ${Style.item}`}>
+
+                                    </div>
+                                    <div className={`col-md-6 ${Style.item}`}>
+
+                                    </div>
+                                    <div className={`col-md-6 ${Style.item}`}>
+
+                                    </div>
+                                </div>
+                                <div className={`flex  flex-wrap ${Style.productsContainer}`}>
+                                    <div className={`col-md-6 ${Style.item}`}>
+
+                                    </div>
+                                    <div className={`col-md-6 ${Style.item}`}>
+
+                                    </div>
+                                    <div className={`col-md-6 ${Style.item}`}>
+
+                                    </div>
+                                </div>
+
+                            </Tab>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </section>
 
             <section className={``}>
                 <div className={`container flex flex-center `}>
@@ -55,9 +204,12 @@ function Index(props) {
                             company items like Generators, Furniture, Electrical equipment,
                             machineries and heavy equipment.
                         </p>
-                        <Button className={`shopNowButton ${Style.button}`} style={'blue'} size={'large'} radius={5}>Shop Now
-                            <Icon path={mdiArrowRight} className={'icon'}/>
-                        </Button>
+                        <Link href={"/products"}>
+                            <Button className={`shopNowButton ${Style.button}`} style={'blue'} size={'large'} radius={5}>Shop Now
+                                <Icon path={mdiArrowRight} className={'icon'}/>
+                            </Button>
+                        </Link>
+
                     </div>
 
                     <div className={`col-md-6`}>
@@ -73,9 +225,12 @@ function Index(props) {
                             company items like Generators, Furniture, Electrical equipment,
                             machineries and heavy equipment.
                         </p>
-                        <Button className={`shopNowButton ${Style.button}`} style={'blue'} size={'large'} radius={5}>Shop Now
-                            <Icon path={mdiArrowRight} className={'icon'}/>
-                        </Button>
+                        <Link href={"/products"}>
+                            <Button className={`shopNowButton ${Style.button}`} style={'blue'} size={'large'} radius={5}>Shop Now
+                                <Icon path={mdiArrowRight} className={'icon'}/>
+                            </Button>
+                        </Link>
+
                     </div>
 
                     <div className={`col-md-6`}>
@@ -143,8 +298,8 @@ function Index(props) {
                                                     <img src="/images/Ellipse%201.jpg" alt=""/>
                                                 </div>
                                                 <div className={`${Style.testimonialDetails} flex column content-center`}>
-                                                    <h5>Adewole Balogun</h5>
-                                                    <p>Ass. Operations manager, GTBank</p>
+                                                    <h5>Busolami Adefoluke</h5>
+                                                    <p>Sales manager, Vermal Cars</p>
                                                 </div>
                                             </div>
                                             <div className={`${Style.testimonial} flex `}>
@@ -152,13 +307,21 @@ function Index(props) {
                                                     <img src="/images/Ellipse%201.jpg" alt=""/>
                                                 </div>
                                                 <div className={`${Style.testimonialDetails} flex column content-center`}>
-                                                    <h5>Adewole Balogun</h5>
-                                                    <p>Ass. Operations manager, GTBank</p>
+                                                    <h5>Paulina Stevens</h5>
+                                                    <p>Sales manager, Vermal Cars</p>
                                                 </div>
                                             </div>
                                     </div>
                             </div>
-                            <div className={`col-md-6`}>
+                            <div className={`col-md-6 `}>
+                                <div className={`${Style.testimony}`}>
+                                    <h3 className={`title`}>Great Experience</h3>
+                                    <img src="/images/rating.png" alt=""/>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum neque fermentum suscipit arcu enim
+                                        vestibulum, donec.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum neque fermentum suscipit arcu enim
+                                        vestibulum, donec.</p>
+                                </div>
 
                             </div>
                         </div>
@@ -174,9 +337,12 @@ function Index(props) {
                             items like Generators, Furniture, Electrical equipment, machineries and
                             heavy equipment.
                         </p>
-                        <Button className={`${Style.button}`} size={'large'} radius={5}>Shop Now
-                            <Icon path={mdiArrowRight} className={'icon'}/>
-                        </Button>
+                        <Link href={'/products'}>
+                            <Button className={`${Style.button}`} size={'large'} radius={5}>Shop Now
+                                <Icon path={mdiArrowRight} className={'icon'}/>
+                            </Button>
+                        </Link>
+
                     </div>
                 </div>
             </section>

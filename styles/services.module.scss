@@ -1,0 +1,84 @@
+@import "colors";
+.services{
+
+  .intro{
+    h3{
+      font-weight: 600;
+    }
+    p{
+      max-width: 867px;
+      padding-right: 10px;
+      margin-bottom: 47px;
+    }
+  }
+
+  .service{
+    .serviceDescription{
+      position: relative;
+      .underlay{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 62%;
+        left: 0;
+        border-radius: 10px;
+        z-index: -1;
+
+        background: $_underlay_grey;
+      }
+      .textCover{
+        padding-left: 35px;
+      }
+      align-items: center;
+      padding: 75px 0px;
+      p{
+        max-width: 602px;
+      }
+
+      img{
+        width: 100%;
+        max-width: unset;
+        border-radius: 10px;
+      }
+    }
+    .serviceLists{
+          .lists{
+            margin-right: -20px;
+            margin-left: -20px;
+            .item{
+              padding: 0 20px;
+              p{
+                display: flex;
+                align-items: center;
+                font-weight: 500;
+                img{
+                  height: 24px;
+                  width: 24px;
+                  margin-right: 15px;
+                  border-radius: 0;
+                }
+              }
+
+              img{
+                width: 100%;
+                max-width: unset;
+                border-radius: 10px;
+              }
+            }
+          }
+     }
+
+    .reverseDescription{
+      flex-direction: row-reverse;
+
+      .underlay{
+        right: 0;
+        left: unset;
+      }
+    }
+
+    .serviceDescription,.serviceLists{
+      margin-bottom: 100px ;
+    }
+  }
+}
