@@ -27,9 +27,12 @@ const Index = () => {
     );
 }
 
+Index.getInitialProps = ()=>{
+    return {}
+}
+
 Index.getLayout = function getLayout(page) {
     return <Layouts>{page}</Layouts>;
   };
-  
+
   export default Index;
-  

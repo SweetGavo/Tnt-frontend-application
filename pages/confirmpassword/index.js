@@ -4,6 +4,7 @@ import Button from "../../components/button";
 import style from "../../styles/Global.module.scss";
 import Link from 'next/link';
 import AuthLayout from "../../layouts/authLayout";
+import Index from "../authpage";
 
 
 
@@ -33,6 +34,9 @@ export default function Home() {
 
 
 
+Home.getInitialProps = ()=>{
+  return {}
+}
 
 
 

@@ -120,6 +120,9 @@ export async function getServerSideProps(context){
   }
 }
 
+
+
+
 Index.getLayout = function getLayout(page) {
   return <GuardLayout className={`fullwidth product-page`}><Layouts>{page}</Layouts></GuardLayout>;
 };

@@ -10,6 +10,7 @@ import {useRouter} from "next/router";
 import Button from "../../components/button";
 import Tab from "../../components/tab";
 import {get} from "../../utils/helperFunctions";
+import Index from "../authpage";
 
 
 function ViewProduct(props) {
@@ -132,6 +133,9 @@ function ViewProduct(props) {
     );
 }
 
+ViewProduct.getInitialProps = ()=>{
+    return {}
+}
 
 
 ViewProduct.getLayout = function getLayout(page){

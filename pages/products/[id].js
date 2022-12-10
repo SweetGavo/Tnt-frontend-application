@@ -15,6 +15,7 @@ import BookInspection from "../../components/bookInspection";
 import {useDispatch, useSelector} from "react-redux";
 import {addItem} from "../../store/reducers/cart";
 import Link from "next/link";
+import Index from "../authpage";
 
 
 
@@ -158,6 +159,7 @@ export async function getServerSideProps(req){
         props:{product}
     }
 }
+
 
 ViewProduct.getLayout = function getLayout(page){
     return <Layouts className={`fullwidth product-page`}>
