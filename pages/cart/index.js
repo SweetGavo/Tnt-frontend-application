@@ -185,6 +185,11 @@ function Index(props) {
   );
 }
 
+Index.getInitialProps = ()=>{
+  return {}
+}
+
+
 Index.getLayout = function getLayout(page) {
   return <Layouts className={`fullwidth product-page`}>{page}</Layouts>;
 };
