@@ -6,8 +6,13 @@
     .addressDetails{
       h3{
         font-weight: 600;
+
       }
       padding: 40px;
+
+      @media (max-width: 967px) {
+        padding: 0;
+      }
     }
     img{
       width: 100%;

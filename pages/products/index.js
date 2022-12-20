@@ -20,9 +20,9 @@ function Index({products}) {
   return (
     <section className={style.productPageWrapper}>
       <div className="flex container flex-wrap">
-        <div className={`col-md-12 `}>
+        <div className={`col-md-12 col-sm-12`}>
           <div className={`flex flex-start ${style.topBar}`}>
-            <div className="col-md-3">
+            <div className="col-md-3 ">
               <p className={`${style.breadcrumbs} flex `}>
                 <span className={`text-green`}>Home</span>
                 {path.map((path, index) => (
@@ -30,7 +30,7 @@ function Index({products}) {
                 ))}
               </p>
             </div>
-            <div className={`col-md-6`}>
+            <div className={`col-md-6 col-sm-none`}>
               <TextField
                 variant={"outline"}
                 prependIcon={() => (
@@ -50,7 +50,7 @@ function Index({products}) {
             </div>
           </div>
         </div>
-        <aside className={`col-md-3 side ${style.sideBar}`}>
+        <aside className={`col-md-3 col-sm-none side ${style.sideBar}`}>
           <section>
             <h2 className={style.sectionTitle}>Categories</h2>
             <ul className={style.sectionItems}>
@@ -91,7 +91,7 @@ function Index({products}) {
             <ul className={style.sectionItems}></ul>
           </section>
         </aside>
-        <div className={"col-md-9"}>
+        <div className={"col-md-9 col-sm-12"}>
           <div className={`flex flex-wrap ${style.productList}`}>
             {
               products.map(product=><ProductBox product={product} key={product._id} />)
@@ -124,7 +124,7 @@ export async function getServerSideProps(context){
 
 
 Index.getLayout = function getLayout(page) {
-  return <GuardLayout className={`fullwidth product-page`}><Layouts>{page}</Layouts></GuardLayout>;
+  return <Layouts>{page}</Layouts>;
 };
 
 export default Index;

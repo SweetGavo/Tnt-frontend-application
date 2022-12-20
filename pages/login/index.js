@@ -48,7 +48,10 @@ function Index(props) {
         const  {response:{data:{message=""}}} = e;
         setResponse(v => ({ type: 'error',message}));
         alertRef.current.scrollIntoView();
-      });
+      }).catch((e)=>{
+      setResponse(v => ({ type: 'error',message:"please sorry can't login now try again later"}));
+      alertRef.current.scrollIntoView();
+    });
   };
 
   function closeAlert(){
@@ -65,8 +68,8 @@ function Index(props) {
         <meta name={"description"} content={"login"} />
       </Head>
 
-      <div className={"flex registration-container"}>
-        <div className={`col-md-6 ${style.sideContainer}`}>
+      <div className={"flex flex-wrap registration-container"}>
+        <div className={`col-md-6 col-sm-none col-sm-12 ${style.sideContainer}`}>
           <img src={"/images/loginImage.png"} />
           <div className={style.textContent}>
             <div>
@@ -74,7 +77,7 @@ function Index(props) {
             </div>
           </div>
         </div>
-        <div className={`col-md-6 `}>
+        <div className={`col-md-6 col-sm-12`}>
           <div className={style.formContainer}>
             <h1>Login to your account</h1>
             <p>

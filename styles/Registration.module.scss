@@ -19,13 +19,17 @@
     z-index: -1;
   }
 
-  
+
 
 }
 
 .formContainer{
   @extend .margin-top;
   padding: 20px 20% 60px 15%;
+
+  @media (max-width: 967px) {
+    padding: 40px;
+  }
 
   h1{
     font-size: 25px;

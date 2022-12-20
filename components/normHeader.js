@@ -4,7 +4,7 @@ import style from "../styles/Header.module.scss";
 import Link from "next/link";
 import Button from "./button";
 import Icon from "@mdi/react";
-import {mdiArrowRight, mdiCartOutline, mdiChevronDown} from "@mdi/js";
+import {mdiArrowRight, mdiCartOutline, mdiChevronDown,mdiMenu} from "@mdi/js";
 import {useDispatch, useSelector} from "react-redux";
 import Menu, {MenuItem} from "./menu";
 import {logoutUser} from "../store/reducers/auth";
@@ -48,7 +48,7 @@ function NormHeader(props) {
             </>
         )
     }
-    
+
     return (
         <Header>
             <div className={style.logoContainer}>
@@ -56,6 +56,28 @@ function NormHeader(props) {
             <div className={'col-md-3'}>
             </div>
             <nav className={style.nav}>
+
+                <Menu items={()=>{
+                    return (
+                        <>
+                            <MenuItem onClick={logout}>
+                                <Link href={'/'}>Home</Link>
+                            </MenuItem>
+                            <MenuItem onClick={logout}>
+                                <Link href={'/about-us'}>About us</Link>
+                            </MenuItem>
+                            <MenuItem onClick={logout}>
+                                <Link href={'/services'}>Service</Link>
+                            </MenuItem>
+                            <MenuItem onClick={logout}>
+                                <Link href={'/contact'}>Contact</Link>
+                            </MenuItem>
+                        </>
+
+                    )
+                }}  className={style.mobileMenu}>
+                    <Icon className={`icon ${style.mobileMenuIcon}`} path={mdiMenu} />
+                </Menu>
                 <ul className={style.menu}>
                     <li  className={style.menuItems}>
                         <Link href={'/'}>Home</Link>

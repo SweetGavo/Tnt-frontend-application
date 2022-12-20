@@ -38,7 +38,6 @@ function ViewProduct({product}) {
 
     function addItemToCart(){
         const toCart = {...product,quantity:1};
-        console.log(toCart);
         dispatch(addItem({product:toCart}))
     }
 
@@ -70,7 +69,7 @@ function ViewProduct({product}) {
 
                                 {
                                     product?.attachments.map((itm,index)=>(
-                                        <div className={`col-md-4 ${style.imageThumb}` } key={index}>
+                                        <div className={`col-md-4 col-sm-4 ${style.imageThumb}` } key={index}>
                                             <img src={itm.thumbnailUrl} alt={product.name} onClick={()=>setCurrentImageIndex(index)}/>
                                         </div>
                                     ))

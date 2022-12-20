@@ -25,9 +25,20 @@
         z-index: -1;
 
         background: $_underlay_grey;
+
+        @media (max-width: 967px) {
+          width: 100%;
+        }
       }
+
+
       .textCover{
         padding-left: 35px;
+
+        @media (max-width: 967px) {
+          padding-left: unset;
+          padding-bottom: 35px;
+        }
       }
       align-items: center;
       padding: 75px 0px;
@@ -79,6 +90,10 @@
 
     .serviceDescription,.serviceLists{
       margin-bottom: 100px ;
+
+      @media (max-width: 967px) {
+        margin-bottom: 40px;
+      }
     }
   }
 }

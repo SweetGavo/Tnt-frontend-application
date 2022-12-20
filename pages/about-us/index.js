@@ -14,7 +14,7 @@ function Index(props) {
             <section className={`flex ${style.aboutContent}`}>
                 <div className="container ">
                     <div className={`flex ${style.content}`}>
-                        <div className={`col-md-6 ${style.contentCover}`}>
+                        <div className={`col-md-6 col-sm-12 ${style.contentCover}`}>
                             <h3 className={`title`}>About page</h3>
                             <p>
                                 T & T deals market limited is a subsidiary of Miraton Matador
@@ -36,7 +36,7 @@ function Index(props) {
                             </p>
 
                         </div>
-                        <div className={`col-md-6 ${style.contentCover}`}>
+                        <div className={`col-md-6 col-sm-12 ${style.contentCover}`}>
                             <img
                                 src="/images/about us.png"
                                 alt=""
@@ -44,7 +44,7 @@ function Index(props) {
                         </div>
                     </div>
                     <div className={`flex flex-reverse ${style.content}`}>
-                        <div className={`col-md-6 ${style.contentCover}`}>
+                        <div className={`col-md-6 col-sm-12 ${style.contentCover}`}>
                             <p>
                                 We are constantly growing our customer base as well developing
                                 new market strategies to enable us reach various client in
@@ -69,7 +69,7 @@ function Index(props) {
                             </Button>
 
                         </div>
-                        <div className={`col-md-6 ${style.contentCover}`}>
+                        <div className={`col-md-6 col-sm-12 ${style.contentCover}`}>
                             <img
                                 src="/images/about us.png"
                                 alt=""
@@ -176,7 +176,7 @@ function Index(props) {
                             <span className={`text-green`}>Millions</span>)
                         </p>
 
-                        <div className={`flex justify-space-between`}>
+                        <div className={`flex justify-space-between ${style.metricsCover}`}>
                             <div className={`${style.metrics}`}>
                                 <h4 className={`text-green title`}>56</h4>
                                 <p className={`text-black text-center sub-title`}>ROSABON</p>

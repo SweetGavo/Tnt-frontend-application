@@ -5,7 +5,7 @@ import Link from "next/link";
 function ProductBox({cols=4,product,...others}) {
 
     return (
-        <div className={`${style.productBox} product-cover col-md-${cols}`} {...others} >
+        <div className={`${style.productBox} product-cover col-md-${cols} col-sm-12`} {...others} >
             <Link href={`/products/${product?._id}`}>
                 <a>
                         <div className={` ${style.productImage}`}>

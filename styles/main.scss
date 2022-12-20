@@ -149,6 +149,9 @@ body{
 
 .icon{
   width: 25px;
+   @media (max-width: 967px) {
+     width: 15px;
+   }
 }
 $flex_positions : start,center, end;
 @each $flex in $flex_positions {
@@ -163,9 +166,17 @@ $flex_positions : start,center, end;
   .col-sm-#{$i}{
     width: #{$_width}#{$_perc};
   }
+
+
+}
+.col-sm-none{
+  display: none;
 }
 
 @media (min-width: 967px) {
+  .col-sm-none{
+    display: initial;
+  }
   @for $i from 1 through 12{
     $_width: ($i/12) * 100;
     .col-md-#{$i}{
@@ -187,12 +198,23 @@ section{
       font-size: 40px;
       line-height: 60px;
       margin: 0px !important;
+
+    @media (max-width: 967px) {
+      font-size: 25px;
+      line-height: 30px;
+    }
   }
 
   .sub-title{
     font-size: 20px;
     line-height: 30px;
     margin: 0px !important;
+
+    @media (max-width: 967px) {
+      font-size: 16px;
+      line-height: 20px;
+      margin: 0px !important;
+    }
   }
 
 }
@@ -230,6 +252,10 @@ img{
 
 .btn svg{
   margin-left: 20px;
+
+  @media (max-width: 967px) {
+    margin-left: 10px;
+  }
 }
 
 .btn-block{
@@ -257,6 +283,10 @@ img{
 .shopNowButton{
   svg{
     margin-left: 15px;
+
+    @media (max-width:967px ) {
+      margin-left: 10px;
+    }
   }
 }
 
@@ -272,6 +302,11 @@ img{
   font-size: 16px;
   min-width: 110px;
   font-weight: 600;
+
+  @media (max-width: 967px) {
+    padding: 10px;
+    font-size: 14px;
+  }
 }
 
 .btn-black{
@@ -352,5 +387,12 @@ img{
 @media (min-width: 1500px) {
   .container{
     max-width: 1400px;
+  }
+}
+
+@media (max-width: 967px) {
+  section{
+    padding-left: 40px !important;
+    padding-right: 40px !important;
   }
 }

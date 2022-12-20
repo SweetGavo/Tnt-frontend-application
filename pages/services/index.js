@@ -25,9 +25,9 @@ function Index(props) {
             </section>
             <section className={`${style.service}`}>
                 <div className={`container`}>
-                    <div className={`flex ${style.serviceDescription}`}>
+                    <div className={`flex flex-wrap ${style.serviceDescription}`}>
                         <div className={style.underlay}></div>
-                        <div className={`col-md-6`}>
+                        <div className={`col-md-6 col-sm-12`}>
                             <div className={style.textCover}>
                                 <h3>Assets Buying</h3>
                                 <p>T and T Markets Limited; a subsidiary of Miraton Matador Group
@@ -40,22 +40,22 @@ function Index(props) {
                             </div>
 
                         </div>
-                        <div className={`col-md-6`}>
+                        <div className={`col-md-6 col-sm-12`}>
                             <img src="/images/Rectangle 2729asset.png" alt=""/>
                         </div>
                     </div>
                     <div className={`${style.serviceLists}`}>
                         <h3>Assets we are involved in</h3>
-                        <div className={`flex ${style.lists}`}>
-                            <div className={`col-md-4 ${style.item}`}>
+                        <div className={`flex flex-wrap ${style.lists}`}>
+                            <div className={`col-md-4 col-sm-12 ${style.item}`}>
                                 <p className={`text-black`}><img src="/images/Group%207275assetsicon.png" alt=""/> Used generators</p>
                                 <img src="/images/Rectangle%202used%20generators.png" alt=""/>
                             </div>
-                            <div className={`col-md-4 ${style.item}`}>
+                            <div className={`col-md-4 col-sm-12 ${style.item}`}>
                                 <p className={`text-black`}><img src="/images/Group%207275assetsicon.png" alt=""/> Used cars</p>
                                 <img src="/images/Rectangle%203used%20cars.png" alt=""/>
                             </div>
-                            <div className={`col-md-4 ${style.item}`}>
+                            <div className={`col-md-4 col-sm-12 ${style.item}`}>
                                 <p className={`text-black`}><img src="/images/Group%207275assetsicon.png" alt=""/> Used air conditioning units</p>
                                 <img src="/images/Rectangle%204air%20condition.png" alt=""/>
                             </div>
@@ -65,9 +65,9 @@ function Index(props) {
             </section>
             <section className={`${style.service}`}>
                 <div className={`container`}>
-                    <div className={`flex ${style.serviceDescription} ${style.reverseDescription}`}>
+                    <div className={`flex flex-wrap ${style.serviceDescription} ${style.reverseDescription}`}>
                         <div className={style.underlay}></div>
-                        <div className={`col-md-6`}>
+                        <div className={`col-md-6 col-sm-12`}>
                             <div className={style.textCover}>
                                 <h3>Sales of items</h3>
                                 <p>T and T Markets Limited; a subsidiary of Miraton Matador Group
@@ -79,22 +79,22 @@ function Index(props) {
                             </div>
 
                         </div>
-                        <div className={`col-md-6`}>
+                        <div className={`col-md-6 col-sm-12`}>
                             <img src="/images/Rectangle 2729asset.png" alt=""/>
                         </div>
                     </div>
                     <div className={`${style.serviceLists}`}>
                         <h3>Assets we are involved in</h3>
-                        <div className={`flex ${style.lists}`}>
-                            <div className={`col-md-4 ${style.item}`}>
+                        <div className={`flex flex-wrap ${style.lists}`}>
+                            <div className={`col-md-4 col-sm-12 ${style.item}`}>
                                 <p className={`text-black`}><img src="/images/Group%207275assetsicon.png" alt=""/> Metal scraps</p>
                                 <img src="/images/recycle.png" alt=""/>
                             </div>
-                            <div className={`col-md-4 ${style.item}`}>
+                            <div className={`col-md-4 col-sm-12 ${style.item}`}>
                                 <p className={`text-black`}><img src="/images/Group%207275assetsicon.png" alt=""/>Used office furniture</p>
                                 <img src="/images/office furniture.png" alt=""/>
                             </div>
-                            <div className={`col-md-4 ${style.item}`}>
+                            <div className={`col-md-4 col-sm-12 ${style.item}`}>
                                 <p className={`text-black`}><img src="/images/Group%207275assetsicon.png" alt=""/> Used household items</p>
                                 <img src="/images/kitchen.png" alt=""/>
                             </div>
@@ -104,9 +104,9 @@ function Index(props) {
             </section>
             <section className={`${style.service}`}>
                 <div className={`container`}>
-                    <div className={`flex ${style.serviceDescription}`}>
+                    <div className={`flex flex-wrap ${style.serviceDescription}`}>
                         <div className={style.underlay}></div>
-                        <div className={`col-md-6`}>
+                        <div className={`col-md-6 col-sm-12`}>
                             <div className={style.textCover}>
                                 <h3>Assets Disposal</h3>
                                 <p>T and T Markets Limited; a subsidiary of Miraton Matador Group
@@ -118,7 +118,7 @@ function Index(props) {
                             </div>
 
                         </div>
-                        <div className={`col-md-6`}>
+                        <div className={`col-md-6 col-sm-12`}>
                             <img src="/images/asset disposal.png" alt=""/>
                         </div>
                     </div>

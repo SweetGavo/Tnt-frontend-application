@@ -41,7 +41,7 @@ function Index(props) {
         <>
          <section className={`${Style.bannerArea}`}>
              <div className={`container flex ${Style.bannerCover}`}>
-                 <div className={`${Style.bannerTextArea}`}>
+                 <div className={`col-sm-12 ${Style.bannerTextArea}`}>
 
                      <h1 className={` ${Style.bannerTitle}`}>Bringing the best deals your way</h1>
                      <p>T and T Markets Limited resale of metal scrap materials,used company items like
@@ -54,7 +54,7 @@ function Index(props) {
 
                  </div>
 
-                 <div className={`col-md-6 ${Style.bannerImageArea}`}>
+                 <div className={`col-sm-12 col-md-6 ${Style.bannerImageArea}`}>
                      <div className={Style.imageCover}>
                          <img src={`/images/home banner.png`} />
                      </div>
@@ -83,7 +83,7 @@ function Index(props) {
                                             <div className={`${Style.imageCover}`}>
                                                 <img src="/images/2016-Toyota-C-HR-exterior-static-8-e1479105090829-1200x630-removebg-preview%201display.png" alt="tnt-product"/>
                                             </div>
-                                            <div className={`flex justify-space-between`}>
+                                            <div className={`flex justify-space-between ${Style.productsCover}`}>
 
                                                 <div className={`${Style.productDetails}`}>
                                                     <h4 className={`no-margin`}>Toyota Camry</h4>
@@ -281,8 +281,8 @@ function Index(props) {
                             <p>Feedbacks are the backbone of a business. We listen to our customers, you should do likewise</p>
                         </div>
 
-                        <div className={`flex col-md-12 ${Style.content}`}>
-                            <div className={`col-md-6`}>
+                        <div className={`flex flex-wrap col-md-12 ${Style.content}`}>
+                            <div className={`col-md-6 col-sm-12`}>
                                     <div className={`${Style.testimonialsList} flex flex-end flex-wrap`}>
                                             <div className={`${Style.testimonial} ${Style.active} flex`}>
                                                 <div className={`${Style.profileImage}`}>
@@ -313,7 +313,7 @@ function Index(props) {
                                             </div>
                                     </div>
                             </div>
-                            <div className={`col-md-6 `}>
+                            <div className={`col-md-6 col-sm-12`}>
                                 <div className={`${Style.testimony}`}>
                                     <h3 className={`title`}>Great Experience</h3>
                                     <img src="/images/rating.png" alt=""/>

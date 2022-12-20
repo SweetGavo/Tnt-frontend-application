@@ -4,6 +4,10 @@
   align-items: center;
   min-height: 80px;
 
+  @media (max-width: 967px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
   .menu-spacing{
     padding: 10px 30px;
     font-size: 14px;
@@ -16,14 +20,41 @@
       }
   }
   .nav{
+    .mobileMenu{
+      display: none;
+      @media (max-width: 967px) {
+        display: block;
+      }
+
+      svg{
+        display: none;
+      }
+
+      .mobileMenuIcon{
+        width: 30px;
+        display: block;
+        cursor: pointer;
+      }
+
+      ul{
+        left: 0 !important;
+        right: unset;
+        margin-left: 10px;
+      }
+    }
     flex-grow: 1;
     margin-right: 0;
+    position: relative;
     .menu{
       list-style-type: none;
       display: flex;
       justify-content: center;
       margin: 0;
       padding: 0;
+
+      @media (max-width: 967px) {
+        display: none;
+      }
       .menuItems{
       display: inline-block;
         a{
@@ -43,6 +74,10 @@
       a{
         @extend .menu-spacing;
         list-style-type: none;
+
+        @media (max-width: 967px) {
+            padding: 20px;
+        }
       }
     }
 

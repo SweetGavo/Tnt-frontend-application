@@ -59,13 +59,13 @@ function Index(props) {
     return (
         <div className={'flex registration-container'}>
 
-            <div className={`col-md-6 ${style.sideContainer}`}>
+            <div className={`col-md-6 col-sm-12 col-sm-none ${style.sideContainer}`}>
                 <img src={'images/registration.jpg'}   />
                 <div className={style.textContent}>
                     <h2>Shopping at your comfort</h2>
                 </div>
             </div>
-            <div className={`col-md-6 `}>
+            <div className={`col-md-6 col-sm-12`}>
                 <div className={style.formContainer}>
                     <h1>Create an account</h1>
                     <p>Kindly enter your details below to create an account</p>

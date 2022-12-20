@@ -8,14 +8,14 @@ function Index(props) {
     return (
         <div className={style.contact}>
             <section className={style.addressSection}>
-                <div className={'flex container'}>
+                <div className={'flex container flex-wrap'}>
 
-                    <div className={`col-md-6`}>
+                    <div className={`col-md-6 col-sm-none col-sm-12`}>
                         <div className={style.imageCover}>
                             <img  src='/images/Headphones.png' alt='headphone'/>
                         </div>
                     </div>
-                    <div className={`col-md-6 ${style.addressDetails}`}>
+                    <div className={`col-md-6 col-sm-12 ${style.addressDetails}`}>
                         <div >
                             <h3 className={`title`}>We are always available</h3>
                             <p>
@@ -55,8 +55,8 @@ function Index(props) {
 );
 }
 
-                
-                
+
+
 
 Index.getLayout = function getLayout(page) {
 return <Layouts className={`fullwidth product-page`}>{page}</Layouts>;
