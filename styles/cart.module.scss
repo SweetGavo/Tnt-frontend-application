@@ -28,6 +28,7 @@ margin: 25px 0px;
 display: flex;
 justify-content: space-between;
 padding: 3px;
+    align-items: center;
 }
 .buttonSection{
     width:40vh;
@@ -89,6 +90,10 @@ border: 2px solid rgba(244, 243, 246, 0.98);
     display: flex;
     align-items: center;
 
+    @media (max-width: 967px) {
+        padding:0 !important;
+    }
+
 }
 
 .contentSection:last-child{
@@ -149,6 +154,13 @@ align-items: center;
 
 .sideContent{
     padding-left: 30px;
+
+    @media (max-width: 967px) {
+        padding: 0 !important;
+        section{
+            padding: 40px 20px !important;
+        }
+    }
     .title{
         font-weight: 500;
     }
@@ -221,8 +233,13 @@ border: 1px;
     border-radius: 50%;
     -webkit-border-radius: 50%;
      width:90px;
-    height: 90px;
+    aspect-ratio: 1;
     overflow: hidden;
+
+    @media (max-width: 967px) {
+        width: 70px;
+        margin-bottom: 20px;
+    }
     img{
         height: 100%;
         width: 100%;
@@ -321,7 +338,7 @@ height: 50px;
     width: 10px;
     height: 10px;
     border-color: #0000;
-    
+
 }
 
 .inline{
@@ -330,7 +347,7 @@ height: 50px;
     color: black;
     position: absolute;
     bottom: 0px
-    
+
 }
 
 
@@ -351,7 +368,7 @@ height: 50px;
   .modalBackground{
     width: 50vh;
     height: 50vh;
-    
+
     background-color: #ffff;
     position: fixed;
     display: flex;
@@ -381,7 +398,7 @@ height: 50px;
     width: 100px;
     height: 20px;
     // justify-items: ;
-    
+
 }
 
 .titleCloseBtn {

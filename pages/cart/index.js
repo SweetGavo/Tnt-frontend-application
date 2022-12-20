@@ -72,13 +72,13 @@ function Index(props) {
 
     return (
         <>
-          <div className={`col-md-9 ${style.content} `}>
+          <div className={`col-md-9 col-sm-12 ${style.content} `}>
           {
             itemsId.map(item=>{
               const product = items[item];
               return (
                   <section className={`${style.contentSection} flex-wrap`} key={product._id}>
-                    <div className={`col-md-6 flex`}>
+                    <div className={`col-md-6 col-sm-12 flex`}>
                       <div className={style.round}>
                         <img src={product.attachments[0].thumbnailUrl} alt="" />
                       </div>
@@ -87,7 +87,7 @@ function Index(props) {
                         <p>{product.variations||''}</p>
                       </div>
                     </div>
-                    <div className={`col-md-2`}>
+                    <div className={`col-md-2 col-sm-6`}>
                       <div className={style.cartButtons}>
                         <Button className={`${style.buttons} ${product.quantity === 1?'disabled':''}`} size={'sm'} style={'blue'} data-value={-1} data-id={product._id} onClick={updateProductQuantity}>
                           <Icon path={mdiMinus} className={'icon'}/>
@@ -98,7 +98,7 @@ function Index(props) {
                         </Button>
                       </div>
                     </div>
-                    <div className={`col-md-4`}>
+                    <div className={`col-md-4 col-sm-6`}>
                       <div className={`flex flex-end ${style.priceSection}`}>
                         <p>{toCurrency(product.sellingPrice)}</p>
                        </div>
@@ -114,7 +114,7 @@ function Index(props) {
             })
           }
         </div>
-          <section className={`col-md-3 ${style.sideContent}`}>
+          <section className={`col-md-3 col-sm-12 ${style.sideContent}`}>
             <div>
               <section>
                 <h3 className={style.title}>Summary</h3>
@@ -163,7 +163,7 @@ function Index(props) {
           {openModal && <CatModal closeModal={setopenModal} form={form} setData={setData} saveAddress={saveAddress} />}
         </div>
 
-        <div className={`flex col-md-12 ${style.cartTop}`}>
+        <div className={`flex col-md-12 col-sm-12 ${style.cartTop}`}>
           <h3>Shopping cart</h3>
 
           <Link href={"/products"}>
@@ -178,7 +178,7 @@ function Index(props) {
           </Link>
         </div>
         <div className={`col-md-12`}>
-          <div className={`flex `}>{cartContent()}</div>
+          <div className={`flex flex-wrap`}>{cartContent()}</div>
         </div>
       </div>
     </div>

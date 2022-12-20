@@ -60,16 +60,16 @@ function NormHeader(props) {
                 <Menu items={()=>{
                     return (
                         <>
-                            <MenuItem onClick={logout}>
+                            <MenuItem>
                                 <Link href={'/'}>Home</Link>
                             </MenuItem>
-                            <MenuItem onClick={logout}>
+                            <MenuItem>
                                 <Link href={'/about-us'}>About us</Link>
                             </MenuItem>
-                            <MenuItem onClick={logout}>
+                            <MenuItem>
                                 <Link href={'/services'}>Service</Link>
                             </MenuItem>
-                            <MenuItem onClick={logout}>
+                            <MenuItem>
                                 <Link href={'/contact'}>Contact</Link>
                             </MenuItem>
                         </>

@@ -83,6 +83,9 @@
 
     .cartIcon{
       position: relative;
+      svg{
+        width: 25px;
+      }
     }
 
     .cartIcon:after{
