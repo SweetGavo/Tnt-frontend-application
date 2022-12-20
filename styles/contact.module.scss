@@ -1,0 +1,31 @@
+.contact{
+  .addressSection{
+    .imageCover{
+      padding: 40px;
+    }
+    .addressDetails{
+      h3{
+        font-weight: 600;
+      }
+      padding: 40px;
+    }
+    img{
+      width: 100%;
+      max-width: unset;
+    }
+
+    p{
+      display: flex;
+      margin-bottom: 40px;
+      img{
+        margin-right: 15px;
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+
+  .map{
+
+  }
+}

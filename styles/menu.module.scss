@@ -1,0 +1,39 @@
+@import "colors";
+.menu{
+  position:relative;
+  display: flex;
+  align-items: center;
+  padding: 0px;
+
+  svg{
+    margin-left: 5px;
+  }
+
+  .menuChildren{
+    position: absolute;
+    top:calc(100% + 10px);
+    width: 200px;
+    right: 0px;
+    border-radius: 3px;
+    background: $_white;
+    height: 0px;
+    padding: 0px;
+    overflow: hidden;
+
+    .menuItem{
+      display: block;
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+
+    .menuItem:hover{
+      background: $_grey_background;
+    }
+
+  }
+  .menuActive{
+    height: auto;
+    box-shadow: 0 0px 0px 1px $_border_grey;
+    padding: 10px 0;
+  }
+}

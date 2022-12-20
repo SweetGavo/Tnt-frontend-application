@@ -1,0 +1,31 @@
+@import "colors";
+footer{
+  .top{
+    padding: 80px 0;
+    text-align: center;
+    a{
+      padding: 10px 20px;
+      display: inline-block;
+      margin: 0 20px;
+    }
+  }
+  .bottom{
+    padding: 40px 50px;
+      background: $_black;
+
+    .copyright{
+      line-height: 24px;
+      font-size: 16px;
+      margin: 0 !important;
+    }
+
+    .icons{
+      svg{
+        color: $_white;
+        margin-left: 20px;
+      }
+    }
+  }
+
+
+}

@@ -1,0 +1,109 @@
+@import "colors";
+.about{
+    margin-top: 50px;
+
+    .aboutContent{
+        .content{
+            margin-right: -35px;
+            margin-left: -35px;
+            .contentCover{
+                padding: 35px;
+            }
+        }
+
+
+        p{
+            line-height: 220%;
+            font-size: 18px;
+        }
+
+        img{
+            width: 100%;
+            max-width: unset;
+            max-height: 540px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    }
+    .wed{
+        background: linear-gradient(94.66deg, #B0D235 12.44%, rgba(176, 210, 53, 0.5) 82.36%);
+        padding-bottom: 70px !important;
+        .top{
+            padding: 0px 30px;
+            h3{
+                margin-bottom: 50px;
+                color: $_white;
+                margin-top: 0;
+            }
+
+            hr{
+                border: 0;
+                height: 10px;
+                background: $_white;
+                width: 70%;
+                margin-left: 0;
+            }
+            margin-bottom: 60px;
+        }
+
+        .contentArea{
+            background: #fff;
+            padding:60px 0px ;
+            .eachItem{
+                text-align: center;
+                padding: 0 45px;
+                p{
+                    text-align: justify;
+                    line-height: 35px;
+
+                }
+            }
+        }
+    }
+
+    .numbers{
+        background: url("../public/images/Rectangle 2726number.png");
+        .cover{
+            padding: 50px  0;
+            background: rgba($_white,0.9);
+
+            .caption{
+                margin: 50px 0 !important;
+            }
+
+            .metrics{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                p{
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .table{
+        table{
+            width: 80%;
+            max-width: 950px;
+            border:1px solid $_green;
+            border-collapse: collapse;
+            margin: 0px auto;
+            tr{
+                height: 60px;
+
+            }
+
+            th{
+                background-color: $_light_green;
+                text-transform: uppercase;
+            }
+
+            th,td{
+                border: 1px solid $_green;
+                text-align: center;
+            }
+        }
+    }
+}

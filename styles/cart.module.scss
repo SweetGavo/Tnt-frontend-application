@@ -1,0 +1,429 @@
+@import "colors";
+.background{
+    background: #fff;
+    min-height: 100vh;
+
+}
+
+.cart{
+height: 90%;
+border:1px solid rgb(227, 222, 222);
+background-color: rgba(244, 243, 246, 0.98);
+border-radius: 1rem;
+}
+
+.cart1{
+    height: 90%;
+    border:1px #ffff;
+    background-color: #ffff;
+    margin: 15px;
+    margin-left: 2rem;
+}
+
+.cartTop{
+height: 4rem;
+border:1px black;
+background-color: #ffff;
+margin: 25px 0px;
+display: flex;
+justify-content: space-between;
+padding: 3px;
+}
+.buttonSection{
+    width:40vh;
+    background-color: #ffff;
+    border:1px  black;
+}
+
+.buttonSection1{
+    width: 40vh;
+    background-color: #ffff;
+    margin-left: 60rem;
+    padding: 8px;
+}
+
+.button{
+    border-width: 1px;
+    border-color: $_border_grey;
+    font-weight: 400;
+    padding: 20px 30px  ;
+    svg{
+        margin-right: 10px;
+        width: 30px;
+        height: 20px;
+    }
+}
+
+.addressSection{
+    .addressButton{
+        margin-bottom:20px;
+    }
+}
+
+
+
+.buttonRound{
+font-size: small;
+width: 10rem;
+height: 55px;
+background-color: #ffff;
+border-radius: 10px;
+border: 2px solid rgba(244, 243, 246, 0.98);
+}
+.container {
+    height: 30rem;
+    margin: 0 auto;
+    border:1px black;
+    display: flex;
+}
+.content{
+    border: 1px solid $_border_grey;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.contentSection{
+    background-color: #ffff;
+    border-bottom:1px solid $_border_grey;
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+
+}
+
+.contentSection:last-child{
+    border: none;
+}
+
+.sectionContainer{
+    background-color: #ffff;
+    display: flex;
+    height: 70%;
+}
+
+.section{
+    height: 70%;
+    background-color: #ffff;
+    width: 50% ;
+    display: flex;
+    padding: 2px;
+}
+.contentSectionDiv{
+ border:1px  black;
+ background-color: #ffff;
+ height: 120px;
+ width: 30%;
+ padding: 2px;
+ box-sizing: border-box;
+ position: relative;
+}
+.contentSectionDivSign{
+border:1px  black;
+background-color: #ffff;
+height: 120px;
+width: 30%;
+padding: 5px;
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+.contentSectionDivAmount{
+    border:1px black;
+    background-color: #ffff;
+    height: 120px;
+    width: 30%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.span{
+    margin: 10px ,auto,auto,auto;
+    background-color: #ffff;
+    height: 4rem;
+    justify-content: space-between;
+}
+
+.sideContent{
+    padding-left: 30px;
+    .title{
+        font-weight: 500;
+    }
+    .total{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p{
+        font-size: 16px;
+        color: $_black;
+    }
+    h3{
+        font-weight: 500;
+    }
+}
+}
+
+
+
+.icon{
+    float: right;
+}
+
+
+.checkoutButton{
+    margin-top: 30px;
+}
+.img {
+    border-radius: 50%;
+    // display: flex;
+    justify-content: space-between;
+}
+.smallBtn1{
+background-color: #8b73e0;
+border-radius: 30%;
+border: 1px;
+
+}
+
+
+.smallBtn {
+    color: #ffff;
+    background-color: #5735D2;
+    border-radius: 30%;
+    border: 1px;
+}
+
+
+
+
+
+
+
+.bulebtn{
+    border-radius: 7px;
+    font-size: large;
+    height: 50px;
+    color: #ffff;
+    background-color: #5735D2;
+    border: 0px;
+}
+
+
+.des{
+    margin-left: 10%;
+    height: 3vh;
+    width: 15vh;
+}
+.round{
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+     width:90px;
+    height: 90px;
+    overflow: hidden;
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.productDetails{
+    margin-left: 20px;
+    align-self: center;
+    h3{
+        font-weight: 500;
+        margin-top: 0;
+        margin-bottom: 10px;
+
+    }
+    p{
+        color: $_black;
+        margin: 0;
+    }
+    flex-grow: 1;
+}
+
+.cartButtons{
+    display: flex;
+    height: 30px;
+    align-items: center;
+    .quantity{
+        text-align: center;
+        min-width: 50px;
+        margin: 0px;
+    }
+
+    .buttons{
+        padding: 2px;
+        border-radius: 5px !important;
+
+        svg{
+            width: 20px;
+            padding: 0px;
+            margin: 0 !important;
+        }
+    }
+
+}
+
+.priceSection{
+
+    p{
+        color: $_black;
+        text-align: right;
+        margin: 0;
+        font-size: 16px;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+    }
+}
+
+.footer{
+    margin-top: 20px;
+    display: flex;
+    a{
+        border:none;
+        font-weight: 500;
+        font-size: 16px;
+        svg{
+            height: 20px;
+        }
+    }
+}
+.section1{
+height: 100%;
+background-color: #ffff;
+width: 50%;
+padding: 2px;
+position: relative;
+}
+
+.Iphon{
+height: auto;
+
+}
+
+
+.variation{
+height: 50px;
+}
+
+
+.spanBtn{
+    width: 10px;
+    height: 10px;
+    border-color: #0000;
+    
+}
+
+.inline{
+    height: auto;
+    width: 12rem;
+    color: black;
+    position: absolute;
+    bottom: 0px
+    
+}
+
+
+.openModalBtn {
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    background-color: cornflowerblue;
+    color: white;
+    cursor: pointer;
+}
+
+
+// modalcss
+
+
+  .modalBackground{
+    width: 50vh;
+    height: 50vh;
+    
+    background-color: #ffff;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+.modalContainer  {
+    width: 500px;
+    height: 400px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+
+ .title {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.modalinputs{
+    width: 100px;
+    height: 20px;
+    // justify-items: ;
+    
+}
+
+.titleCloseBtn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.titleCloseBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.modalbtnCancel{
+    width: 80px;
+    margin: 10px;
+    border: none;
+    margin-left: 0px;
+    background-color: crimson;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.modalbtnEnter{
+width: 80px;
+margin: 10px;
+margin-left: 3px;
+border: none;
+background-color: cornflowerblue;
+color: white;
+border-radius: 8px;
+font-size: 20px;
+cursor: pointer;
+
+}
+
+.modalbtnDiv{
+    margin-left: 0%;
+    display: flex;
+
+}
+

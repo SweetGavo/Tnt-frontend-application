@@ -1,0 +1,24 @@
+.modal{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+  z-index: -1;
+  transition: 0.5s;
+  display: none;
+  .body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+}
+
+
+.open{
+  display: block;
+  z-index: 999;
+  transition: 1s;
+}

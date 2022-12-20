@@ -1,3 +1,71 @@
+@import "colors";
+.boxes{
+    border-radius: 10px;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 3rem;
+  display: inline-block;
+  input{
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    font-size: 20px !important;
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+.bookInspection{
+  background: $_white;
+  height: fit-content;
+  min-width: 500px;
+  padding:20px 80px;
+  border-radius: 5px;
+  padding-bottom: 80px;
+  position: relative;
+  .closeIcon{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+  }
+}
+
+
+
+
+
+.passwordcode{
+   height: 50vh;
+   margin-top: 50px;
+   column-gap: 2rem;
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   
+  }
+  
+  .resetButton{
+    max-width: 350px;
+    margin: 30px auto;
+  }
+  
+  .topText{
+    text-align: center;
+    margin-bottom: 30px;
+    justify-content: center;
+  }
+
+  .checkMark{
+
+  }
+
+  .reviewMessage{
+    max-width: 320px;
+  }
+
 .btn{
 
 }
@@ -11,3 +79,8 @@
 .btn-large{
 
 }
+.formGroup{
+    margin-bottom: 40px;
+}
+
+
