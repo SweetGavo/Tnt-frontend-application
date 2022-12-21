@@ -91,6 +91,10 @@ p{
   @extend .text-grey;
   font-size: 18px;
   line-height: 27px;
+
+  @media (max-width: 967px) {
+    font-size: 16px;
+  }
 }
 body{
   height: 100vh;
