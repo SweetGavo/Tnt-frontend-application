@@ -3,7 +3,7 @@ import style from "../styles/Global.module.scss";
 import TextField from "./textField";
 import Button from "./button";
 
-function InspectionForm({form,setData,bookInspection}) {
+function InspectionForm({form,setData,bookInspection,isLogin}) {
     return (
         <>
             <div className={style.topText}>
@@ -24,8 +24,10 @@ function InspectionForm({form,setData,bookInspection}) {
                 variant={"outline"}
                 label={"Email address"}
                 type={"email"}
+                name={"email"}
                 value={form.email}
-                readOnly
+                onChange={setData}
+                readOnly={isLogin}
             />
             <TextField
                 placeholder="+2349012345678"

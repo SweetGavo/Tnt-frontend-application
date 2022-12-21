@@ -24,6 +24,12 @@
   border-radius: 5px;
   padding-bottom: 80px;
   position: relative;
+
+  @media (max-width: 967px) {
+    min-width: unset;
+    width: 90%;
+    padding: 20px;
+  }
   .closeIcon{
     position: absolute;
     right: 20px;
@@ -48,6 +54,7 @@
   .resetButton{
     max-width: 350px;
     margin: 30px auto;
+    
   }
 
   .topText{

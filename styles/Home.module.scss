@@ -44,6 +44,8 @@
         h1{
           max-width: unset;
           font-size: 35px;
+          line-height: 39px;
+          margin-bottom: 23px !important;
         }
 
         p{
@@ -206,6 +208,12 @@
     margin-bottom: 42px;
     font-size: 40px;
     font-weight: 500;
+
+    @media (max-width: 967px) {
+      h3{
+        font-size: 35px;
+      }
+    }
 
   }
   p{

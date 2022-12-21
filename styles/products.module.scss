@@ -132,8 +132,18 @@
     display: flex;
     padding: 1px;
 
+
     a{
       margin-right: 20px;
+    }
+
+    @media (max-width: 967px) {
+      flex-wrap: wrap;
+
+      a{
+        margin: 10px 0 !important;
+        width: 100%;
+      }
     }
   }
 }

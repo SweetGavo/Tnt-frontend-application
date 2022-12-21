@@ -42,9 +42,12 @@ function NormHeader(props) {
                 <li  className={style.menuItems}>
                     <Link href={'/login'}>Login</Link>
                 </li>
-                <Button  size={'large'}>
-                    Shop Now  <Icon className={'icon'} path={mdiArrowRight} />
-                </Button>
+                <Link href={'/products'}>
+                    <Button  size={'large'}>
+                        Shop Now  <Icon className={'icon'} path={mdiArrowRight} />
+                    </Button>
+                </Link>
+
             </>
         )
     }
