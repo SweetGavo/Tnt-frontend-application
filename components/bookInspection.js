@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import { useRouter } from "next/router";
 import style from "../styles/Global.module.scss";
 import Link from "next/link";
@@ -12,14 +12,17 @@ import InspectionForm from "./inspectionForm";
 import ReviewBooking from "./reviewBooking";
 import { url } from "../utils/urlHelpers";
 import Alert from "./alert";
+import dayjs from "dayjs";
 
 
-const initialData={
-  fullName:'',
-  email:'',
-  phoneNumber:'',
-
+const initialData= {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    time: '',
 }
+
 export default function BookInspection({ closeModal,product }) {
   const [form,setFormField] = useState(initialData);
   const {user,isLogin} = useSelector(s=>s.auth);
@@ -29,15 +32,26 @@ export default function BookInspection({ closeModal,product }) {
         message:""
     })
 
+    const alertRef = useRef()
+
   function bookInspection(){
-    const formValue = {user:user._id,product}
+        const {time,...user} = form;
+      const dateValue = dayjs(time).format("YYYY-MM-DD HH:MM")
+      const formValue = {user:{...user},time:dateValue,product}
       post(url.inspectionsUrl,formValue).then(resp=>{
           setCurrentView('reviewBooking');
       }).catch(e=>{
           console.log(e);
+          const {message,response:{data:{message:requestError}}={}}=e;
+          setResponse({
+              type: 'error',
+              message: requestError || message || "there is an error booking inspection please check back later"
+          });
+          alertRef.current.scrollIntoView();
       })
 
   }
+
   function hideModal() {
     setCurrentView('form');
     closeModal();
@@ -51,15 +65,12 @@ export default function BookInspection({ closeModal,product }) {
     return <ReviewBooking done={hideModal} />
   }
 
-
-
   useEffect(()=>{
     initialData.email = user.email || "";
     initialData.fullName = `${user.firstName || ""} ${user.lastName || ""}`;
     setFormField(initialData)
 
   },[user])
-
 
   function setData(e){
     const {name,value} = e.target;
@@ -69,7 +80,6 @@ export default function BookInspection({ closeModal,product }) {
   function closeAlert(){
         setResponse(v =>({...v, message:''}))
     }
-
 
  const bookInspect = () => {
     post(url.inspectionsUrl,form)
@@ -90,7 +100,9 @@ export default function BookInspection({ closeModal,product }) {
           className={`icon ${style.closeIcon}`}
           onClick={hideModal}
         />
-          <Alert  type={response.type} message={response.message} closeAlert={closeAlert} />
+          <div ref={alertRef}>
+              <Alert  type={response.type} message={response.message} closeAlert={closeAlert} />
+          </div>
           {
           getView()
         }

@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React, {useEffect, useMemo, useRef, useState} from "react";
 import style from "../../styles/cart.module.scss";
 import Link from "next/link";
 import Button from "../../components/button";
@@ -12,6 +12,7 @@ import {changeQuantity, removeItem} from "../../store/reducers/cart";
 import CatModal from "../../components/catModal";
 import {ADDRESSKEY} from "../../utils/textHelper";
 import {url} from "../../utils/urlHelpers";
+import Alert from "../../components/alert";
 
 const initialData = {
   phoneNumber: "",
@@ -28,6 +29,12 @@ function Index(props) {
   const {user} = useSelector(s => s.auth);
   const dispatch = useDispatch();
   const {itemsId,items} = useSelector(store=>store.cart);
+  const [response,setResponse] = useState({
+    type:'error',
+    message:""
+  })
+  const alertRef = useRef();
+
   function deleteItem(product){
     dispatch(removeItem({product}));
   }
@@ -49,15 +56,25 @@ function Index(props) {
     setFormField((v)=>({...v,[name]:value}));
   }
 
+  function closeAlert(){
+    setResponse(v =>({...v, message:''}))
+  }
+
 
   function createOrder() {
-    const products = itemsId.map(itemId => ({productId: itemId, quantity: items[itemId].quantity}));
-    const address = {id: user._id, ...form};
-    const finalForm = {products, address,email:user.email};
+    const products = itemsId.map(itemId => ({product:{...items[itemId],id:itemId},quantity: items[itemId].quantity}));
+    const address = {...form};
+    const finalForm = {items:products, address,user: user._id};
+
     post(url.createOrderUrl,finalForm).then(resp=>{
       console.log(resp);
+      setResponse({ type: 'success',message: "Order booked successfully"});
+      alertRef.current.scrollIntoView();
     }).catch(err=>{
       console.log(err)
+      const  {response:{data:{message=""}}} = err;
+      setResponse(v => ({ type: 'error',message}));
+      alertRef.current.scrollIntoView();
     })
   }
 
@@ -178,6 +195,9 @@ function Index(props) {
           </Link>
         </div>
         <div className={`col-md-12`}>
+          <div ref={alertRef}>
+            <Alert  type={response.type} message={response.message} closeAlert={closeAlert} />
+          </div>
           <div className={`flex flex-wrap`}>{cartContent()}</div>
         </div>
       </div>

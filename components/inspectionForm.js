@@ -12,11 +12,19 @@ function InspectionForm({form,setData,bookInspection,isLogin}) {
 
             <p>Enter the email address linked to this account</p>
             <TextField
-                placeholder="Jonathan Doe"
+                placeholder="Jonathan"
                 variant={"outline"}
-                label={"Full Name"}
-                name={'fullName'}
-                value={form.fullName}
+                label={"Firstname"}
+                name={'firstName'}
+                value={form.firstName}
+                onChange={setData}
+            />
+            <TextField
+                placeholder="Doe"
+                variant={"outline"}
+                label={"Lastname"}
+                name={'lastName'}
+                value={form.lastName}
                 onChange={setData}
             />
             <TextField
@@ -35,6 +43,14 @@ function InspectionForm({form,setData,bookInspection,isLogin}) {
                 label={"Phone Number"}
                 value={form.phoneNumber}
                 name={'phoneNumber'}
+                onChange={setData}
+            />
+            <TextField
+                type={'datetime-local'}
+                variant={"outline"}
+                label={"Time"}
+                value={form.time}
+                name={'time'}
                 onChange={setData}
             />
 

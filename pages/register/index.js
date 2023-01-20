@@ -30,7 +30,7 @@ function Index(props) {
     }
 
     function submitForm(){
-                post( url.loginUrl,form)
+                post( url.signUpUrl,form)
                     .then(({data})=>{
                         const {token,user} = data.data;
                                 setResponse({type:'success', message:'Registration Successful '})

@@ -18,12 +18,13 @@
 
 .bookInspection{
   background: $_white;
-  height: fit-content;
-  min-width: 500px;
+  height: calc(100vh - 20px);
+  width: 500px;
   padding:20px 80px;
   border-radius: 5px;
   padding-bottom: 80px;
   position: relative;
+  overflow: auto;
 
   @media (max-width: 967px) {
     min-width: unset;
@@ -54,7 +55,7 @@
   .resetButton{
     max-width: 350px;
     margin: 30px auto;
-    
+
   }
 
   .topText{
