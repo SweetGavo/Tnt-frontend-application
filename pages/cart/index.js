@@ -67,7 +67,6 @@ function Index(props) {
     const finalForm = {items:products, address,user: user._id};
 
     post(url.createOrderUrl,finalForm).then(resp=>{
-      console.log(resp);
       setResponse({ type: 'success',message: "Order booked successfully"});
       alertRef.current.scrollIntoView();
     }).catch(err=>{

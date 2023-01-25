@@ -2,6 +2,7 @@ import React from 'react';
 import style from '../styles/ProductBox.module.scss'
 import {toCurrency} from "../utils/helperFunctions";
 import Link from "next/link";
+import Countdown from "./countdown";
 function ProductBox({cols=4,product,...others}) {
 
     return (
@@ -9,6 +10,21 @@ function ProductBox({cols=4,product,...others}) {
             <Link href={`/products/${product?._id}`}>
                 <a>
                         <div className={` ${style.productImage}`}>
+                            {
+                                product.isDeal &&
+                                <div>
+                                    <div className={`${style.dealBadge}`}>
+                                        Deals
+                                    </div>
+
+                                    <div className={`${style.expiredTime}`}>
+                                        <Countdown expired={product.dealExpires}/>
+                                    </div>
+
+                                </div>
+
+                            }
+
                             <img src={product?.attachments[0].url} alt=""/>
                         </div>
 

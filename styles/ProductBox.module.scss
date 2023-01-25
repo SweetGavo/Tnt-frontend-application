@@ -3,8 +3,44 @@
   margin-bottom: 10px;
   padding: 20px;
   .productImage{
+    position: relative;
+
+    &::after {
+      content: "";
+      padding-bottom: 100%;
+      display: block;
+    }
       img{
-        width:100%
+        width:100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: contain;
+        height: 100%;
+      }
+
+      .dealBadge {
+        position: absolute;
+        top:0;
+        color: red;
+        padding: 10px;
+        width: fit-content;
+        padding: 5px;
+        background: #8B3E45;
+        color: #fff;
+        border-radius: 2px;
+        left: 0;
+        text-transform: capitalize;
+      }
+
+      .expiredTime {
+        position: absolute;
+        bottom:0;
+        color: #8B3E45;
+        padding: 10px;
+        width: 100%;
+        left: 0;
+        text-transform: capitalize;
       }
     margin-bottom: 15px;
   }
