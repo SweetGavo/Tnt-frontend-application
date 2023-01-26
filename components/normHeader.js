@@ -19,7 +19,6 @@ function NormHeader(props) {
         if (isLogin){
             return (
                 <>
-                    <Link href={'/cart'}><a className={style.cartIcon} data-cart-number={itemsId.length}><Icon className={'icon'} path={mdiCartOutline} /></a></Link>
                     <a className={`${style.profilePhoto}`}>
 
 
@@ -97,6 +96,7 @@ function NormHeader(props) {
                 </ul>
             </nav>
             <div className={style.sideItems+' col-md-3'}>
+                <Link href={'/cart'}><a className={style.cartIcon} data-cart-number={itemsId.length}><Icon className={'icon'} path={mdiCartOutline} /></a></Link>
                 {sideHeader()}
             </div>
         </Header>

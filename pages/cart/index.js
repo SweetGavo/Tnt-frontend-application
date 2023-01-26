@@ -79,12 +79,12 @@ function Index(props) {
               } = {}
             } = {}
                })=>{
-            setResponse({ type: 'success',message: "Order booked successfully you will be redirected to make payment in 3sec"});
+            setResponse({ type: 'success',message: "Order booked successfully you will be redirected to make payment in 5 seconds "});
             alertRef.current.scrollIntoView();
 
             if (authorization_url) {
               setTimeout(()=> {
-                window.open(authorization_url, '_blank');
+                window.location.href = authorization_url;
               },3000);
             }
         })
@@ -229,22 +229,6 @@ function Index(props) {
   return (
     <div className={style.background}>
       <div className={"container flex flex-wrap"}>
-        <div>
-          <Button
-            className={style.button}
-            onClick={() => {
-              setopenModal(true);
-            }}
-            variant={"outline"}
-            size={"large"}
-            radius={8}
-          >
-            {/* {/* {" "}
-                  <Icon path={mdiArrowLeft} className={"icon"} /> } */}
-            Add Address
-          </Button>
-          {openModal && <CatModal closeModal={setopenModal} form={form} setData={setData} saveAddress={saveAddress} />}
-        </div>
 
         <div className={`flex col-md-12 col-sm-12 ${style.cartTop}`}>
           <h3>Shopping cart</h3>
