@@ -16,6 +16,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addItem} from "../../store/reducers/cart";
 import Link from "next/link";
 import Index from "../authpage";
+import Countdown from "../../components/countdown";
 
 
 
@@ -78,6 +79,20 @@ function ViewProduct({product}) {
                         </aside>
                         <div className={'col-md-7'}>
                             <div className={ `${style.productDetailsCover}`}>
+                                {
+                                    product?.isDeal &&
+                                    <div className={`flex justify-space-between ${style.dealBadgeCover}`}>
+                                        <div className={`deal-badge`}>
+                                            Deals
+                                        </div>
+
+                                        <div className={`time-badge`}>
+                                            <Countdown expired={product.dealExpires}/>
+                                        </div>
+
+                                    </div>
+
+                                }
                                 <h3 className={style.productName}>{product.name}</h3>
                                 <p>{toCurrency(product.sellingPrice)}</p>
                                 <div className={style.productDetails}>

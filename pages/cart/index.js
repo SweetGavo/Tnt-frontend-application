@@ -13,13 +13,12 @@ import CatModal from "../../components/catModal";
 import {ADDRESSKEY} from "../../utils/textHelper";
 import {url} from "../../utils/urlHelpers";
 import Alert from "../../components/alert";
+import TextField from "../../components/textField";
 
 const initialData = {
-  phoneNumber: "",
-  address: "",
-  city: "",
-  state: "",
-  country: "",
+  firstName: "",
+  lastName: "",
+  email: ""
 };
 
 function Index(props) {
@@ -28,7 +27,7 @@ function Index(props) {
   const [form, setFormField] = useState(initialData);
   const {user} = useSelector(s => s.auth);
   const dispatch = useDispatch();
-  const {itemsId,items} = useSelector(store=>store.cart);
+  const {itemsId,items:cartItems} = useSelector(store=>store.cart);
   const [response,setResponse] = useState({
     type:'error',
     message:""
@@ -46,10 +45,10 @@ function Index(props) {
 
   const cartTotal = useMemo(()=>{
       return itemsId.reduce((a,b)=>{
-          const {price,quantity} = items[b];
+          const {price,quantity} = cartItems[b];
           return (a + (price*quantity));
       },0)
-  },[items,itemsId])
+  },[cartItems,itemsId])
 
   function setData(e){
     const {name,value} = e.target;
@@ -62,19 +61,38 @@ function Index(props) {
 
 
   function createOrder() {
-    const products = itemsId.map(itemId => ({product:{...items[itemId],id:itemId},quantity: items[itemId].quantity}));
-    const address = {...form};
-    const finalForm = {items:products, address,user: user._id};
+    const items = itemsId.map(itemId => ({id:itemId, productId:itemId, quantity: cartItems[itemId].quantity}));
+    const {phoneNumber,...user} = form;
+    const finalForm = {
+      items,
+      user,
+      phoneNumber,
+      email: user.email,
+      callbackUrl: `${window.location.origin}/cart/verifyPayment`
+    };
 
-    post(url.createOrderUrl,finalForm).then(resp=>{
-      setResponse({ type: 'success',message: "Order booked successfully"});
-      alertRef.current.scrollIntoView();
-    }).catch(err=>{
-      console.log(err)
-      const  {response:{data:{message=""}}} = err;
-      setResponse(v => ({ type: 'error',message}));
-      alertRef.current.scrollIntoView();
-    })
+    post(url.createOrderUrl,finalForm)
+        .then(({
+            data: {
+              data: {
+                order: {authorization_url}
+              } = {}
+            } = {}
+               })=>{
+            setResponse({ type: 'success',message: "Order booked successfully you will be redirected to make payment in 3sec"});
+            alertRef.current.scrollIntoView();
+
+            if (authorization_url) {
+              setTimeout(()=> {
+                window.open(authorization_url, '_blank');
+              },3000);
+            }
+        })
+        .catch ( err=>{
+            const message = err?.response?.data?.message || err.message
+            setResponse(v => ({ type: 'error',message}));
+            alertRef.current.scrollIntoView();
+        });
   }
 
   function saveAddress(){
@@ -89,9 +107,58 @@ function Index(props) {
     return (
         <>
           <div className={`col-md-9 col-sm-12 ${style.content} `}>
+            <div className={'flex flex-wrap'}>
+              <h3 className={'col-md-12 col-sm-12'}>Please enter details to contact you.</h3>
+              <div className={`col-md-6 col-sm-12 formGroup`}>
+                <TextField
+                    placeholder="firstname"
+                    variant={"outline"}
+                    label={"First Name"}
+                    type={"email"}
+                    value={form.firstName}
+                    name={"firstName"}
+                    onChange={setData}
+                />
+              </div>
+
+              <div className={'col-md-6 col-sm-12 formGroup'}>
+                <TextField
+                    placeholder="Lastname"
+                    variant={"outline"}
+                    label={"Last Name"}
+                    type={"text"}
+                    value={form.lastName}
+                    name={"lastName"}
+                    onChange={setData}
+                />
+              </div>
+
+              <div className={'col-md-6 col-sm-12 formGroup'}>
+                <TextField
+                    placeholder="email"
+                    variant={"outline"}
+                    label={"Email"}
+                    type={"email"}
+                    value={form.email}
+                    name={"email"}
+                    onChange={setData}
+                />
+              </div>
+
+              <div className={'col-md-6 col-sm-12 formGroup'}>
+                <TextField
+                    placeholder="Phone Number"
+                    variant={"outline"}
+                    label={"Phone Number"}
+                    value={form.phoneNumber}
+                    name={"phoneNumber"}
+                    onChange={setData}
+                />
+              </div>
+            </div>
           {
             itemsId.map(item=>{
-              const product = items[item];
+              const product = cartItems[item];
               return (
                   <section className={`${style.contentSection} flex-wrap`} key={product._id}>
                     <div className={`col-md-6 col-sm-12 flex`}>
@@ -146,7 +213,7 @@ function Index(props) {
                       size={'large'}
                       block={true}
                   >
-                    Pay with CloudPay
+                    Make Payment
                   </Button>
                 </div>
               </section>
@@ -197,6 +264,7 @@ function Index(props) {
           <div ref={alertRef}>
             <Alert  type={response.type} message={response.message} closeAlert={closeAlert} />
           </div>
+
           <div className={`flex flex-wrap`}>{cartContent()}</div>
         </div>
       </div>

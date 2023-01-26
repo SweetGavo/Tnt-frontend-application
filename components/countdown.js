@@ -18,7 +18,7 @@ function Countdown({expired}) {
         const minDiff = expired.diff(DayWithDayHourDiffAdded,'minutes');
         const DayWithDayHourMinDiffAdded = DayWithDayHourDiffAdded.add(minDiff,'minutes');
         const seconds = expired.diff(DayWithDayHourMinDiffAdded,'seconds');
-        setDuration(`${dayDiff }d : ${hourDiff}h : ${seconds} s`)
+        setDuration(`${dayDiff }d : ${hourDiff}h : ${minDiff}m : ${seconds}s`)
         },1000)
     })
     return (

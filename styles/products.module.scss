@@ -119,6 +119,10 @@
       margin-bottom: 25px;
   }
 
+  .dealBadgeCover {
+    margin-bottom: 20px;
+  }
+
   .productDetails{
     max-width: 500px;
     p{
@@ -151,6 +155,7 @@
 .bottomArea{
   margin-top: 50px;
   .otherProducts{
+    display: none;
     padding-left: 8%;
     h3{
       margin-bottom: 20px;

@@ -11,13 +11,13 @@ function ProductBox({cols=4,product,...others}) {
                 <a>
                         <div className={` ${style.productImage}`}>
                             {
-                                product.isDeal &&
+                                product?.isDeal &&
                                 <div>
-                                    <div className={`${style.dealBadge}`}>
+                                    <div className={`deal-badge`}>
                                         Deals
                                     </div>
 
-                                    <div className={`${style.expiredTime}`}>
+                                    <div className={`time-badge`}>
                                         <Countdown expired={product.dealExpires}/>
                                     </div>
 
