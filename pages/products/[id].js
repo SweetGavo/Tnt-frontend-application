@@ -9,7 +9,7 @@ import ProductBox from "../../components/productBox";
 import {useRouter} from "next/router";
 import Button from "../../components/button";
 import Tab from "../../components/tab";
-import {get, toCurrency} from "../../utils/helperFunctions";
+import {get, post, toCurrency} from "../../utils/helperFunctions";
 import Modal from "../../components/modal";
 import BookInspection from "../../components/bookInspection";
 import {useDispatch, useSelector} from "react-redux";
@@ -17,6 +17,8 @@ import {addItem} from "../../store/reducers/cart";
 import Link from "next/link";
 import Index from "../authpage";
 import Countdown from "../../components/countdown";
+import {url} from "../../utils/urlHelpers";
+import SubmitBid from "../../components/submitBid";
 
 
 
@@ -28,13 +30,27 @@ function ViewProduct({product}) {
         path.splice(0,1);
         return path;
     },[router.pathname])
+    const [bidAmount,setBidAmount] = useState("");
 
     const [openModal,setModalStatus] = useState(false);
     const [currentImageIndex,setCurrentImageIndex] = useState(0);
     const {items} = useSelector(s=>s.cart);
+    const [modalView,setModalView] = useState(product.deal?'bid':'bookInspection')
+
+    const modalContent = {
+        bookInspection:<BookInspection product={product._id} closeModal={()=>{setModalStatus(false)}}/>,
+        bid: <SubmitBid product={product} closeModal={()=>{setModalStatus(false)}}/>
+    }
 
     function openBooking(){
+        setModalView('bookInspection')
         setModalStatus(true);
+
+    }
+
+    function openBiding() {
+        setModalView('bid')
+        setModalStatus(true)
     }
 
     function addItemToCart(){
@@ -42,10 +58,29 @@ function ViewProduct({product}) {
         dispatch(addItem({product:toCart}))
     }
 
+
+
+    function getButtons(){
+
+        if(product.isDeal){
+            return <>
+                <Button onClick={openBiding}>Submit Bid</Button>
+            </>
+        }
+
+        return <>
+            <Button style={'blue'} size={'large'} radius={5} onClick={addItemToCart}>Add to Cart</Button>
+            <Button onClick={openBooking} variant={'outline'}  style={'blue'} size={'large'} radius={5}>Book an inspection</Button>
+        </>
+
+    }
+
     return (
         <section className={style.productPageWrapper}>
             <Modal open={openModal} onClose={()=>setModalStatus(false)}>
-                <BookInspection product={product._id} closeModal={()=>{setModalStatus(false)}}/>
+                {
+                    modalContent[modalView]
+                }
             </Modal>
             {/* <Modal open={openModal} onClose={()=>setModalStatus(false)}>
                 <reviewAppointment closeModal={()=>setModalStatus (false)}/>
@@ -104,8 +139,9 @@ function ViewProduct({product}) {
                                     Availability: 15 in stock
                                 </p>
                                 <div className={style.buttons}>
-                                    <Button style={'blue'} size={'large'} radius={5} onClick={addItemToCart}>Add to Cart</Button>
-                                    <Button onClick={openBooking} variant={'outline'}  style={'blue'} size={'large'} radius={5}>Book an inspection</Button>
+                                    {
+                                        getButtons()
+                                    }
                                 </div>
                                 <p>{(product._id in items)?'Item Added To Cart':''}</p>
                             </div>

@@ -7,5 +7,7 @@ export const url={
     changePassword: 'https://api.tandtdeals.ng/v1/auth/change-password',
     createOrderUrl:'https://api.tandtdeals.ng/v1/orders',
     inspectionsUrl:'https://api.tandtdeals.ng/v1/inspections',
-    verifyPaymentUrl: "https://api.tandtdeals.ng/v1/payments/status"
+    verifyPaymentUrl: "https://api.tandtdeals.ng/v1/payments/status",
+    submitBid : 'https://api.tandtdeals.ng/v1/bids',
+    ordersUrl: 'https://api.tandtdeals.ng/v1/orders'
 }

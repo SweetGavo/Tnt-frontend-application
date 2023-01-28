@@ -429,6 +429,23 @@ img{
     }
 }
 
+.card {
+  border-radius: 5px;
+  border: 1px solid rgba(#000,0.5);
+
+  &-title {
+    @extend .title;
+
+    padding: 10px;
+    border-bottom: 1px solid rgba(#000,0.5);
+  }
+
+  &-content {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
 @media (min-width: 1500px) {
   .container{
     max-width: 1400px;
