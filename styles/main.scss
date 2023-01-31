@@ -53,6 +53,9 @@ $position : [fixed,relative,absolute,sticky];
   color: $_green;
 }
 
+.text-capitalize {
+  text-transform: capitalize;
+}
 
 .text-center{
   text-align: center;
@@ -431,18 +434,24 @@ img{
 
 .card {
   border-radius: 5px;
-  border: 1px solid rgba(#000,0.5);
+  border: 1px solid rgba(#000,0.2);
+  margin-bottom: 20px;
 
   &-title {
     @extend .title;
 
     padding: 10px;
-    border-bottom: 1px solid rgba(#000,0.5);
+    border-bottom: 1px solid rgba(#000,0.2);
   }
 
   &-content {
     padding: 10px;
     font-size: 14px;
+  }
+
+  &-footer {
+    border-top: 1px solid rgba(#000,0.2);
+    padding: 10px;
   }
 }
 
