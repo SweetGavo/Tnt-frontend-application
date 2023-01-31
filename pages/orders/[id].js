@@ -42,8 +42,8 @@ function ViewOrder({
             </div>
             <div className={`card-content ${style.orderItems}`}>
                 {
-                    items?.map(({product,quantity})=>(
-                        <div className={`${style.orderItem} flex`}>
+                    items?.map(({product,quantity,_id})=>(
+                        <div className={`${style.orderItem} flex`} key={_id}>
                             <div className={style.imageCover}>
                                 <img src={product?.attachments[0].url} alt={product?.name} />
                             </div>

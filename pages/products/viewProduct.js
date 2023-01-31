@@ -9,8 +9,6 @@ import ProductBox from "../../components/productBox";
 import {useRouter} from "next/router";
 import Button from "../../components/button";
 import Tab from "../../components/tab";
-import {get} from "../../utils/helperFunctions";
-import Index from "../authpage";
 
 
 function ViewProduct(props) {
