@@ -141,4 +141,6 @@ Index.getLayout = function getLayout(page) {
   return <AuthLayout>{page}</AuthLayout>;
 };
 
+
+
 export default Index;
