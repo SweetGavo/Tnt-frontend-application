@@ -15,9 +15,7 @@ import BookInspection from "../../components/bookInspection";
 import {useDispatch, useSelector} from "react-redux";
 import {addItem} from "../../store/reducers/cart";
 import Link from "next/link";
-import Index from "../authpage";
 import Countdown from "../../components/countdown";
-import {url} from "../../utils/urlHelpers";
 import SubmitBid from "../../components/submitBid";
 
 

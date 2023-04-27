@@ -1,5 +1,4 @@
 import "../styles/main.scss";
-import AuthPage from "./authpage";
 import { useEffect } from "react";
 import { store, wrapper } from "../store/store";
 import { setUser } from "../store/reducers/auth";
