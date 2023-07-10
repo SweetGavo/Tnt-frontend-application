@@ -25,7 +25,10 @@ const initialData= {
 
 export default function BookInspection({ closeModal,product }) {
   const [form,setFormField] = useState(initialData);
+
   const {user,isLogin} = useSelector(s=>s.auth);
+
+
   const [currentView,setCurrentView] = useState('form');
     const [response,setResponse] = useState({
         type:'error',
@@ -35,7 +38,7 @@ export default function BookInspection({ closeModal,product }) {
     const alertRef = useRef()
 
   function bookInspection(){
-        const {time,...user} = form;
+      const {time,...user} = form;
       const dateValue = dayjs(time).format("YYYY-MM-DD HH:MM")
       const formValue = {user:{...user},time:dateValue,product}
       post(url.inspectionsUrl,formValue).then(resp=>{
