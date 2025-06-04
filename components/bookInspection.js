@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from "react";
 import { useRouter } from "next/router";
 import style from "../styles/Global.module.scss";
 import Link from "next/link";
-import TextField from "./textField";
+import TextField from "./TextField";
 import Button from "./button";
 import Icon from "@mdi/react";
 import { mdiClose } from "@mdi/js";

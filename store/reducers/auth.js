@@ -5,8 +5,8 @@ import {STORAGENAME} from "../../utils/textHelper";
 const auth = createSlice({
     name:'auth',
     initialState:{
-        isLogin: "",
-        user:""
+        isLogin: false,
+        user: null
     },
     reducers:{
         loginUser:(state,{payload:{user}})=>{

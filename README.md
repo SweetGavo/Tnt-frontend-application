@@ -1,29 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TNT Frontend Application
+
+This is a [Next.js](https://nextjs.org/) project with custom configuration for SCSS modules and optimized asset handling.
 
 ## Getting Started
 
-First, run the development server:
+First, install the dependencies:
 
 ```bash
-npm run dev
-# or
+yarn install
+```
+
+Then, run the development server:
+
+```bash
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The server will start on [http://localhost:8080](http://localhost:8080).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Project Structure
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```
+.
+├── components/     # Reusable React components
+├── pages/         # Next.js pages
+├── public/        # Static assets
+├── styles/        # SCSS modules and global styles
+└── utils/         # Utility functions
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## CSS Modules Configuration
+
+This project uses SCSS modules with the following features:
+
+- Automatic camelCase class name exports for use in JavaScript/TypeScript
+- Global SCSS variables and mixins available in all SCSS files
+- Maintains original hyphenated class names in the CSS output
+
+### Usage Example:
+
+```scss
+// styles/component.scss
+.my-component {
+  &-header {
+    color: blue;
+  }
+}
+```
+
+```jsx
+// components/Component.jsx
+import styles from '../styles/component.scss';
+
+export default function Component() {
+  return (
+    <div className={styles.myComponent}>
+      <header className={styles.myComponentHeader}>
+        Hello World
+      </header>
+    </div>
+  );
+}
+```
+
+## Available Scripts
+
+- `yarn dev` - Starts the development server on port 8080
+- `yarn build` - Creates an optimized production build
+- `yarn start` - Runs the production server
+- `yarn lint` - Runs ESLint to check code quality
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about the technologies used in this project:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [SCSS Modules](https://github.com/css-modules/css-modules)
+- [React Documentation](https://reactjs.org/)
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 

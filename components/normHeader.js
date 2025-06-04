@@ -11,7 +11,9 @@ import {logoutUser} from "../store/reducers/auth";
 
 function NormHeader(props) {
     const dispatch = useDispatch();
-    const {auth:{isLogin,user},cart:{itemsId}} = useSelector(s=>s);
+    const { isLogin, user } = useSelector(state => state.auth);
+    const { itemsId } = useSelector(state => state.cart);
+    
     function logout(){
         dispatch(logoutUser());
     }

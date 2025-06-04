@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react';
 import style from "../styles/Global.module.scss";
-import TextField from "./textField";
+import TextField from "./TextField";
 import Link from "next/link";
 import Button from "./button";
 
@@ -11,11 +11,13 @@ function ResetPassword({setView,currentValue,setFormField,done}) {
     });
     const [error,setError] = useState('');
 
+
     function setField({target:{value,name}}){
         const prevValue = {...inputRef.current};
         prevValue[name] = value;
         inputRef.current  = prevValue;
     }
+
 
     function proceed(){
         setError('');
@@ -28,6 +30,8 @@ function ResetPassword({setView,currentValue,setFormField,done}) {
         setFormField(v=>({...v,'newPassword':password}));
         done();
     }
+
+    
     return (
         <div className={style.passwordcode}>
             <div>

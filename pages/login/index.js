@@ -2,7 +2,7 @@ import React, {useState, useEffect, useHistory, useRef} from "react";
 import Head from "next/head";
 import AuthLayout from "../../layouts/authLayout";
 import style from "../../styles/Login.module.scss";
-import TextField from "../../components/textField";
+import TextField from "../../components/TextField";
 import Button from "../../components/button";
 import { url } from "../../utils/urlHelpers";
 import { post } from "../../utils/helperFunctions";
@@ -10,11 +10,13 @@ import Alert from "../../components/alert";
 import {useDispatch} from "react-redux";
 import {loginUser} from "../../store/reducers/auth";
 import Link from "next/link";
+
 const initalData={
   fullName:'',
   email:'',
   password:''
 }
+
 function Index(props) {
   const [form,setForm] = useState(initalData);
   const [response,setResponse] = useState({
@@ -61,6 +63,7 @@ function Index(props) {
   useEffect(()=>{
 
   },[])
+
 
   return (
     <div>

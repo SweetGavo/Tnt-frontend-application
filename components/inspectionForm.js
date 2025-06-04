@@ -1,6 +1,6 @@
 import React from 'react';
 import style from "../styles/Global.module.scss";
-import TextField from "./textField";
+import TextField from "./TextField";
 import Button from "./button";
 
 function InspectionForm({form,setData,bookInspection,isLogin}) {

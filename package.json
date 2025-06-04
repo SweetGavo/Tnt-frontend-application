@@ -5,7 +5,7 @@
   "proxy": "https://api.tandtdeals.ng/v1/",
   "scripts": {
     "dev": "next dev -p 8080",
-    "build": "next build",
+    "build": "next ",
     "start": "next start",
     "lint": "next lint"
   },
@@ -14,6 +14,7 @@
     "@mdi/js": "^7.0.96",
     "@mdi/react": "^1.6.1",
     "@reduxjs/toolkit": "^1.8.6",
+    "@yourproject/your-project": "file:../your-project",
     "axios": "^1.1.2",
     "dayjs": "^1.11.7",
     "next": "^12.3.1",
@@ -23,11 +24,20 @@
     "react-icons": "^4.6.0",
     "react-paystack": "^4.0.2",
     "react-redux": "^8.0.4",
-    "redux": "^4.2.0",
-    "sass": "^1.55.0"
+    "redux": "^4.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "babel-loader": "^10.0.0",
+    "css-loader": "^7.1.2",
     "eslint": "8.25.0",
-    "eslint-config-next": "12.3.1"
+    "eslint-config-next": "12.3.1",
+    "sass": "^1.89.1",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
   }
 }

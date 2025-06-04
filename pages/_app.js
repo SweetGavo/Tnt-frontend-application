@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }) {
     store.dispatch(setUser({ isLogin, user }));
     store.dispatch(getFromMemory());
 
+    
 
   }, []);
   const getLayout = Component.getLayout || ((page) => page);

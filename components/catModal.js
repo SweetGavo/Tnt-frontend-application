@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import style from "../styles/modal.module.scss";
 import Button from "../components/button";
-import TextField from "../components/textField";
+import TextField from "./TextField";
 import Link from "next/link";
 import Icon from "@mdi/react";
 import { mdiClose } from "@mdi/js";
